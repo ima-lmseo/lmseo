@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 9, 2017, 8:54:22 PM
+    Author     : luis
+*/
+
+.orange-bg{
+    background-color:#ff6600;
+}
+.phone,.signup{
+    color:#fff;
+    display: inline-block;
+    margin-left: 10px;
+}
+.main-header{
+    height:25px;
+    line-height: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.second-header{
+    background-color: #eee;
+    
+}
+.logo{
+    padding: 30px 0;
+    font-size: 40px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.your{
+    
+}
+.log{
+    color:#ff6600;
+}
+.top-bar{
+    background-color: transparent;
+}
+.top-bar-section{
+    padding-top: 30px;
+    
+}
+
+.top-bar-section ul li>a,.top-bar-section ul li:hover:not(.has-form)>a,.top-bar-section .dropdown li:not(.has-form):not(.active):hover>a:not(.button){
+    color:#888;
+}
+.top-bar-section .has-dropdown>a:after {
+    
+    border-color: rgba(88,88,88,1) transparent transparent transparent;
+    border-top-style: solid;
+}
+
+@media only screen and (min-width: 40.0625em){
+    .top-bar-section li:not(.has-form) a:not(.button),.top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button):hover,.top-bar-section ul li:hover:not(.has-form)>a, .top-bar-section .dropdown li:not(.has-form):not(.active):hover>a:not(.button),.top-bar-section .dropdown li a{
+        background-color:transparent;
+        background: transparent;
+    }
+    .top-bar-section li  a:hover{
+        border-bottom: 4px solid #ff6600;
+    }
+    
+}

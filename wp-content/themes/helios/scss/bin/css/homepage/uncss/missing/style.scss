@@ -1,0 +1,297 @@
+@charset "UTF-8";
+/*!
+  Theme Name: Helios
+  Theme URI: http://www.lmseo.com
+  Description: Helios is a 2 or 3-column Widget-ready child theme created for the Genesis Framework.
+  Author: Luis Piedrahita
+  Author URI: http://www.lmseo.com/
+  
+  Version: 2.0.2
+
+  Template: genesis
+  Template Version: 1.8
+ 
+  License: GNU General Public License v2.0
+  License URI: http://www.opensource.org/licenses/gpl-license.php
+*/
+@import "settings";
+@import "foundation/components/top-bar";
+@import "blueimp-gallery";
+
+
+/*Top Bar 
+-----------------------------------------------------------------------------------*/
+$blue : #008cc0;
+$midnight    : #111111;
+.black-small-button{
+  font-size: rem-calc(13); 
+  float: left; 
+  width: 25%; 
+  margin: 0; 
+  border-color: #626262; 
+  border-style: solid; 
+  border-width: 1px; 
+  border-left-width: 0;padding: 10px 0 10px 0px; 
+  background-color: $midnight; 
+  color:#D3D3D3; 
+  cursor: pointer; 
+  border-top-right-radius:rem-calc(5); 
+  border-bottom-right-radius: rem-calc(5);
+    &:hover{ background-color: #202020; 
+    color:#D3D3D3}
+  }
+.top-bar{
+  border-bottom: 1px solid $gainsboro; 
+  
+  .top-bar-section .has-form{
+    background: transparent;
+  }
+  .top-form{
+    padding-top: 0.9375rem;
+  }
+  .hide-for-medium-down{
+    display: none
+  }
+  .toggle-topbar.menu-icon{
+    top: 0;
+    margin-top: 16px;
+  }
+}
+.title-area{ 
+  //float:left;
+  //position: relative;
+  //margin: 0;
+  .name a.logo{
+      background-image: url(https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/images/lmseo-01-04-15.png); 
+      background-position: 1.5625rem -0.6rem; 
+      background-repeat: no-repeat;
+      width: 12.5rem;
+      height: 4.6875rem;
+      display: block;
+      text-indent: -625rem;
+      transition: background-position 0.5s ease-in 0s;
+      &:hover{
+        background-position: 1.5625rem -5.5rem;
+      }
+  }
+}
+.top-bar-section li:not(.has-form) a:not(.button){
+  transition: background-color 300ms ease-out;
+}
+.top-bar-section li:not(.has-form) a:not(.button){
+  text-transform: uppercase;
+}
+/*.top-bar-section ul li:hover:not(.has-form) > a{
+  background-color: #555555; 
+  background: #555555; 
+  color: #eeeeee
+}
+.top-bar-section ul li:focus:not(.has-form) > a{
+background-color: #555555; 
+ background: #555555; 
+ color: #eeeeee
+}*/
+.top-bar-section ul li>a{
+  color: $white;
+  font-family: Trebuchet MS,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 1rem;
+}
+.contact{
+    /* ==== Pen animation ==== */
+    .move-pen{
+        animation: move-pen 1s ease-in infinite alternate;
+    }
+}
+@keyframes move-pen{
+    from{transform:translateX(-4px) rotate(6deg);}
+    to{transform:translateX(4px) rotate(-3deg);}
+}
+@media #{$medium-up}{
+  h4{
+    font-size: 1.2rem;
+  }
+  .top-bar-section ul li>a{
+    color: $steel;
+  }
+  .top-bar{
+    .name, .title-area{
+      float: left;
+    }
+    .top-bar-section ul{
+      background: none;
+        // MENU ITEM STYLES
+        li a:not(.button):not(.top-button), li.active a:not(.button):not(.top-button){
+          //background: none;
+            text-transform: uppercase;
+        }
+        // MENU ITEM HOVERS
+        li a:not(.button):hover{
+        color: $white;
+        }
+        // MENU ITEM ACTIVE
+        li.active a:not(.button){
+          &:hover{
+              //background-color: red;
+            }
+        }
+        li{
+          a{
+          }
+        }
+    } 
+    // DROPDOWN MENU
+    .top-bar-section ul li:hover:not(.has-form) > a{
+      color: $oil;
+    }
+    .top-bar-section li ul.dropdown{
+      border-right: 1px solid $gainsboro;
+        border-left: 1px solid $gainsboro;
+        margin-left: -1px;
+        li{
+          border-bottom: 1px solid $gainsboro;
+            margin: 0;
+        }
+    }
+    .top-bar-section li ul.dropdown li a:not(.button):hover, .top-bar-section li ul.dropdown li a:not(.button){
+      border-bottom: none;
+    }
+    .top-bar-section ul.dropdown li:hover:not(.has-form) > a:not(.button){
+      background: rgba(1,1,1,0.92);
+    }
+    // DROPDOWN ARROW
+    .has-dropdown > a:after{
+
+
+    }
+  }
+  .top-bar-section{
+    li:not(.has-form) a:not(.button):not(.home-button){
+      line-height:4.68rem
+    }
+    .has-form{
+      height: 4rem
+    }
+    .has-dropdown{ 
+      & > a:after{
+        border-color: rgba(6, 6, 6, 0.4) transparent transparent transparent;
+      }
+      .dropdown li.has-dropdown > a:after{
+        border: none; 
+        content: "\00bb"; 
+        top: 1.8rem; 
+        right: 5px; 
+        line-height: 1;
+      }
+    }
+    ul li:hover:not(.has-form) > a{
+      background-color: $blue  !important; 
+      background: $blue  !important;color:#fff !important;
+    }
+  }
+  .top-bar-section .dropdown li:not(.has-form):hover > a:not(.button){
+    color: #eeeeee; 
+    background-color: #555555; 
+    background: #555555
+  }
+.top-bar-section .dropdown li:not(.has-form) a:not(.button){
+  border-bottom: 1px solid #fff; 
+  border-right: 1px solid #fff;
+}
+
+
+  .tab-titles{
+    .title-overflow-text{
+      display: inline !important
+    }
+  }
+  /*  unable to use this properly ....duplicate borders and top border in first child does not look properly.top-bar-section .has-dropdown.hover>.dropdown :not(:first-child), .top-bar-section .has-dropdown.not-click:hover>.dropdown :not(:first-child){border-left: 1px solid $gainsboro}*/
+  .featured-contact{
+    float: right; 
+    background-color: rgba(0, 0, 0, 0.4)
+  }
+  .services-title{
+    margin-bottom: -5rem;
+    font-size: 7rem;
+  }
+}
+@media #{$large-up}{ 
+    .top-bar input {
+    top: 8px;
+}
+  .top-bar{
+    .hide-for-medium-down{display: inline}
+  }
+  
+  #featured{
+    min-height: 49.3rem
+  }
+  .featured-content{
+    max-width: 42.5rem; 
+    top: 27.8125rem; 
+
+    h1, h2{ 
+      border-radius:0.5rem
+    }
+  .featured-button{
+    margin-right: 0}
+  }
+  .projects ul>li>ul, .projects ul{
+    padding-left: 4.5rem
+  }
+  .services-title{
+    margin-bottom: -5rem;
+    font-size: 4rem;
+  }
+  .recent-posts .comments{
+    background-color: #3C3C3C; 
+    padding-top: 9rem; 
+    padding-left: 2.5rem; 
+    padding-bottom: 3.75rem; 
+    color: #fff;
+    ul{ 
+      font-size: 1rem;
+    }
+    h4{
+      color: #ccc;
+    }
+    a:hover{
+    color:#fff;
+    }
+  }
+  .services-title{
+    font-size: 10rem;
+    margin-bottom: -7rem;
+  }
+  .footer-widgets-1{
+    float: left; 
+     padding-right:20px; 
+     width: 33%;
+   }
+  .footer-widgets-2{
+    padding-right: 20px; 
+    float: left;  
+    width: 33%;
+  }
+  .footer-widgets-3{
+    padding-top: 30px;   
+    float: right; 
+    width: 33%; 
+  }
+}
+@media #{$xlarge-up}{
+  .services-title{
+    font-size: 14rem;
+    margin-bottom: -12rem;
+  }
+  .row{
+    max-width: 72em; 
+  }
+  .top-bar{
+    padding-left: 100px; 
+    padding-right: 100px; 
+    ul{ 
+      font-size: 1.5rem;
+    }
+  }
+}
+/*# sourceMappingURL=style-v5.css.map */
