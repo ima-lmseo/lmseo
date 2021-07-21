@@ -25,8 +25,10 @@ class zp_flickr_widget extends WP_Widget {
 	/* ---------------------------- */
 	/* -------- Widget setup -------- */
 	/* ---------------------------- */
-	
-	function ZP_FLICKR_Widget() {
+
+    //Deprecated: Methods with the same name as their class will not be constructors in a future version of PHP; zp_flickr_widget has a deprecated constructor in /Users/luis/Google Drive/.websites/httpdocs/lmseo/public/07-20-2021/wp-content/themes/helios/include/widgets/widget-flickr.php on line 23
+    //function ZP_FLICKR_Widget() {
+	function __construct() {
 	
 		/* Widget settings. */
 		$widget_ops = array( 'classname' => 'zp_flickr_widget', 'description' => __('A widget that displays your Flickr photos.', 'novo') );
@@ -35,7 +37,9 @@ class zp_flickr_widget extends WP_Widget {
 		//$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => '_ad_widget' );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'zp_flickr_widget', __('ZP Flickr Photos', 'novo'), $widget_ops);
+        //Deprecated: The called constructor method for WP_Widget in zp_flickr_widget is deprecated since version 4.3.0! Use __construct() instead. in /Users/luis/Google Drive/.websites/httpdocs/lmseo/public/07-20-2021/wp-includes/functions.php on line 5176
+        //$this->WP_Widget( 'zp_flickr_widget', __('ZP Flickr Photos', 'novo'), $widget_ops);
+        parent::__construct( 'zp_flickr_widget', __('ZP Flickr Photos', 'novo'), $widget_ops);
 	}
 
 	/* ---------------------------- */

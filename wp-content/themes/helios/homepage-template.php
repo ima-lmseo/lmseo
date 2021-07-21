@@ -79,7 +79,7 @@ function lmseo_index_print_styles_nojavascript() {
 
 function displayAsyncScriptCSS($cssURL, $isCDN = false){
 	//$cssDirectoryURI = $isCDN ? 'https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/'. parse_url(get_stylesheet_directory_uri())[host] : get_stylesheet_directory_uri();
-	//$cssDirectoryURI = $isCDN ? 'https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/': get_stylesheet_directory_uri();
+	$cssDirectoryURI = $isCDN ? 'https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/': get_stylesheet_directory_uri();
 	?>
 	var stylesheet = loadCSS('<?php echo $cssDirectoryURI.$cssURL;?>');
 	onloadCSS( stylesheet, function() {
@@ -239,7 +239,7 @@ remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action( 'genesis_before_content_sidebar_wrap', 'lmseo_homepage_content' );
 function lmseo_homepage_content() {
-	$out .='';
+	$out ='';
 	require_once ( get_stylesheet_directory() . '/lib/partials/featured-banner.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/tap-titles.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/catalog.php' );

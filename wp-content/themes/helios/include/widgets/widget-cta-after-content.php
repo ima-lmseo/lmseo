@@ -25,14 +25,20 @@ class cta_widget extends WP_Widget {
 	/* ---------------------------- */
 	/* -------- Widget setup -------- */
 	/* ---------------------------- */
-	
-	function cta_widget() {
-	
+
+    //Deprecated: Methods with the same name as their class will not be constructors in a future version of PHP; cta_widget has a deprecated constructor in /Users/luis/Google Drive/.websites/httpdocs/lmseo/public/07-20-2021/wp-content/themes/helios/include/widgets/widget-cta-after-content.php on line 23
+    //function cta_widget() {
+    function __construct() {
+    //function cta_widget() {
+
 		/* Widget settings. */
 		$widget_ops = array( 'classname' => 'cta_widget', 'description' => __('A widget that displays call to action.', 'novo') );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'cta_widget', __('CTA', 'novo'), $widget_ops );
+
+        //Deprecated: The called constructor method for WP_Widget in cta_widget is deprecated since version 4.3.0! Use __construct() instead. in /Users/luis/Google Drive/.websites/httpdocs/lmseo/public/07-20-2021/wp-includes/functions.php on line 5176
+        //$this->WP_Widget( 'cta_widget', __('CTA', 'novo'), $widget_ops );
+        parent::__construct( 'cta_widget', __('CTA', 'novo'), $widget_ops );
 	}
 
 	/* ---------------------------- */

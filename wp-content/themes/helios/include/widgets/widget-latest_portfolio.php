@@ -19,15 +19,17 @@ class zp_latest_portfolio_widget extends WP_Widget {
 	/* ---------------------------- */
 	/* -------- Widget setup -------- */
 	/* ---------------------------- */
-	
-	function ZP_LATEST_PORTFOLIO_Widget(  ) {
-	
+
+   // function ZP_LATEST_PORTFOLIO_Widget(  ) {
+    function __construct(  ) {
+
 		/* Widget settings. */
 		$widget_ops = array(  'classname' => 'zp_latest_portfolio_widget', 'description' => __( 'A widget that displays your latest portfolio photos.', 'novo' )  );
 
 		/* Create the widget. */
-		$this->WP_Widget(  'zp_latest_portfolio_widget', __( 'ZP Latest Portfolio', 'novo' ), $widget_ops  );
-		
+        //$this->WP_Widget(  'zp_latest_portfolio_widget', __( 'ZP Latest Portfolio', 'novo' ), $widget_ops  );
+        parent::__construct(  'zp_latest_portfolio_widget', __( 'ZP Latest Portfolio', 'novo' ), $widget_ops  );
+
 	}
 
 	/* ---------------------------- */

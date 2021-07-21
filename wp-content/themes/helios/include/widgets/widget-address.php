@@ -32,7 +32,8 @@ class zp_contact_widget extends WP_Widget {
 		$widget_ops = array( 'classname' => 'zp_contact_widget', 'description' => __('A widget that addresss your contact information.', 'novo') );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'zp_contact_widget', __('ZP Contact Widget', 'novo'), $widget_ops );
+        //$this->WP_Widget( 'zp_contact_widget', __('ZP Contact Widget', 'novo'), $widget_ops );
+        parent::__construct( 'zp_contact_widget', __('ZP Contact Widget', 'novo'), $widget_ops );
 	}
 
 	/* ---------------------------- */

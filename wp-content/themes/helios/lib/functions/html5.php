@@ -66,7 +66,7 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
 add_action( 'genesis_footer', 'genesis_footer_widget_areas' );
 //* Customize the credits
-add_filter( 'genesis_footer_creds_text', 'sp_footer_creds_text' );
+add_filter( 'genesis_pre_get_option_footer_text', 'sp_footer_creds_text' );
 function sp_footer_creds_text() {
 	echo '';
 }
