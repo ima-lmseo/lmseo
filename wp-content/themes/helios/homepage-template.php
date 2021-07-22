@@ -4,7 +4,7 @@ Template Name: HomePage
 ------------------------------*/ 
 
 //during dev set to false. during Dist = true
-$portArchDev = true;
+$portArchDev = false;
 //Set to true if critical local not recommended for dist
 $criticalLocal = true;
 //$isAsync uses loadcss asyn scritp true/false
