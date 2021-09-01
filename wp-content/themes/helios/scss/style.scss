@@ -1135,26 +1135,46 @@ section.widget{
   list-style:none;
 }
 .section--purple{
-  background-color:$purple;
+  background-color:$blue;
   color: #d5d3db;
   h3{
     color: $white;
   }
 }
 .section--mid-purple{
-  background-color:lighten($purple, 3%);
+  background-color:lighten($blue, 3%);
   color: #d5d3db;
   h3{
     color: $white;
   }
 }
 .section--light-purple{
-  background-color:lighten($purple, 6%);
+  background-color:lighten($blue, 6%);
   color: #d5d3db;
   h3{
     color: $white;
   }
-}
+//}.section--purple{
+//   background-color:$purple;
+//   color: #d5d3db;
+//   h3{
+//     color: $white;
+//   }
+// }
+//.section--mid-purple{
+//  background-color:lighten($purple, 3%);
+//  color: #d5d3db;
+//  h3{
+//    color: $white;
+//  }
+//}
+//.section--light-purple{
+//  background-color:lighten($purple, 6%);
+//  color: #d5d3db;
+//  h3{
+//    color: $white;
+//  }
+//}
 .section--saffron{
   background-color:$saffron;
   color: lighten($saffron, 50%);

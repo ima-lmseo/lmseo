@@ -2,7 +2,7 @@
   Theme Name: Helios
   Theme URI: http://www.lmseo.com
   Description: Helios is a 2 or 3-column Widget-ready child theme created for the Genesis Framework.
-  Author: Luis Mosquera
+  Author: Luis Piedrahita
   Author URI: http://www.lmseo.com/
   
   Version: 2.0.2
@@ -365,7 +365,7 @@ background-color: #555555;
 }
 /*----------------------------------------------------------------------*/
 .tab-titles, .icon-bar{
-  background-color: $midnight; 
+  background-color: $black;
   height: 5.75rem; 
   overflow: hidden; 
   font-family: "Times New Roman", "Helvetica", Helvetica, Arial, sans-serif;
@@ -428,7 +428,7 @@ body:not(.home) .content-sidebar-wrap{
 }
 /*Projects-----------------------------------------------------------*/
 .projects{
-  background-color: $oil; 
+  background-color: $midnight;
   color:$aluminum;
   hr{
     border-color: $fosil;
@@ -466,7 +466,7 @@ body:not(.home) .content-sidebar-wrap{
 }
 /*Social Buttons-----------------------------------------------------------*/
 .social{
-  background-color: $midnight; 
+  background-color: $black;
   height: 5.75rem
 }
 /*About Section-----------------------------------------------------------*/
@@ -563,13 +563,14 @@ body:not(.home) .content-sidebar-wrap{
   }
 }
 .services-title{
-  color: #f3f2f7;
+  color: $midnight;
+  opacity:0.5;
   //text-align: center;
   margin-bottom: -5rem;
   font-size: 4rem;
 }
 .services-title-wrapper{
-  
+
 }
 .services-title{
   padding: 1.5rem;
@@ -1150,21 +1151,21 @@ section.widget{
   list-style:none;
 }
 .section--purple{
-  background-color:$purple;
+  background-color:$midnight;
   color: #d5d3db;
   h3{
     color: $white;
   }
 }
 .section--mid-purple{
-  background-color:lighten($purple, 3%);
+  background-color:lighten($midnight, 3%);
   color: #d5d3db;
   h3{
     color: $white;
   }
 }
 .section--light-purple{
-  background-color:lighten($purple, 6%);
+  background-color:lighten($midnight, 6%);
   color: #d5d3db;
   h3{
     color: $white;
