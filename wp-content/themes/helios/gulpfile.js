@@ -250,7 +250,7 @@ function homesass() {
 	return gulp.src('scss/bin/css/homepage/*.scss')
 		.pipe(sass({
 			includePaths: ['scss/',
-				'bower_components/foundation/scss',
+				'node_modules/foundation-sites/scss',
 				'bower_components/hover/scss/',
 				'bower_components/fontawesome/scss',
 				'bower_components/blueimp-gallery/scss/',

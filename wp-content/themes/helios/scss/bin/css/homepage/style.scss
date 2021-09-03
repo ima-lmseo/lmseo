@@ -1132,10 +1132,10 @@ section.widget{
   padding:0;
 }
 .radius-rigth, input[type=text].radius-right,{
-  @include side-radius("right", $global-radius);
+  border-top-right-radius: $global-radius;
 }
 .radius-left, input[type=text].radius-left{
-  @include side-radius("left", $global-radius);
+  border-top-left-radius: $global-radius;
 }
 .black-small-input-box{
   float:left; 
