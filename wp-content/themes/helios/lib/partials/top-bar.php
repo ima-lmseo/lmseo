@@ -87,7 +87,7 @@ $out .='</li>
 		<li><a href="/blog/">Blog</a></li>
 </ul> 
 <ul class="right topbar-more-info-nav hide-for-medium-down">
-	<li><a href="tel:+18183966868">818.396.6868</a></li>
+	<li><a href="tel:+18183966868">626.232.5218</a></li>
 	<li class="has-form top-form"><div class="row collapse"><div class="large-8 small-9 columns"><input type="text" placeholder="Search LMSEO"></div><div class="large-4 small-3 columns"><a href="/" class="top-button expand">Search</a></div></div>
 	</li>
 </ul>

@@ -20,7 +20,7 @@ function lmseo_branding(){
 Design + Development by                                   
 LMSEO © '. date("Y")  .'                     
 All Rights Reserved.               
-www.lmseo.com
+www.lmseo.co
 
 -->';
 	}
@@ -109,15 +109,14 @@ add_action(  'wp_enqueue_scripts', 'lmseo_theme_js'  );
 function lmseo_theme_js(   ) {	
 	wp_deregister_script('jquery');
 	// Register
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js', false, '2.1.4',false);
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', false, '3.6.0',false);
 	// jQuery Migrate
 	// Deregister core jQuery Migrate
 	wp_deregister_script('jquery-migrate');
 	// Register
-	wp_register_script('jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.2.1.min.js', array('jquery'), '1.2.1',false); // require jquery, as loaded above
+	wp_register_script('jquery-migrate', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js', array('jquery'), '1.2.1',false); // require jquery, as loaded above
 	wp_register_script( 'modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '2.6.2', false );
-	wp_register_script( 'foundation',get_stylesheet_directory_uri(  ) . '/bower_components/foundation/js/foundation.min.js',array( 'jquery' ), '5.5.2', true );
-	//wp_register_script( 'foundation-topbar',get_stylesheet_directory_uri(  ) . '/bower_components/foundation/js/foundation/foundation.topbar.js',array( 'jquery' ), '5.5.2', true );	
+	wp_register_script( 'foundation','https://cdn.jsdelivr.net/npm/foundation-sites@6.7.1/dist/js/foundation.min.js',array( 'jquery' ), '5.5.2', true );
 	wp_register_script( 'foundation_app', get_stylesheet_directory_uri(  ) . '/lib/js/app.js',array( 'foundation' ), '1.0', true );
 	wp_register_script( 'blueimp_helper',get_stylesheet_directory_uri(  ) . '/bower_components/blueimp-gallery/js/blueimp-helper.js',array( 'jquery' ), '5.5.2', true );
 	wp_register_script( 'blueimp',get_stylesheet_directory_uri(  ) . '/bower_components/blueimp-gallery/js/jquery.blueimp-gallery.min.js',array( 'jquery' ), '5.5.2', true );
@@ -615,7 +614,7 @@ add_action( 'genesis_header', 'lmseo_genesis_do_header' );
 //New Header functions
 function lmseo_genesis_header_markup_open() {
 	genesis_markup( array(
-		'html5'   => '<header class="sticky" %s><nav class="top-bar" data-topbar="" role="navigation">',
+		'html5'   => '<header data-sticky-container %s><nav class="top-bar" data-topbar="" role="navigation">',
 		'xhtml'   => '<div id="header">',
 		'context' => 'site-header',
 	) );
@@ -668,9 +667,18 @@ function lmseo_genesis_do_header() {
 		'walker'          => new My_Walker_Nav_Menu()
 		)
 	);
-		echo '<ul class="right topbar-more-info-nav hide-for-medium-down">
-	<li><a href="tel:+12133210784">213.321.0784</a></li>
-	<li class="has-form top-form"><div class="row collapse"><div class="large-8 small-9 columns"><input type="text" placeholder="Search LMSEO" class="radius-left"></div><div class="large-4 small-3 columns"><a href="/" class="top-button radius-right">Search</a></div></div>
+		echo '
+<ul class="right topbar-more-info-nav hide-for-medium-down">
+    <li><a href="tel:+16262325218">626.232.5218</a></li>
+	<li class="has-form top-form">
+	    <div class="row collapse">
+	        <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Search LMSEO" class="radius-left">
+            </div>
+            <div class="large-4 small-3 columns">
+                <a href="/" class="top-button radius-right">Search</a>
+            </div>
+	    </div>
 	</li>
 </ul>';
 	genesis_markup( array(
