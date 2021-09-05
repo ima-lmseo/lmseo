@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 
 // //var watch 		= require('gulp-watch');
 // var size 		= require('gulp-size');
@@ -256,6 +257,7 @@ function homesass() {
 				'bower_components/blueimp-gallery/scss/',
 				'bower_components/circularcontentcarousel/scss/']
 		}).on('error', sass.logError))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./'));
 		// .pipe(gulp.dest('bin/css/homepage/'));
 };
