@@ -260,17 +260,38 @@ function homesass() {
 		// .pipe(gulp.dest('bin/css/homepage/'));
 };
 exports.homesass = homesass;
+
 gulp.task('watch', () => {
 	gulp.watch('scss/bin/css/**/*.scss', (done) => {
 		gulp.series(['homesass'])(done);
 	});
 });
-exports.homewatch = function () {
-	gulp.watch('scss/bin/css/**/*.scss', {ignoreInitial: true}, function (homesass) {
-		// body omitted
-		homesass();
-	});
+
+
+
+
+/*Test Sass*/
+function testsass() {
+	return gulp.src('test/foundation/*.scss')
+		.pipe(sass({
+			includePaths: ['node_modules/foundation-sites/scss']
+		}).on('error', sass.logError))
+		.pipe(gulp.dest());
+	// .pipe(gulp.dest('bin/css/homepage/'));
 };
+exports.testsass = testsass;
+
+gulp.task('watcht', () => {
+	gulp.watch('test/foundation/*.scss', (done) => {
+		gulp.series(['testsass'])(done);
+	});
+});
+
+
+
+
+
+
 // gulp.task('sasshome', function () {
 // 	return sass(
 // 		'scss/bin/css/homepage/*.scss',{
