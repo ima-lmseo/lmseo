@@ -37,7 +37,7 @@ $out .='
         </li>
       </ul>
      <ul class="right topbar-more-info-nav hide-for-medium-down">
-     <li><a href="tel:+12133210784">213.321.0784</a></li>
+     <li><a href="tel:+6262325218">626.232.5218</a></li>
         <li class="has-form top-form">
           <div class="row collapse">
             <div class="large-8 small-9 columns"><input type="text" placeholder="Find Something"></div>

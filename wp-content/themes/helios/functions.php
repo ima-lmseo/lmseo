@@ -669,7 +669,7 @@ function lmseo_genesis_do_header() {
 		)
 	);
 		echo '<ul class="right topbar-more-info-nav hide-for-medium-down">
-	<li><a href="tel:+12133210784">213.321.0784</a></li>
+	<li><a href="tel:+6262325218">626.232.5218</a></li>
 	<li class="has-form top-form"><div class="row collapse"><div class="large-8 small-9 columns"><input type="text" placeholder="Search LMSEO" class="radius-left"></div><div class="large-4 small-3 columns"><a href="/" class="top-button radius-right">Search</a></div></div>
 	</li>
 </ul>';

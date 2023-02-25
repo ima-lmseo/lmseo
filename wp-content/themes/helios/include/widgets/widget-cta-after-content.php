@@ -76,7 +76,7 @@ class cta_widget extends WP_Widget {
 						<a class=" cta_button button rounded medium-btn orange" href="/contact/">Get a Quote Now!</a>
 					</div>
 					<div class="medium-6 columns">
-						<a class=" cta_button button rounded medium-btn orange" href="tel:2133210784">Call Now! (213)-321-0784</a>
+						<a class=" cta_button button rounded medium-btn orange" href="tel:6262325218">Call Now! (626)-232-5218</a>
 					</div>
 				</div>
 			</div>
