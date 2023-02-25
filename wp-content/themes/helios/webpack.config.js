@@ -22,15 +22,15 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '../[name].css',
         }),
 
         // Uncomment this if you want to use CSS Live reload
 
         new BrowserSyncPlugin({
-          proxy: localDomain,
-          files: [ outputPath + '/*.css' ],
-          injectCss: true,
+            proxy: localDomain,
+            files: [ outputPath + '/*.css' ],
+            injectCss: true,
         }, { reload: false, }),
 
     ],
@@ -39,8 +39,14 @@ module.exports = {
             {
                 test: /\.s?[c]ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: "../dist/css/",
+                            emit:true
+                        },
+                    },
+                    "css-loader",
                     'sass-loader'
                 ]
             },
