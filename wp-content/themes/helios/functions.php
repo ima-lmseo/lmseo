@@ -615,7 +615,7 @@ add_action( 'genesis_header', 'lmseo_genesis_do_header' );
 //New Header functions
 function lmseo_genesis_header_markup_open() {
 	genesis_markup( array(
-		'html5'   => '<header class="sticky" %s><nav class="top-bar" data-topbar="" role="navigation">',
+		'html5'   => '<header class="sticky" %s><nav class="navbar navbar-expand-lg bg-light">',
 		'xhtml'   => '<div id="header">',
 		'context' => 'site-header',
 	) );
@@ -645,7 +645,7 @@ function lmseo_genesis_do_header() {
 
 	//wp_nav_menu( $defaults );
 	genesis_markup( array(
-		'html5'   => '<section %s>',
+		'html5'   => '<div class="collapse navbar-collapse" id="navbarSupportedContent" %s>',
 		'xhtml'   => '<div>',
 		'context' => 'top-bar-section',
 	) );
@@ -656,7 +656,7 @@ function lmseo_genesis_do_header() {
 		'container'       => '',
 		'container_class' => 'top-bar-section',
 		'container_id'    => '',
-		'menu_class'      => 'primary-links',
+		'menu_class'      => 'navbar-nav me-auto mb-2 mb-lg-0',
 		'menu_id'         => 'primary-links',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
@@ -665,7 +665,7 @@ function lmseo_genesis_do_header() {
 		'link_before'     => '',
 		'link_after'      => '',
 		'depth'           => 0,
-		'walker'          => new My_Walker_Nav_Menu()
+		'walker'          => new LMSEO_Walker_Nav_Menu()
 		)
 	);
 		echo '<ul class="right topbar-more-info-nav hide-for-medium-down">
@@ -674,7 +674,7 @@ function lmseo_genesis_do_header() {
 	</li>
 </ul>';
 	genesis_markup( array(
-		'html5'   => '</section>',
+		'html5'   => '</div>',
 		'xhtml'   => '</div>',
 	) );
 
@@ -729,4 +729,85 @@ class My_Walker_Nav_Menu extends Walker_Nav_Menu {
     $indent = str_repeat("\t", $depth);
     $output .= "\n$indent<ul class=\"dropdown\">\n";
   }
+}
+
+/**
+ * Custom walker class.
+ */
+class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+    /**
+     * Starts the list before the elements are added.
+     *
+     * Adds classes to the unordered list sub-menus.
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     */
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        // Depth-dependent classes.
+        $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
+        $display_depth = ( $depth + 1); // because it counts the first submenu as 0
+        $classes = array(
+            'dropdown-menu',
+            ( $display_depth % 2  ? 'dropdown-odd' : 'dropdown-even' ),
+            ( $display_depth >=2 ? 'dropdown-child' : '' ),
+            'dropdown-depth-' . $display_depth
+        );
+        $class_names = implode( ' ', $classes );
+
+        // Build HTML for output.
+        $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+    }
+
+    /**
+     * Start the element output.
+     *
+     * Adds main/sub-classes to the list items and links.
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item   Menu item data object.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     * @param int    $id     Current item ID.
+     */
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+        global $wp_query;
+        $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+        print_r(($args->walker->has_children) ? "has children" : '');
+        // Depth-dependent classes.
+        $depth_classes = array(
+            ( $depth == 0 ? 'navbar-main' : '' ),
+            ( $args->walker->has_children ? '' : 'nav-item dropdown' ),
+            ( $depth % 2 ? 'nav-item-odd' : 'nav-item-even' ),
+            'nav-item-depth-' . $depth
+        );
+        $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+
+        // Passed classes.
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+
+        // Build HTML.
+        $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
+
+        // Link attributes.
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+        $attributes .= ' class="menu-link ' . ( $args->walker->has_children ? 'dropdown-item' : 'nav-link' ) . '"';
+
+        // Build HTML output and pass through the proper filter.
+        $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+            $args->before,
+            $attributes,
+            $args->link_before,
+            apply_filters( 'the_title', $item->title, $item->ID ),
+            $args->link_after,
+            $args->after
+        );
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
 }
