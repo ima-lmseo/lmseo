@@ -29,9 +29,9 @@ module.exports = {
 
         new BrowserSyncPlugin({
             proxy: localDomain,
-            files: [ outputPath + '/*.css' ],
-            injectCss: true,
-        }, { reload: false, }),
+            files: [  '/*.css' ],
+            injectCss: false,
+        }, { reload: true, }),
 
     ],
     module: {
