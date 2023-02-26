@@ -4,10 +4,10 @@
 @charset "UTF-8";
 /*!
   Theme Name: Helios
-  Theme URI: http://www.lmseo.com
+  Theme URI: http://www.lmseo.co
   Description: Helios is a 2 or 3-column Widget-ready child theme created for the Genesis Framework.
   Author: Luis Mosquera
-  Author URI: http://www.lmseo.com/
+  Author URI: http://www.lmseo.co/
 
   Version: 2.0.2cd
 
@@ -6649,5 +6649,19 @@ progress {
   }
   .d-print-none {
     display: none !important;
+  }
+}
+@media all and (min-width: 992px) {
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu li {
+    position: relative;
+  }
+  .nav-item .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
   }
 }

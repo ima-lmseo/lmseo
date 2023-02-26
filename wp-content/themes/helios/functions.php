@@ -752,7 +752,7 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
         $classes = array(
             'dropdown-menu',
             ( $display_depth % 2  ? 'dropdown-odd' : 'dropdown-even' ),
-            ( $display_depth >=2 ? 'dropdown-child' : '' ),
+            ( $display_depth >=2 ? 'submenu' : '' ),
             'dropdown-depth-' . $display_depth
         );
         $class_names = implode( ' ', $classes );
@@ -775,11 +775,11 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         global $wp_query;
         $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-        print_r(($args->walker->has_children) ? "has children" : '');
+//        print_r(($item));
         // Depth-dependent classes.
         $depth_classes = array(
             ( $depth == 0 ? 'navbar-main' : '' ),
-            ( $args->walker->has_children ? '' : 'nav-item dropdown' ),
+            ( $args->walker->has_children ? 'nav-item dropdown' : '' ),
             ( $depth % 2 ? 'nav-item-odd' : 'nav-item-even' ),
             'nav-item-depth-' . $depth
         );
@@ -797,7 +797,7 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-        $attributes .= ' class="menu-link ' . ( $args->walker->has_children ? 'dropdown-item' : 'nav-link' ) . '"';
+        $attributes .= ' class="menu-link ' . ( $args->walker->has_children ? 'nav-link dropdown-toggle' : 'dropdown-item' ) . '"';
 
         // Build HTML output and pass through the proper filter.
         $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
