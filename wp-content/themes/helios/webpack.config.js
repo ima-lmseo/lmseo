@@ -19,6 +19,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, outputPath),
         filename: '[name].js',
+        assetModuleFilename: 'homepage/images/[name][ext][query]'
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -41,12 +42,18 @@ module.exports = {
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: "../dist/css/",
-                            emit:true
-                        },
                     },
                     "css-loader",
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: () => [
+                                    require('autoprefixer')
+                                ]
+                            }
+                        }
+                    },
                     'sass-loader'
                 ]
             },
@@ -64,9 +71,21 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|jpeg|png|gif|woff|woff2|eot|ttf|svg)$/i,
-                use: 'url-loader?limit=1024'
-            }
+                mimetype: 'image/svg+xml',
+                scheme: 'data',
+                type: 'asset/resource',
+                generator: {
+                    filename: 'homepage/icons/[name]-[hash].svg[query]'
+                }
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
         ]
     },
 };
