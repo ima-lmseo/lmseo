@@ -18,7 +18,7 @@ module.exports = {
     entry: entryPoints,
     output: {
         path: path.resolve(__dirname, outputPath),
-        filename: '[name].js',
+        filename: 'homepage/js/[name].js',
         assetModuleFilename: 'homepage/images/[name][ext][query]'
     },
     plugins: [

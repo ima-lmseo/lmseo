@@ -1,3 +1,3 @@
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
+// import 'bootstrap/js/dist/util';
+// import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/dist/js/bootstrap';

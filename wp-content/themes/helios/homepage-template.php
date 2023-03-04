@@ -182,16 +182,17 @@ function lmseo_index_print_styles() {
 		//wp_enqueue_script('jquery-mousewheel');
 		//wp_register_style(  'home-template', get_stylesheet_directory_uri(   ).'/bin/css/homepage/style.css' , '', '1' );
 		//wp_enqueue_style( 'home-template');
+
 	}
+//    wp_enqueue_script( 'bootstrap');
 }
 /** Add Main JS to website */
 add_action( 'wp_enqueue_scripts','MainJS');
 function MainJS(){
 	/*In Use*/
     global $portArchDev;
-	if($portArchDev){
-            wp_enqueue_script('index-main');
-        }
+    wp_enqueue_script('index-main');
+
 }
 //disable or remove wp-embed.js from WordPress
     function lmseo_deregister_scripts(){
