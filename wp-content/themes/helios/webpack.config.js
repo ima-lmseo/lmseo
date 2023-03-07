@@ -16,6 +16,7 @@ const entryPoints = {
 
 module.exports = {
     entry: entryPoints,
+    devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, outputPath),
         filename: 'homepage/js/[name].js',

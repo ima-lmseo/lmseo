@@ -6651,7 +6651,7 @@ progress {
     display: none !important;
   }
 }
-.title-area .name a.logo {
+.site-title .logo {
   background-image: url(dist/homepage/images/lmseo-01-04-15.png);
   background-position: 1.5625rem -0.6rem;
   background-repeat: no-repeat;
@@ -6661,7 +6661,7 @@ progress {
   text-indent: -625rem;
   transition: background-position 0.5s ease-in 0s;
 }
-.title-area .name a.logo:hover {
+.site-title .logo:hover {
   background-position: 1.5625rem -5.5rem;
 }
 

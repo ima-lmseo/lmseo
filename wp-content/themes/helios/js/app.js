@@ -1,3 +1,2 @@
-// import 'bootstrap/js/dist/util';
-// import 'bootstrap/js/dist/dropdown';
-import 'bootstrap/dist/js/bootstrap';
+// import * as bootstrap from 'bootstrap'
+import {  Navbar } from 'bootstrap';

@@ -4,12 +4,12 @@
   Description: Helios is a 2 or 3-column Widget-ready child theme created for the Genesis Framework.
   Author: Luis Mosquera
   Author URI: http://www.lmseo.co/
-  
+
   Version: 2.0.2cd
 
   Template: genesis
   Template Version: 1.8
- 
+
   License: GNU General Public License v2.0
   License URI: http://www.opensource.org/licenses/gpl-license.php
 */
@@ -38,21 +38,25 @@
 @import "../node_modules/bootstrap/scss/images";
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
-@import "../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/dropdown";
-@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/transitions";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../node_modules/bootstrap/scss/utilities/api";
 
 
 // 8. Add additional custom code here
-.title-area{
+body{
+  padding-top:100px;
+}
+.site-title{
   //float:left;
   //position: relative;
   //margin: 0;
-  .name a.logo{
+  .logo{
     background-image: url(../images/lmseo-01-04-15.png);
     background-position: 1.5625rem -0.6rem;
     background-repeat: no-repeat;
@@ -65,6 +69,30 @@
       background-position: 1.5625rem -5.5rem;
     }
   }
+}
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #000;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 1);
 }
 @media all and (min-width: 992px) {
    .dropdown:hover > .dropdown-menu{

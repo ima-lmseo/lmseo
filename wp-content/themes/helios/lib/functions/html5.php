@@ -3,11 +3,11 @@
 /**
 *  ENQUEUE MODERNIZR (http://modernizr.com/) TO HELP WITH OLDER BROWSER SUPPORT.
 */
-add_action( 'wp_enqueue_scripts', 'load_modernizr' );
-  function load_modernizr() {
-		wp_register_script( 'modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '2.6.2', false );
-		wp_enqueue_script( 'modernizr' );
-}
+//add_action( 'wp_enqueue_scripts', 'load_modernizr' );
+//  function load_modernizr() {
+//		wp_register_script( 'modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '2.6.2', false );
+//		wp_enqueue_script( 'modernizr' );
+//}
  
 /**
  * HTML5 DOCTYPE

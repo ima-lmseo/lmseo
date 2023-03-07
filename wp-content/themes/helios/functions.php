@@ -115,7 +115,7 @@ function lmseo_theme_js(   ) {
 	wp_deregister_script('jquery-migrate');
 	// Register
 	wp_register_script('jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.2.1.min.js', array('jquery'), '1.2.1',false); // require jquery, as loaded above
-	wp_register_script( 'bootstrap','https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js',array(), '5.2.3', true );
+//	wp_register_script( 'bootstrap','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js',array(), '5.2.3', true );
 	wp_register_script( 'index-main',get_stylesheet_directory_uri( 'bootstrap' ) . '/dist/homepage/js/app.js',array(), '1.0', true );
     wp_register_script( 'loadcss',get_stylesheet_directory_uri(  ) . '/bower_components/loadcss/src/loadCSS.min.js',array(), '1.0', true );
     wp_register_script( 'onloadcss',get_stylesheet_directory_uri(  ) . '/bower_components/loadcss/src/onloadCSS.min.js',array(), '1.0', true );
@@ -527,7 +527,7 @@ add_action('genesis_header','html5_close_header', 15);
 }
 add_filter( 'genesis_do_nav', 'html5_nav', 10, 2 );*/
 remove_action('genesis_site_title', 'genesis_seo_site_title');
-add_action( 'genesis_site_title', 'lmseo_seo_site_title' );
+//add_action( 'genesis_site_title', 'lmseo_seo_site_title' );
 
 /**
  * Echo the site title into the header.
@@ -587,11 +587,11 @@ remove_action( 'genesis_header', 'genesis_do_header' );
 //add in the new header markup - prefix the function name - here sm_ is used
 add_action( 'genesis_header', 'lmseo_genesis_header_markup_open', 5 );
 add_action( 'genesis_header', 'lmseo_genesis_header_markup_close', 15 );
-add_action( 'genesis_header', 'lmseo_genesis_do_header' );
+
 //New Header functions
 function lmseo_genesis_header_markup_open() {
     genesis_markup( array(
-        'html5'   => '<header class="sticky" %s><nav class="navbar navbar-expand-lg bg-light"><div class="container-fluid">',
+        'html5'   => '<header class="" %s><nav class="navbar fixed-top navbar-expand-lg navbar-light mask-custom shadow-0"><div class="container-fluid">',
         'xhtml'   => '<div id="header"><div class="navbar navbar-expand-lg bg-light"><div class="container-fluid">',
         'context' => 'site-header',
     ) );
@@ -605,19 +605,24 @@ function lmseo_genesis_header_markup_close() {
         'xhtml' => '</div></div></div>',
     ) );
 }
+add_action( 'genesis_header', 'lmseo_genesis_do_header' );
 function lmseo_genesis_do_header() {
 	global $wp_registered_sidebars;
 	genesis_markup( array(
-		'html5'   => '<ul %s><li class="name">',
+//		'html5'   => '<ul %s><li class="name">',
+		'html5'   => '<h1 class="navbar-brand site-title" itemprop="headline"><a href="//localhost:3000/" class="logo">LMSEO</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>',
 		'xhtml'   => '<ul class="title-area"><li class="name">',
 		'context' => 'title-area',
 	) );
 	do_action( 'genesis_site_title' );
-	do_action( 'genesis_site_description' );
-	genesis_markup( array(
-			'html5' => '<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li></li></ul>',
-			'xhtml' => '<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li></li></ul>',
-		) );
+//	do_action( 'genesis_site_description' );
+//	genesis_markup( array(
+//			'html5' => '<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li></li></ul>',
+//			'xhtml' => '<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li></li></ul>',
+//		) );
 
 	//wp_nav_menu( $defaults );
 	genesis_markup( array(
@@ -644,9 +649,9 @@ function lmseo_genesis_do_header() {
 		'walker'          => new LMSEO_Walker_Nav_Menu()
 		)
 	);
-		echo '<ul class="right topbar-more-info-nav hide-for-medium-down">
+		echo '<ul class="">
 	<li><a href="tel:+6262325218">626.232.5218</a></li>
-	<li class="has-form top-form"><div class="row collapse"><div class="large-8 small-9 columns"><input type="text" placeholder="Search LMSEO" class="radius-left"></div><div class="large-4 small-3 columns"><a href="/" class="top-button radius-right">Search</a></div></div>
+	<li class=""><div class=""><div class=""><input type="text" placeholder="Search LMSEO" class=""></div><div class=""><a href="/" class="">Search</a></div></div>
 	</li>
 </ul>';
 	genesis_markup( array(
@@ -754,7 +759,7 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
 //        print_r(($item));
         // Depth-dependent classes.
         $depth_classes = array(
-            ( $depth == 0 ? 'navbar-main' : '' ),
+            ( $depth == 0 ? 'nav-item' : '' ),
             ( $args->walker->has_children ? 'nav-item dropdown' : '' ),
             ( $depth % 2 ? 'nav-item-odd' : 'nav-item-even' ),
             'nav-item-depth-' . $depth
@@ -773,7 +778,23 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-        $attributes .= ' class="menu-link ' . ( $args->walker->has_children ? 'nav-link dropdown-toggle' : 'dropdown-item' ) . '"';
+        if( $depth>0 ) {
+            $linkClasses = 'nav-link';
+            if ($args->walker->has_children) {
+                $linkClasses = 'nav-link dropdown-toggle';
+            }else{
+                $linkClasses = 'dropdown-item';
+            }
+        }else{
+            if ($args->walker->has_children) {
+                $linkClasses = 'nav-link dropdown-toggle';
+            }else{
+                $linkClasses = 'nav-link';
+            }
+
+        }
+
+        $attributes .= ' class="' . ( $linkClasses ) . '"';
 
         // Build HTML output and pass through the proper filter.
         $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',

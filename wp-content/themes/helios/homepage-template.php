@@ -134,7 +134,11 @@ function lmseo_index_print_styles() {
     wp_dequeue_style( 'wp-block-library' ); // wp-block-library-css
 //  https://wordpress.org/support/topic/how-to-disable-inline-styling-style-idglobal-styles-inline-css/
     wp_dequeue_style( 'global-styles' ); //  global-styles-inline-css
-
+    if( !is_super_admin() || !is_admin_bar_showing() || is_wp_login()){
+        wp_deregister_script('jquery');
+        wp_dequeue_script('jquery');
+        wp_dequeue_script('jquery-migrate');
+    }
 	if($portArchDev){
 		/*Not in use*/
 		wp_dequeue_style('lmseo');
@@ -191,6 +195,7 @@ add_action( 'wp_enqueue_scripts','MainJS');
 function MainJS(){
 	/*In Use*/
     global $portArchDev;
+//    wp_enqueue_script('bootstrap');
     wp_enqueue_script('index-main');
 
 }
