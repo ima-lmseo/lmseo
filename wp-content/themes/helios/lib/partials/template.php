@@ -1,10 +1,10 @@
 <?php
 $out.='<a class="anchor" id="recent-posts"></a><section class="services">
   <div class="row" data-equalizer>
-    <div class="large-12 columns recent-post-wrapper">
+    <div class="col-lg-12 columns recent-post-wrapper">
       <h1 class="recent-posts-title">Services</h1>
       <div class="row  recent-posts-content">
-        <div class="large-12 columns recent-posts-list">
+        <div class="col-lg-12 columns recent-posts-list">
           <div class="radius">
           <div class="row">
           ';

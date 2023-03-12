@@ -1,10 +1,10 @@
 <?php
 $out.='<a class="anchor" id="projects"></a><section class="projects">
   <div class="row">
-    <div class="large-12 columns">
+    <div class="col-lg-12 columns">
      <h1 id="projects">Projects</h1>
       <div class="row">
-        <div class="large-3 medium-4 columns">
+        <div class="col-lg-3 col-md-4 columns">
         
             <a class="th" href="/projects/lmseo-com/">
               <img src="'. get_stylesheet_directory_uri(). '/bin/images/projects/eopiates/home.jpg">
@@ -19,7 +19,7 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
           <li class="project-description-list-item">CMS is fully custom built Zend Framework.</li>
         </ul>
         </div>
-        <div class="large-3 medium-4 columns">
+        <div class="col-lg-3 col-md-4 columns">
               <a class="th" href="/projects/lmseo-com/">
                 <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/eopiates/instant-search.jpg">
               </a>
@@ -32,7 +32,7 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
           <li class="project-description-list-item">Mustache.js</li>
         </ul>
         </div>
-        <div class="large-3 medium-4 columns">
+        <div class="col-lg-3 col-md-4 columns">
           <a class="th" href="/projects/lmseo-com/">
                 <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/lmseo/home.jpg">
               </a>
@@ -46,7 +46,7 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
           <li class="project-description-list-item">EMMET</li>
         </ul>
         </div>
-         <div class="large-3 medium-12 columns hide-for-small">
+         <div class="col-lg-3 col-md-12 columns hide-for-small">
           <a href="/services/" class="button project-button">More Projects</a>
         </div>
       </div>

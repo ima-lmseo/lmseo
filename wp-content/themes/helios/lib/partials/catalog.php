@@ -5,12 +5,12 @@ $out.='
 <h1 class="catalog-title">Custom Websites</h1>
 <p class="text-center">Throughout the years we have worked closely with a number of different industries. Here is some of our work.</p>
   <div class="row">
-    <div class="large-12 columns">
+    <div class="col-lg-12 columns">
       <div class="row catalog-content" data-equalizer>
           <hr>
           <div id="ca-container" class="ca-container">
             <div class="ca-wrapper">
-              <div class="ca-item ca-item-4 large-6 medium-6 small-12" data-equalizer-watch> 
+              <div class="ca-item ca-item-4 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch> 
                 <div class="ca-item-main">
                   <h3>Ecommerce</h3>
                   <div id="ecommerce" class="text-center">
@@ -26,12 +26,12 @@ $out.='
                   </div>
                   <h4 class="">Air Chaser, Inc</h4>
                   <p>Prestashop, Foundation Zurb, NPM, Bower, Sass, Gulp.</p>
-                      <div class="more-centered-button-wrapper button-wrapper--centered--bottom">
-                        <a href="#" class="ca-more home-button grey-button xlarge-button hvr-float-shadow">Read More</a>
+                      <div class="col align-self-center">
+                        <a href="#" class="ca-more home-button grey-button xcol-lg-button hvr-float-shadow">Read More</a>
                       </div>
                 </div>
                 <div class="ca-content-wrapper">
-                  <div class="ca-content large-12 medium-12 small-12">
+                  <div class="ca-content col-lg-12 col-md-12 col-sm-12">
                     <div class="text-center"><h5 class="inline-block">Prestashop + SEO + SEM</h5></div>
                     <a href="#" class="ca-close hvr-buzz-out"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
                     <div class="ca-content-text clearfix">
@@ -56,7 +56,7 @@ $out.='
                 </div>
               </div>
               <!--end of item-->
-              <div class="ca-item ca-item-3 large-6 medium-6 small-12" data-equalizer-watch>
+              <div class="ca-item ca-item-3 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch>
                 <div class="ca-item-main">
                  <h3>Construction</h3>
                   <div id="health" class="text-center">
@@ -74,13 +74,13 @@ $out.='
                   <p>We specialize on WordPress websites because as a CMS, it’s relatively simple and has complexity where it counts.</p>
                     
                     
-                      <div class="more-centered-button-wrapper button-wrapper--centered--bottom">
-                        <a href="#" class="ca-more home-button grey-button xlarge-button hvr-float-shadow">Read More</a>
+                      <div class="col align-self-center">
+                        <a href="#" class="ca-more home-button grey-button xcol-lg-button hvr-float-shadow">Read More</a>
                       </div>
                     
                 </div>
                 <div class="ca-content-wrapper">
-                  <div class="ca-content large-12 medium-12 small-12">
+                  <div class="ca-content col-lg-12 col-md-12 col-sm-12">
                     <div class="text-center"><h5 class="inline-block">Design + WordPress</h5></div>
                     <a href="#" class="ca-close hvr-buzz-out"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
                     <div class="ca-content-text clearfix">
@@ -107,7 +107,7 @@ $out.='
               </div>
               <!-- end of item-->
               <!--Item 2-->
-              <div class="ca-item ca-item-2 large-6 medium-6 small-12" data-equalizer-watch>
+              <div class="ca-item ca-item-2 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch>
                 <div class="ca-item-main">
                   <h3>Health</h3>
                   <div id="health" class="text-center">
@@ -123,12 +123,12 @@ $out.='
                   </div>
                   <h4>eOpiates</h4>
                   <p>We can build fully custom websites from the ground up, depending on customer’s needs.</p>
-                  <div class="more-centered-button-wrapper button-wrapper--centered--bottom">
-                    <a href="#" class="ca-more home-button grey-button xlarge-button hvr-float-shadow">Read More</a>
+                  <div class="col align-self-center">
+                    <a href="#" class="ca-more home-button grey-button xcol-lg-button hvr-float-shadow">Read More</a>
                   </div>    
                 </div>
                 <div class="ca-content-wrapper">
-                  <div class="ca-content large-12 medium-12 small-12">
+                  <div class="ca-content col-lg-12 col-md-12 col-sm-12">
                     <div class="text-center">
                       <h5 class="inline-block">PHP + Custom Taxonomies</h5>
                     </div>
@@ -162,7 +162,7 @@ $out.='
                 </div>
               </div>
               <!-- Item 1 -->
-              <div class="ca-item ca-item-1 large-6 medium-6 small-12" data-equalizer-watch>
+              <div class="ca-item ca-item-1 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch>
                 <div class="ca-item-main">
                   <h3>Real Estate</h3>
                   <div id="real-estate" class="text-center">
@@ -178,12 +178,12 @@ $out.='
                   </div>
                   <h4>Real Estate One</h4>
                   <p>Based upon the MLS Area you serve, your specific website strategy and needs, we will help you determine which IDX Solution will work best for you.</p>
-                  <div class="more-centered-button-wrapper button-wrapper--centered--bottom">
-                    <a href="#" class="ca-more home-button grey-button xlarge-button hvr-float-shadow">Read More</a>
+                  <div class="col align-self-center">
+                    <a href="#" class="ca-more home-button grey-button xcol-lg-button hvr-float-shadow">Read More</a>
                   </div>
                 </div>
                 <div class="ca-content-wrapper">
-                  <div class="ca-content large-12 medium-12 small-12">
+                  <div class="ca-content col-lg-12 col-md-12 col-sm-12">
                     <div class="text-center">
                       <h5 class="inline-block text-center">WordPress - IDX</h5>
                     </div>
@@ -221,7 +221,7 @@ $out.='
       </div>
       <hr>
       <div class="row">
-        <div class="large-6 large-offset-3 columns">
+        <div class="col-lg-6 col-lg-offset-3 columns">
           <h3>What Our Websites Include</h3>
           <h4>Mobile ready</h4><p>All websites are built to adapt beautifully from desktop to any mobile devices.</p>
           <h4>SEO optimized</h4><p>All of our websites inherits Genesis SEO options and functionalities.</p>
@@ -230,9 +230,9 @@ $out.='
           <h4>Browser support</h4><p>All websites are compatible with the most recent versions of browsers – Firefox, Chrome, Safari &amp; IE9 and recent.</p>
         </div>
         <hr>
-        <div class="large-12 columns">
-          <div class="more-centered-button-wrapper">
-            <a href="/services/" class="home-button grey-button xlarge-button hvr-float-shadow">More Designs</a>
+        <div class="row">
+          <div class="col align-self-center">
+            <a href="/services/" class="home-button grey-button xcol-lg-button hvr-float-shadow">More Designs</a>
           </div>
         </div>
       </div>

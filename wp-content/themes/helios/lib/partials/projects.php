@@ -1,17 +1,17 @@
 <?php
 $out.='<a class="anchor" id="projects"></a><section class="projects">
   <div class="row">
-    <div class="large-12 columns">
+    <div class="col-lg-12 columns">
      <h1 class="projects-title">Recent Projects</h1>
 
       <div class="row projects-content">
       <hr>
-        <div class="large-12 columns">
+        <div class="col-lg-12 columns">
           <div class="row project-item">
-            <div class="large-6 columns">
+            <div class="col-lg-6 columns">
                 <img src="'. get_stylesheet_directory_uri(). '/bin/images/projects/eopiates/eopiates.png">
             </div>
-            <div class="large-6 columns">
+            <div class="col-lg-6 columns">
               <h2>eOpiates.com</h2>
               <ul class="project-description-list">
                 <li><h3>Back-end</h3> <ul>
@@ -25,9 +25,9 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
           </div>
         </div>
         <hr>
-        <div class="large-12 columns">
+        <div class="col-lg-12 columns">
          <div class="row project-item">
-            <div class="large-6 columns">
+            <div class="col-lg-6 columns">
                 <h2>eOpiates Instant Search</h2>
               <ul class="project-description-list">
                 <li class="project-description-list-item">PHP</li>
@@ -36,19 +36,19 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
                 <li class="project-description-list-item">Mustache.js</li>
               </ul>
             </div>
-            <div class="large-6 columns">
+            <div class="col-lg-6 columns">
                 <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/eopiates/instant-search.jpg">
             </div>
           </div>
         </div>
         <hr>
-        <div class="large-12 columns">
+        <div class="col-lg-12 columns">
           <div class="row project-item">
-            <div class="large-6 columns">
+            <div class="col-lg-6 columns">
                 <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/lmseo/home.jpg">
             
             </div>
-            <div class="large-6 columns">       
+            <div class="col-lg-6 columns">       
               <h2>LMSeo.com</h2>
               <ul class="project-description-list">
                 <li class="project-description-list-item"><h3>Back-end</h3>
@@ -65,9 +65,9 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
           </div>
         </div>
         <hr>
-        <div class="large-12 columns">
-            <div class="more-centered-button-wrapper">
-              <a href="/services/" class="home-button xlarge-button">More Projects</a>
+        <div class="row">
+            <div class="col align-self-center">
+              <a href="/services/" class="home-button xcol-lg-button">More Projects</a>
             </div>
         </div>
       </div>

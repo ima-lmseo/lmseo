@@ -1,20 +1,21 @@
 <?php
-$out.='<div class="small-12">
-  <div id="featured">
-    <div class="row">
-      <div class="large-12">
-        <div class="featured-contact small-12 medium-6 large-4 columns">
-          <a class="large home-button expand" href="/contact/">
+$out.='
+<div class="featured">
+  <div class="container-lg">
+    <div class="">
+      <div class="">
+        <div class="featured-contact col-sm-12 col-md-8 col-lg-5 col-xl-4 ">
+          <a class="btn-lg home-button expand" href="/contact/">
             Email <Us></Us>
           </a>
-          <a class="large home-button expand" href="#">
+          <a class="btn-lg home-button expand" href="#">
             Chat With Us
           </a>
-           <a class="large home-button expand" href="tel:+6262325218">
+           <a class="btn-lg home-button expand" href="tel:+6262325218">
             (6262) 232-5218
           </a>
         </div>
-        <div class="featured-content">
+        <div class="featured-content ps-4">
           <h1>Online Marketing, Web Development and design</h1>
           <h2>Professional-grade services, priced for small businesses.</h2>
           <a href="/services/" class="home-button featured-button">Learn More</a>
@@ -130,9 +131,9 @@ $out.='<div class="small-12">
 <li id="nav-menu-item-115" class="navbar-main  nav-item-even nav-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"><a href="//localhost:3000/team/" class="menu-link dropdown-item">Team</a></li>
 <li id="nav-menu-item-113" class="navbar-main  nav-item-even nav-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"><a href="//localhost:3000/blog/" class="menu-link dropdown-item">Blog</a></li>
 <li id="nav-menu-item-114" class="navbar-main  nav-item-even nav-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"><a href="//localhost:3000/contact/" class="menu-link dropdown-item">Contact</a></li>
-</ul><ul class="right topbar-more-info-nav hide-for-medium-down">
+</ul><ul class="right topbar-more-info-nav hide-for-col-md-down">
 	<li><a href="tel:+6262325218">626.232.5218</a></li>
-	<li class="has-form top-form"><div class="row collapse"><div class="large-8 small-9 columns"><input type="text" placeholder="Search LMSEO" class="radius-left"></div><div class="large-4 small-3 columns"><a href="/" class="top-button radius-right">Search</a></div></div>
+	<li class="has-form top-form"><div class="row collapse"><div class="col-lg-8 col-sm-9 columns"><input type="text" placeholder="Search LMSEO" class="radius-left"></div><div class="col-lg-4 col-sm-3 columns"><a href="/" class="top-button radius-right">Search</a></div></div>
 	</li>
 </ul></div></nav>
 */

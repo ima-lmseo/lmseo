@@ -1,10 +1,10 @@
 <?php
 $out.='<a class="anchor" id="recent-posts"></a><section class="recent-posts">
   <div class="row" data-equalizer>
-    <div class="large-12 columns recent-post-wrapper">
+    <div class="col-lg-12 columns recent-post-wrapper">
       <h1 class="recent-posts-title">Recent Posts</h1>
       <div class="row  recent-posts-content">
-        <div class="large-12 columns recent-posts-list">
+        <div class="col-lg-12 columns recent-posts-list">
           <div class="radius">
           <div class="row">
           ';  
@@ -12,7 +12,7 @@ $out.='<a class="anchor" id="recent-posts"></a><section class="recent-posts">
 $count=0;
 while ($the_query->have_posts()){
   $the_query -> the_post();
-  $out.='<div class="small-12 large-4 columns">';
+  $out.='<div class="col-sm-12 col-lg-4 columns">';
   $out.='<h4><a href="' . get_permalink().'">'. get_the_title() .'</a></h4>
       <hr>
        
@@ -49,8 +49,8 @@ while ($the_query->have_posts()){
         </div>
         </div>
       </div>
-      <div class="more-centered-button-wrapper recent-posts-button-wrapper">
-        <a href="/services/" class="home-button xlarge-button grey-button">More Posts</a>
+      <div class="col align-self-center">
+        <a href="/services/" class="home-button xcol-lg-button grey-button">More Posts</a>
       </div>
     </div>
    

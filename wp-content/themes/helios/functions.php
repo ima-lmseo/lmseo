@@ -591,7 +591,7 @@ add_action( 'genesis_header', 'lmseo_genesis_header_markup_close', 15 );
 //New Header functions
 function lmseo_genesis_header_markup_open() {
     genesis_markup( array(
-        'html5'   => '<header class="" %s><nav class="navbar fixed-top navbar-expand-lg navbar-light mask-custom shadow-0"><div class="container-fluid">',
+        'html5'   => '<header class="" %s><nav class="navbar fixed-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0"><div class="top-bar-section container-fluid p-0">',
         'xhtml'   => '<div id="header"><div class="navbar navbar-expand-lg bg-light"><div class="container-fluid">',
         'context' => 'site-header',
     ) );
@@ -610,10 +610,13 @@ function lmseo_genesis_do_header() {
 	global $wp_registered_sidebars;
 	genesis_markup( array(
 //		'html5'   => '<ul %s><li class="name">',
-		'html5'   => '<h1 class="navbar-brand site-title" itemprop="headline"><a href="//localhost:3000/" class="logo">LMSEO</a></h1>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		'html5'   => '<div class="title-area"><h1 class="navbar-brand site-title" itemprop="headline"><a href="//localhost:3000/" class="logo">LMSEO</a></h1>
+<div class="navbar-toggler-wrapper">
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>',
+    </button>
+</div>
+   </div>',
 		'xhtml'   => '<ul class="title-area"><li class="name">',
 		'context' => 'title-area',
 	) );
@@ -637,7 +640,7 @@ function lmseo_genesis_do_header() {
 		'container'       => '',
 		'container_class' => 'top-bar-section',
 		'container_id'    => '',
-		'menu_class'      => 'navbar-nav me-auto mb-2 mb-lg-0',
+		'menu_class'      => 'navbar-nav',
 		'menu_id'         => 'primary-links',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
@@ -649,11 +652,22 @@ function lmseo_genesis_do_header() {
 		'walker'          => new LMSEO_Walker_Nav_Menu()
 		)
 	);
-		echo '<ul class="">
-	<li><a href="tel:+6262325218">626.232.5218</a></li>
-	<li class=""><div class=""><div class=""><input type="text" placeholder="Search LMSEO" class=""></div><div class=""><a href="/" class="">Search</a></div></div>
-	</li>
-</ul>';
+		echo '
+<div class="d-flex d-none d-lg-block">
+    <span ><a href="tel:+16262325218">626.232.5218</a></span>
+        <form role="search">
+            <div class="row collapse">
+                <div class="col-lg-8 col-sm-9">
+                    <input type="text" placeholder="Search LMSEO" class="radius-left">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-3">
+                <a href="/" class="top-button radius-right">
+                    Search
+                </a>
+            </div>
+        </form>
+</div>';
 	genesis_markup( array(
 		'html5'   => '</div>',
 		'xhtml'   => '</div>',

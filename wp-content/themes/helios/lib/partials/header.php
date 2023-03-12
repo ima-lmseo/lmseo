@@ -40,8 +40,8 @@ $out .='
      <li><a href="tel:+6262325218">626.232.5218</a></li>
         <li class="has-form top-form">
           <div class="row collapse">
-            <div class="large-8 small-9 columns"><input type="text" placeholder="Find Something"></div>
-              <div class="large-4 small-3 columns"><a href="/" class="home-button expand">Search</a></div>
+            <div class="col-lg-8 col-sm-9 columns"><input type="text" placeholder="Find Something"></div>
+              <div class="col-lg-4 col-sm-3 columns"><a href="/" class="home-button expand">Search</a></div>
           </div>
         </li>
       </ul>

@@ -1,10 +1,10 @@
 <?php
 $out.='<a class="anchor" id="recent-posts"></a><section class="recent-posts">
   <div class="row" data-equalizer>
-    <div class="large-8 columns recent-post-wrapper" data-equalizer-watch>
+    <div class="col-lg-8 columns recent-post-wrapper" data-equalizer-watch>
       <h1 class="recent-posts-title">Recent Posts</h1>
       <div class="row  recent-posts-content">
-        <div class="large-12 columns recent-posts-list">
+        <div class="col-lg-12 columns recent-posts-list">
           <div class="radius">
           <div class="row">
           ';  
@@ -12,7 +12,7 @@ $out.='<a class="anchor" id="recent-posts"></a><section class="recent-posts">
 
 while ($the_query->have_posts()){
   $the_query -> the_post();
-  $out.='<div class="large-6 small-12 columns"><h4><a href="' . get_permalink().'">'. get_the_title() .'</a></h4>
+  $out.='<div class="col-lg-6 col-sm-12 columns"><h4><a href="' . get_permalink().'">'. get_the_title() .'</a></h4>
       <hr>
        <p class="entry-meta">
         <span class="entry-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
@@ -43,11 +43,11 @@ while ($the_query->have_posts()){
         </div>
         </div>
       </div>
-      <div class="more-centered-button-wrapper recent-posts-button-wrapper">
+      <div class="col align-self-center">
         <a href="/services/" class="home-button recent-posts-button">More Posts</a>
       </div>
     </div>
-    <div class="large-4 columns comments" data-equalizer-watch>
+    <div class="col-lg-4 columns comments" data-equalizer-watch>
           <h4>Recent Comments</h4><hr>
           <ul class="comment-list">';
           $commments_defaults = array(
