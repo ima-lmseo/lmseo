@@ -591,7 +591,7 @@ add_action( 'genesis_header', 'lmseo_genesis_header_markup_close', 15 );
 //New Header functions
 function lmseo_genesis_header_markup_open() {
     genesis_markup( array(
-        'html5'   => '<header class="" %s><nav class="navbar fixed-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0"><div class="top-bar-section container-fluid p-0">',
+        'html5'   => '<header class="" %s><nav class="navbar sticky-top   navbar-expand-lg navbar-light mask-custom shadow-0 p-0"><div class="top-bar-section container-fluid p-0">',
         'xhtml'   => '<div id="header"><div class="navbar navbar-expand-lg bg-light"><div class="container-fluid">',
         'context' => 'site-header',
     ) );
@@ -613,7 +613,13 @@ function lmseo_genesis_do_header() {
 		'html5'   => '<div class="title-area"><h1 class="navbar-brand site-title" itemprop="headline"><a href="//localhost:3000/" class="logo">LMSEO</a></h1>
 <div class="navbar-toggler-wrapper">
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <div class="hamburger-toggle">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+      </div>
     </button>
 </div>
    </div>',
@@ -633,6 +639,7 @@ function lmseo_genesis_do_header() {
 		'xhtml'   => '<div>',
 		'context' => 'top-bar-section',
 	) );
+
 	wp_nav_menu(
 		array(
 		'theme_location'  => 'top-bar',
@@ -652,28 +659,32 @@ function lmseo_genesis_do_header() {
 		'walker'          => new LMSEO_Walker_Nav_Menu()
 		)
 	);
-		echo '
-<div class="d-flex d-none d-lg-block">
-    <span ><a href="tel:+16262325218">626.232.5218</a></span>
-        <form role="search">
-            <div class="row collapse">
-                <div class="col-lg-8 col-sm-9">
-                    <input type="text" placeholder="Search LMSEO" class="radius-left">
+    genesis_markup( array(
+        'html5' => '</div>',
+        'xhtml' => '</div>',
+    ) );
+    genesis_markup( array(
+        'html5'   => '
+<div class="d-none d-lg-block d-lg-flex justify-content-end px-lg-5">
+    <div class="container">
+        <form role="search ">
+            <div class="row">
+                <span class="col-lg-4"><a class="nav-link hvr-underline-from-left float-end phone-link" href="tel:+16262325218">626.232.5218</a></span>
+                <div class="col-lg-6 g-lg-0 top-search-input-wrapper">
+                    <input type="text" placeholder="Search LMSEO" class="rounded-start float-end top-search-input">
+                </div>
+                <div class="col-lg-2 g-lg-0 top-search-end-wrapper">
+                    <a href="/" class="top-button rounded-end top-search-end">
+                        Search
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-3">
-                <a href="/" class="top-button radius-right">
-                    Search
-                </a>
-            </div>
+            
         </form>
-</div>';
-	genesis_markup( array(
-		'html5'   => '</div>',
-		'xhtml'   => '</div>',
-	) );
-
-	//echo '</div>';
+    </div>  
+</div>',
+        'xhtml'   => '</div>',
+    ) );
 	if ( ( isset( $wp_registered_sidebars['header-right'] ) && is_active_sidebar( 'header-right' ) ) || has_action( 'genesis_header_right' ) ) {
 		genesis_markup( array(
 			'html5'   => '<aside %s>',
@@ -759,7 +770,7 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
     /**
      * Start the element output.
      *
-     * Adds main/sub-classes to the list items and links.
+     * Allows to create a custom navbar with the structure of Bootstrap.
      *
      * @param string $output Passed by reference. Used to append additional content.
      * @param object $item   Menu item data object.
@@ -774,7 +785,8 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
         // Depth-dependent classes.
         $depth_classes = array(
             ( $depth == 0 ? 'nav-item' : '' ),
-            ( $args->walker->has_children ? 'nav-item dropdown' : '' ),
+            ( $depth == 0 && $args->walker->has_children ? 'dropdown' : '' ),
+            ( $depth > 0 && $args->walker->has_children ? 'nav-item dropdown' : '' ),
             ( $depth % 2 ? 'nav-item-odd' : 'nav-item-even' ),
             'nav-item-depth-' . $depth
         );
@@ -792,22 +804,18 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-        if( $depth>0 ) {
-            $linkClasses = 'nav-link';
-            if ($args->walker->has_children) {
-                $linkClasses = 'nav-link dropdown-toggle';
-            }else{
-                $linkClasses = 'dropdown-item';
-            }
+        $linkClasses = 'hvr-underline-from-left ';
+        if ($args->walker->has_children) {
+            $linkClasses .= 'nav-link dropdown-toggle';
+            $attributes .= !empty( $item->url )        ? ' data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-boundary="clippingParents"' : '';
+
         }else{
-            if ($args->walker->has_children) {
-                $linkClasses = 'nav-link dropdown-toggle';
+            if( $depth>0 ) {
+                $linkClasses .= 'dropdown-item';
             }else{
-                $linkClasses = 'nav-link';
+                $linkClasses .= 'nav-link';
             }
-
         }
-
         $attributes .= ' class="' . ( $linkClasses ) . '"';
 
         // Build HTML output and pass through the proper filter.
