@@ -665,19 +665,20 @@ function lmseo_genesis_do_header() {
     ) );
     genesis_markup( array(
         'html5'   => '
-<div class="d-none d-lg-block d-lg-flex justify-content-end px-lg-5">
+<div class="d-none d-lg-block d-lg-flex justify-content-end pe-lg-5">
     <div class="container">
-        <form role="search ">
+        <form role="search">
             <div class="row">
-                <span class="col-lg-4"><a class="nav-link hvr-underline-from-left float-end phone-link" href="tel:+16262325218">626.232.5218</a></span>
-                <div class="col-lg-6 g-lg-0 top-search-input-wrapper">
-                    <input type="text" placeholder="Search LMSEO" class="rounded-start float-end top-search-input">
+                <span class="col-xl-4">
+                    <a class="d-lg-none d-xl-block nav-link hvr-underline-from-left  float-start phone-link" href="tel:+16262325218">626.232.5218</a>
+                </span>
+                <div class="col-lg-8 col-xl-6 g-lg-0 top-search-input-wrapper">
+                    <input type="text" placeholder="Search" class="float-end top-search-input" >
+                    <button class="btn-search">
+                        <i class="bi bi-search"></i>
+                    </button>
                 </div>
-                <div class="col-lg-2 g-lg-0 top-search-end-wrapper">
-                    <a href="/" class="top-button rounded-end top-search-end">
-                        Search
-                    </a>
-                </div>
+                
             </div>
             
         </form>
@@ -685,6 +686,12 @@ function lmseo_genesis_do_header() {
 </div>',
         'xhtml'   => '</div>',
     ) );
+//<div class="col-lg-4 col-xl-2 g-lg-0 top-search-end-wrapper">
+//                    <a href="/search" class="top-button rounded-end top-search-end">
+//                </div>
+//
+//                        Search
+//                    </a>
 	if ( ( isset( $wp_registered_sidebars['header-right'] ) && is_active_sidebar( 'header-right' ) ) || has_action( 'genesis_header_right' ) ) {
 		genesis_markup( array(
 			'html5'   => '<aside %s>',

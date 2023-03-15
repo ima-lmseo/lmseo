@@ -1,12 +1,12 @@
 <?php
 $out.='
 <div class="featured">
-  <div class="container-lg">
+  <div class="container-lg g-0">
     <div class="">
       <div class="">
         <div class="featured-contact col-sm-12 col-md-8 col-lg-5 col-xl-4 ">
           <a class="btn-lg home-button expand" href="/contact/">
-            Email <Us></Us>
+            Email Us
           </a>
           <a class="btn-lg home-button expand" href="#">
             Chat With Us
