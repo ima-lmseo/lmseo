@@ -7253,6 +7253,13 @@ progress {
 /*---------*/
 /*---------*/
 /*---------*/
+.inline-list > li {
+  display: block;
+  float: left;
+  list-style: none;
+  margin-left: 1.375rem;
+}
+
 .section-padding {
   padding-top: 3.75rem;
   padding-bottom: 3.75rem;
@@ -8193,13 +8200,20 @@ a.anchor {
   background-image: url(dist/homepage/icons/-cf4872fee9bc11c3216f.svg) !important;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
 .btn-close svg {
   width: 100%;
   height: 4vh;
   top: -8px;
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   fill: #2098d1;
+  stroke: #2098d1;
 }
 
 .modal-fullscreen .modal-body {
@@ -8443,6 +8457,12 @@ footer .footer-social a {
   display: block;
   color: black;
   transition: all 0.5s ease-out 0s;
+  position: relative;
+}
+
+.footer-social svg {
+  height: 2rem;
+  width: 2rem;
 }
 
 footer .footer-social a.icon-twitter:hover {
@@ -8469,6 +8489,9 @@ footer .footer-social a.icon-googleplus:hover {
   color: #ffffff;
 }
 
+footer a {
+  text-decoration: none;
+}
 footer a i {
   color: black;
   transition: all 0.5s ease-out 0s;
@@ -8496,6 +8519,9 @@ footer a:hover svg {
 }
 .footer-widgets li {
   font-size: rem-calc(14);
+}
+.footer-widgets input[type=submit] {
+  line-height: 1.3rem;
 }
 .footer-widgets a {
   color: #d3d3d3;

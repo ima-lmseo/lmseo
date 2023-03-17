@@ -7,7 +7,7 @@ $out.='
      <h1 class="projects-title">Recent Projects</h1>
       <div class="">
       <hr>
-        <div class="">
+        <div class="container">
           <div class="row project-item">
             <div class="col-lg-6">
                 <img src="'. get_stylesheet_directory_uri(). '/bin/images/projects/eopiates/eopiates.png"
@@ -31,7 +31,7 @@ $out.='
           </div>
         </div>
         <hr>
-        <div class="col-lg-12 columns">
+        <div class="container">
          <div class="row project-item">
             <div class="col-lg-6 columns">
                 <h2>eOpiates Instant Search</h2>
@@ -53,14 +53,14 @@ $out.='
           </div>
         </div>
         <hr>
-        <div class="col-lg-12 columns">
+        <div class="container">
           <div class="row project-item">
-            <div class="col-lg-6 columns">
+            <div class="col-lg-6">
                 <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/lmseo/home.jpg"
                 class="img-fluid"
                 width="686"
                 height="338"
-                alt="LMSEO redesign">
+                alt="LMSEO redesign"
                 title="LMSEO redesign">
             
             </div>

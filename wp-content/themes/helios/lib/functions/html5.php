@@ -56,10 +56,10 @@ add_filter( 'genesis_do_subnav', 'html5_sub_nav', 10, 2 );
 remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
 add_action( 'genesis_footer', 'html5_open_footer', 5 );
 function html5_open_footer() {
-		echo '<footer id="footer">';
+		echo '<footer id="footer" class="footer">';
 		require_once ( get_stylesheet_directory() . '/lib/partials/footer.php' );
 		echo $footer;
-		echo '<div class="row">';
+		echo '<div class="container"><div class="row">';
 		//genesis_structural_wrap( 'footer', 'open' );
 }
 add_theme_support( 'genesis-footer-widgets', 3 );
@@ -81,7 +81,7 @@ function sp_footer_backtotop_text($backtotop) {
 remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
 add_action( 'genesis_footer', 'html5_close_footer', 15 );
 	function html5_close_footer() {
-		echo '</div>';
+		echo '</div></div>';
 		//genesis_structural_wrap( 'footer', 'close' );
 		echo '</footer><!-- end #footer -->' . "\n";
 }
@@ -90,7 +90,7 @@ add_action( 'genesis_footer', 'html5_close_footer', 15 );
 remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
 add_action( 'genesis_after_footer', 'genesis_footer_widget_areas' );
 add_action( 'genesis_after_footer', 'foundation_js_files' );*/
-add_action( 'genesis_after_footer', 'foundation_js_files' );
+//add_action( 'genesis_after_footer', 'foundation_js_files' );
  function foundation_js_files(){
 	echo '<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
     <div class="slides"></div>

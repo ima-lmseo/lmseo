@@ -591,7 +591,10 @@ add_action( 'genesis_header', 'lmseo_genesis_header_markup_close', 15 );
 //New Header functions
 function lmseo_genesis_header_markup_open() {
     genesis_markup( array(
-        'html5'   => '<header class="" %s><nav class="navbar sticky-top   navbar-expand-lg navbar-light mask-custom shadow-0 p-0"><div class="top-bar-section container-fluid p-0">',
+        'html5'   => '
+<header class="" %s>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0">
+        <div class="top-bar-section container-fluid gx-0 p-0">',
         'xhtml'   => '<div id="header"><div class="navbar navbar-expand-lg bg-light"><div class="container-fluid">',
         'context' => 'site-header',
     ) );
@@ -610,7 +613,10 @@ function lmseo_genesis_do_header() {
 	global $wp_registered_sidebars;
 	genesis_markup( array(
 //		'html5'   => '<ul %s><li class="name">',
-		'html5'   => '<div class="title-area"><h1 class="navbar-brand site-title" itemprop="headline"><a href="//localhost:3000/" class="logo">LMSEO</a></h1>
+		'html5'   => '<div class="title-area">
+<h1 class="navbar-brand site-title" itemprop="headline">
+<a href="//localhost:3000/" class="logo">LMSEO</a>
+</h1>
 <div class="navbar-toggler-wrapper">
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="hamburger-toggle">
@@ -680,9 +686,7 @@ function lmseo_genesis_do_header() {
                         </svg>
                     </button>
                 </div>
-                
             </div>
-            
         </form>
     </div>  
 </div>',

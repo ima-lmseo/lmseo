@@ -178,7 +178,8 @@ $out.='
                 <p>All websites are built to adapt beautifully from desktop to any mobile devices.</p>
                 <h4>SEO optimized</h4>
                 <p>All of our websites inherits Genesis SEO options and functionalities.</p>
-                <h4>Daily Backups / Peace of Mind</h4><p>You don&rsquo;t want to lose all your hard work. Our system automatically backs up your website every 24 hours and keeps a copy for 2 days.</p>
+                <h4>Daily Backups / Peace of Mind</h4>
+                <p>You don&rsquo;t want to lose all your hard work. Our system automatically backs up your website every 24 hours and keeps a copy for 2 days.</p>
                 <h4>Website Visitor Stats (Google Analytics)</h4>
                 <p>Google Analytics can help you determine how visitors are  finding your website, how they are using your website and give you guidance on  what you may want to improve upon. We can assist you in establishing your account  with Google and getting your tracking script properly set up on your website  and IDX Solution.</p>
                 <h4>Browser support</h4>
