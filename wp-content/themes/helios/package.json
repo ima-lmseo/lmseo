@@ -35,7 +35,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
-    "font-awesome": "^4.7.0"
+    "bs5-lightbox": "^1.8.3",
+    "jquery": "^3.6.4"
   },
   "repository": {
     "type": "git",

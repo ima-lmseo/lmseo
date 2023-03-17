@@ -1,5 +1,18 @@
-import * as bootstrap from "bootstrap";
-// import {  Navbar, Popper } from 'bootstrap';
+import { Navbar, Popper } from "bootstrap";
+import Lightbox from "bs5-lightbox";
+
+const options = {
+  keyboard: true,
+  size: "fullscreen",
+};
+
+document.querySelectorAll(".catalog-industries").forEach((el) =>
+  el.addEventListener("click", (e) => {
+    e.preventDefault();
+    const lightbox = new Lightbox(el, options);
+    lightbox.show();
+  })
+);
 
 document.addEventListener("click", function (e) {
   // Hamburger menu
