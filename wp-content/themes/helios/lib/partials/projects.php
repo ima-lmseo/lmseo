@@ -1,17 +1,23 @@
 <?php
-$out.='<a class="anchor" id="projects"></a><section class="projects">
-  <div class="row">
-    <div class="col-lg-12 columns">
+$out.='
+<a class="anchor" id="projects"></a>
+<section class="projects container-fluid overflow-hidden">
+  <div class="">
+    <div class="">
      <h1 class="projects-title">Recent Projects</h1>
-
-      <div class="row projects-content">
+      <div class="">
       <hr>
-        <div class="col-lg-12 columns">
+        <div class="">
           <div class="row project-item">
-            <div class="col-lg-6 columns">
-                <img src="'. get_stylesheet_directory_uri(). '/bin/images/projects/eopiates/eopiates.png">
+            <div class="col-lg-6">
+                <img src="'. get_stylesheet_directory_uri(). '/bin/images/projects/eopiates/eopiates.png"
+                class="img-fluid"
+                width="617"
+                height="339"
+                alt="eOpiates redesign"
+                title="eOpiates redesign"> 
             </div>
-            <div class="col-lg-6 columns">
+            <div class="col-lg-6">
               <h2>eOpiates.com</h2>
               <ul class="project-description-list">
                 <li><h3>Back-end</h3> <ul>
@@ -37,7 +43,12 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
               </ul>
             </div>
             <div class="col-lg-6 columns">
-                <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/eopiates/instant-search.jpg">
+                <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/eopiates/instant-search.jpg"
+                class="img-fluid"
+                width="686"
+                height="338"
+                alt="eOpiates instant search"
+                title="eOpiates instant search">
             </div>
           </div>
         </div>
@@ -45,7 +56,12 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
         <div class="col-lg-12 columns">
           <div class="row project-item">
             <div class="col-lg-6 columns">
-                <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/lmseo/home.jpg">
+                <img src="'.get_stylesheet_directory_uri().'/bin/images/projects/lmseo/home.jpg"
+                class="img-fluid"
+                width="686"
+                height="338"
+                alt="LMSEO redesign">
+                title="LMSEO redesign">
             
             </div>
             <div class="col-lg-6 columns">       
@@ -65,9 +81,9 @@ $out.='<a class="anchor" id="projects"></a><section class="projects">
           </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col align-self-center">
-              <a href="/services/" class="home-button xcol-lg-button">More Projects</a>
+        <div class="row my-5">
+            <div class="col text-center">
+              <a href="/services/" class="home-button xlarge-button">More Projects</a>
             </div>
         </div>
       </div>
