@@ -7253,6 +7253,30 @@ progress {
 /*---------*/
 /*---------*/
 /*---------*/
+.animated-svg .path {
+  stroke: #ffffff;
+  animation: draw-out 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+}
+
+.animated-svg:hover .path {
+  stroke: #ffffff;
+  animation: draw-in 5s;
+  animation-iteration-count: 0.5;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-in {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-out {
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
 .inline-list > li {
   display: block;
   float: left;
@@ -7940,6 +7964,30 @@ p.subscribe-to-comments {
 }
 
 /*Sections*/
+.section--first {
+  background-color: #111111;
+  color: #fcfcfc;
+}
+.section--first h3, .section--first .h3 {
+  color: #ffffff;
+}
+
+.section--lighter {
+  background-color: #191919;
+  color: #fcfcfc;
+}
+.section--lighter h3, .section--lighter .h3 {
+  color: #ffffff;
+}
+
+.section--lightest {
+  background-color: #202020;
+  color: #fcfcfc;
+}
+.section--lightest h3, .section--lightest .h3 {
+  color: #ffffff;
+}
+
 .section--purple {
   background-color: #111111;
   color: #d5d3db;
@@ -8095,7 +8143,7 @@ p.subscribe-to-comments {
 
 .tab-titles,
 .icon-bar {
-  background-color: #111111;
+  background-color: #141414;
   height: 5.75rem;
   overflow: hidden;
   font-family: "Times New Roman", "Helvetica", Helvetica, Arial, sans-serif;
@@ -8296,8 +8344,9 @@ a.anchor {
 
 /*Social Buttons-----------------------------------------------------------*/
 .social {
-  background-color: #000000;
+  background-color: #141414;
   height: 5.75rem;
+  border-top: 1px solid;
 }
 
 /*About Section-----------------------------------------------------------*/
@@ -8360,19 +8409,17 @@ a.anchor {
 
 /*Services-----------------------------------------------------------*/
 .services {
-  padding-top: 0rem;
+  padding: 0rem;
   border-bottom: 1px solid #dddddd;
-  color: white;
-}
-
-.services {
-  padding-top: 3.5rem;
+  color: #ffffff;
+  background-color: #111111;
 }
 .services h2, .services .h2,
 .services h3,
 .services .h3 {
   color: #444444;
   font-weight: normal;
+  font-size: 1.1rem;
 }
 .services h2, .services .h2 {
   width: 100%;
@@ -8382,23 +8429,15 @@ a.anchor {
   padding-bottom: 1.5rem;
 }
 .services h3, .services .h3 {
-  font-size: 1.1rem;
-}
-
-.services h3, .services .h3 {
-  color: #584002;
+  color: #ffffff;
   font-weight: 700;
 }
 
 .services-title {
-  color: #111111;
-  opacity: 0.5;
+  color: #ffffff;
+  opacity: 0.8;
   margin-bottom: -5rem;
   font-size: 4rem;
-}
-
-.services-title {
-  padding: 1.5rem;
 }
 
 .services-wrapper {
@@ -8413,6 +8452,17 @@ a.anchor {
 .services-front-end h2,
 .services-front-end .h2 {
   padding-top: 3.5rem;
+}
+
+.services-marketing svg {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.services-button-wrapper {
+  background-color: #202020;
 }
 
 /* Entry Footer Under each post*/
@@ -8795,7 +8845,7 @@ section.widget {
     padding-left: 0.6rem;
     color: #2098d1;
     border: 4px solid #2098d1;
-    border-radius: 1.6rem;
+    border-radius: 0.6rem;
     transform: scaleX(1);
     transition: transform 0.3s linear;
     transform-origin: right center;
@@ -8968,8 +9018,9 @@ section.widget {
     padding-left: 4.5rem;
   }
   .services-title {
-    margin-bottom: -5rem;
+    margin-bottom: -4rem;
     font-size: 4rem;
+    font-size: 10rem;
   }
   .recent-posts .comments {
     background-color: #3c3c3c;
@@ -8986,10 +9037,6 @@ section.widget {
   }
   .recent-posts .comments a:hover {
     color: #ffffff;
-  }
-  .services-title {
-    font-size: 10rem;
-    margin-bottom: -7rem;
   }
   .footer-widgets-1 {
     float: left;

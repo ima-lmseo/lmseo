@@ -270,7 +270,6 @@ function lmseo_homepage_content() {
 	require_once ( get_stylesheet_directory() . '/lib/partials/social.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/recent-posts.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/services.php' );
-	
 	require_once ( get_stylesheet_directory() . '/lib/partials/contact.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/about.php' );
 	

@@ -102,6 +102,29 @@ $theme-colors: (
 /*---------*/
 /*---------*/
 /*---------*/
+.animated-svg .path {
+  stroke: $white;
+  animation: draw-out 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+}
+.animated-svg:hover .path {
+  stroke: $white;
+  animation: draw-in 5s;
+  animation-iteration-count: 0.5;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-in {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-out {
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
 .inline-list > li {
   display: block;
   float: left;
@@ -786,6 +809,30 @@ p.subscribe-to-comments {
   text-decoration: none;
 }
 /*Sections*/
+$section-bg: $midnight;
+$section-color: darken($white, 1%);
+$section-header-color: $white;
+.section--first {
+  background-color: $section-bg;
+  color: $section-color;
+  h3 {
+    color: $section-header-color;
+  }
+}
+.section--lighter {
+  background-color: lighten($section-bg, 3%);
+  color: $section-color;
+  h3 {
+    color: $section-header-color;
+  }
+}
+.section--lightest {
+  background-color: lighten($section-bg, 6%);
+  color: $section-color;
+  h3 {
+    color: $section-header-color;
+  }
+}
 .section--purple {
   background-color: $midnight;
   color: #d5d3db;
@@ -934,7 +981,7 @@ p.subscribe-to-comments {
 }
 .tab-titles,
 .icon-bar {
-  background-color: $midnight;
+  background-color: lighten($midnight, 1%);
   height: 5.75rem;
   overflow: hidden;
   font-family: "Times New Roman", "Helvetica", Helvetica, Arial, sans-serif;
@@ -1137,8 +1184,9 @@ a.anchor {
 }
 /*Social Buttons-----------------------------------------------------------*/
 .social {
-  background-color: $black;
+  background-color: lighten($midnight, 1%);
   height: 5.75rem;
+  border-top: 1px solid;
 }
 /*About Section-----------------------------------------------------------*/
 .about {
@@ -1198,67 +1246,53 @@ a.anchor {
 }
 /*Services-----------------------------------------------------------*/
 .services {
-  padding-top: 0rem;
+  padding: 0rem;
   border-bottom: 1px solid $gainsboro;
-  //background: transparent url(https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/images/home/dandelion.jpg) 0 0;
-  //background-repeat: no-repeat;
-  //background-size: cover;
-  color: white;
-}
-.services {
-  padding-top: 3.5rem;
-  h1,
-  h2,
-  h3 {
-    //text-align: center;
-  }
+  color: $white;
+  background-color: $section-bg;
   h2,
   h3 {
     color: $tuatara;
     font-weight: normal;
+    font-size: 1.1rem;
   }
   h2 {
     width: 100%;
-    //text-align: center;
     line-height: 1.7rem;
     font-size: 1.7rem;
     color: #b38000;
     padding-bottom: 1.5rem;
   }
   h3 {
-    font-size: 1.1rem;
-  }
-}
-.services {
-  h3 {
-    color: #584002;
+    color: $white;
     font-weight: 700;
   }
 }
 .services-title {
-  color: $midnight;
-  opacity: 0.5;
-  //text-align: center;
+  color: $white;
+  opacity: 0.8;
   margin-bottom: -5rem;
   font-size: 4rem;
 }
 .services-title-wrapper {
 }
-.services-title {
-  padding: 1.5rem;
-  //background-color: rgba(255, 255, 255, 0.9);
-}
-//.services-wrapper{padding-bottom: 3.5rem}
 .services-wrapper {
-  //background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
-  //background-color: #E5A300;
 }
 .services-hosting h2,
 .services-google h2,
 .services-back-end h2,
 .services-front-end h2 {
   padding-top: 3.5rem;
+}
+.services-marketing svg {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+.services-button-wrapper {
+  background-color: lighten($section-bg, 6%);
 }
 /* Entry Footer Under each post*/
 
@@ -1637,7 +1671,7 @@ section.widget {
       padding-left: 0.6rem;
       color: $blue;
       border: 4px solid $blue;
-      border-radius: 1.6rem;
+      border-radius: 0.6rem;
       transform: scaleX(1);
       transition: transform 0.3s linear;
       transform-origin: right center;
@@ -1800,8 +1834,9 @@ section.widget {
     padding-left: 4.5rem;
   }
   .services-title {
-    margin-bottom: -5rem;
+    margin-bottom: -4rem;
     font-size: 4rem;
+    font-size: 10rem;
   }
   .recent-posts .comments {
     background-color: #3c3c3c;
@@ -1819,10 +1854,7 @@ section.widget {
       color: $white;
     }
   }
-  .services-title {
-    font-size: 10rem;
-    margin-bottom: -7rem;
-  }
+
   .footer-widgets-1 {
     float: left;
     padding-right: 20px;

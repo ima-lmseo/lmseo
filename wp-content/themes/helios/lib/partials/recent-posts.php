@@ -1,11 +1,13 @@
 <?php
-$out.='<a class="anchor" id="recent-posts"></a><section class="recent-posts">
-  <div class="row" data-equalizer>
-    <div class="col-lg-12 columns recent-post-wrapper">
+$out.='
+<a class="anchor" id="recent-posts"></a>
+<section class="recent-posts container-fluid">
+  <div class="">
+    <div class="container recent-post-wrapper">
       <h1 class="recent-posts-title">Recent Posts</h1>
-      <div class="row  recent-posts-content">
-        <div class="col-lg-12 columns recent-posts-list">
-          <div class="radius">
+      <div class="recent-posts-content">
+        <div class="recent-posts-list">
+          <div class="rounded">
           <div class="row">
           ';  
  $the_query = new WP_Query( 'showposts=3' );
@@ -49,8 +51,8 @@ while ($the_query->have_posts()){
         </div>
         </div>
       </div>
-      <div class="col align-self-center">
-        <a href="/services/" class="home-button xcol-lg-button grey-button">More Posts</a>
+      <div class="col text-center mt-5  ">
+        <a href="/blog/" class="home-button xlarge-button grey-button">More Posts</a>
       </div>
     </div>
    
