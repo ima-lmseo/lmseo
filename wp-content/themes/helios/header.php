@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <?php
 genesis_markup( array(
-	'html5'   => '<div %s class="site-container overflow-hidden">',
+	'html5'   => '<div class="site-container">',
 	'xhtml'   => '<div id="wrap">',
 //	'context' => 'site-container',
 ) );
