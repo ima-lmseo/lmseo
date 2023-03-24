@@ -1,7 +1,6 @@
 <?php
 $footer='
-
-<div class="container">
+<div class="container overflow-hidden">
     <div class="row">
         <div class="col-lg-6 ">
             <p>&copy; Copyright LMSEO ' . date('Y'). '. All rights reserved.</p>

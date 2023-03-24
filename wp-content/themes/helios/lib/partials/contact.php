@@ -1,7 +1,7 @@
 <?php
 $out.='
 <a class="anchor" id="contact"></a>
-<section class="contact container-fluid">
+<section class="contact container-fluid overflow-hidden">
     <div class="container">
     <form action="/contact/" autocomplete="on" method="post">
       <div class="row">

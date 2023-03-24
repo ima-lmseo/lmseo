@@ -1,6 +1,6 @@
 <?php
 $out.='
-<div class="featured">
+<div class="featured overflow-hidden">
   <div class="container-lg g-0">
     <div class="">
       <div class="">
@@ -15,7 +15,7 @@ $out.='
             (6262) 232-5218
           </a>
         </div>
-        <div class="featured-content ps-4">
+        <div class="featured-content ps-4 overflow-hidden">
           <h1>Online Marketing, Web Development and design</h1>
           <h2>Professional-grade services, priced for small businesses.</h2>
           <a href="/services/" class="home-button featured-button">Learn More</a>

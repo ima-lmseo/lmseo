@@ -1,7 +1,7 @@
 <?php
 $out.='
 <a class="anchor" id="recent-posts"></a>
-<section class="recent-posts container-fluid">
+<section class="recent-posts container-fluid overflow-hidden">
   <div class="">
     <div class="container recent-post-wrapper">
       <h1 class="recent-posts-title">Recent Posts</h1>

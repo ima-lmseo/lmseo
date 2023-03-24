@@ -1,7 +1,7 @@
 <?php
 $out.='
 <a class="anchor" id="catalog"></a>
-<section class="catalog container-fluid">
+<section class="catalog container-fluid overflow-hidden">
 <h1 class="catalog-title">Custom Websites</h1>
 <p class="text-center">Throughout the years we have worked closely with a number of different industries. Here is some of our work.</p>
   <div class=">
@@ -10,13 +10,13 @@ $out.='
           <hr class="mx-3">
           <div id="ca-container" class="container-fluid">
             <div class="row">
-              <div class="ca-item ca-item-4 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch> 
+              <div class="ca-item ca-item-4 col-lg-6 col-sm-12" data-equalizer-watch> 
                 <div class="text-center">
                   <h3>Ecommerce</h3>
                   <div id="ecommerce" class="text-center">
                     <a href="'. get_stylesheet_directory_uri(). '/bin/images/projects/airchaser/airchaser-home.jpg" 
                     title="Air Chaser, Inc Full Size" 
-                    data-caption="Air Chaser, Inc "
+                    data-caption="Air Chaser, Inc Full Size"
                     class="catalog-industries"
                     data-gallery="ecommerce">
                         <img src="'. get_stylesheet_directory_uri(). '/bin/images/projects/airchaser/airchaser-emulations.png" 
@@ -51,7 +51,7 @@ $out.='
                 </div>
               </div>
               <!--end of item-->
-              <div class="ca-item ca-item-3 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch>
+              <div class="ca-item ca-item-3 col-lg-6 col-sm-12" data-equalizer-watch>
                 <div class="text-center">
                  <h3>Construction</h3>
                   <div id="health" class="text-center">
@@ -92,7 +92,7 @@ $out.='
             <hr>
             <div class="row">
               <!--Item 2-->
-              <div class="ca-item ca-item-2 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch>
+              <div class="ca-item ca-item-2 col-lg-6 col-sm-12" data-equalizer-watch>
                 <div class="text-center">
                   <h3>Health</h3>
                   <div id="health" class="text-center">
@@ -129,7 +129,7 @@ $out.='
                 </div>
               </div>
               <!-- Item 1 -->
-              <div class="ca-item ca-item-1 col-lg-6 col-md-6 col-sm-12" data-equalizer-watch>
+              <div class="ca-item ca-item-1 col-lg-6 col-sm-12" data-equalizer-watch>
                 <div class="text-center">
                   <h3>Real Estate</h3>
                   <div id="real-estate" class="text-center">

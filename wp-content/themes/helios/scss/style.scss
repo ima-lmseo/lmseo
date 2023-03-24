@@ -2,7 +2,7 @@
   Theme Name: Helios
   Theme URI: http://www.lmseo.co
   Description: Helios is a 2 or 3-column Widget-ready child theme created for the Genesis Framework.
-  Author: Luis Mosquera
+  Author: Luis Luis Pieadrahita
   Author URI: http://www.lmseo.co/
 
   Version: 2.0.2cd
@@ -162,8 +162,8 @@ $theme-colors: (
   border: 1px solid #626262;
   width: 70%;
   padding: 5px 0 5px 10px;
-  border-top-left-radius: rem-calc(5);
-  border-bottom-left-radius: rem-calc(5);
+  border-top-left-radius: rfs-value(5px);
+  border-bottom-left-radius: rfs-value(5px);
   margin: 0;
 }
 .no-bullets {
@@ -219,53 +219,9 @@ $theme-colors: (
 .capitalized {
   text-transform: capitalize;
 }
-.size-12 {
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-}
-.size-14 {
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-}
-.size-16 {
-  font-size: 1rem;
-  line-height: 1rem;
-}
-.size-18 {
-  font-size: 1.125rem;
-  line-height: 1.125rem;
-}
-.size-20 {
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-}
-.size-22 {
-  font-size: 1.375rem;
-  line-height: 1.375rem;
-}
 .size-24 {
   font-size: 1.5rem;
   line-height: 1.5rem;
-}
-.size-26 {
-  font-size: 1.625rem;
-  line-height: 1.625rem;
-}
-.size-28 {
-  font-size: 1.75rem;
-  line-height: 1.75rem;
-}
-.size-30 {
-  font-size: 1.875rem;
-  line-height: 1.875rem;
-}
-.size-32 {
-  font-size: 2rem;
-  line-height: 2rem;
-}
-.size-34 {
-  font-size: 2.125rem;
-  line-height: 2.125rem;
 }
 /*Body ----------------------------------------------------*/
 /*---------------------------------------------------------*/
@@ -413,15 +369,12 @@ button.expand,
 .button.expand,
 .expand {
   font-size: 1rem;
-  padding-bottom: 1.0625rem;
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem 1rem 1rem 1.0625rem;
   width: 100%;
 }
 .custom-button-small {
   font-size: 13px;
-  padding: rem-calc(20) rem-calc(40);
+  padding: rfs-value(20px) rfs-value(40px);
 }
 #submit {
   @extend .custom-button;
@@ -441,7 +394,7 @@ button.expand,
   text-align: center;
   font-weight: 700;
   letter-spacing: 3px;
-  margin-bottom: 0rem;
+  margin-bottom: 0;
 }
 .xlarge-button {
   //height: 6.6875rem;
@@ -549,18 +502,18 @@ button.expand,
         z-index: 1;
         transition: transform 0.2s cubic-bezier(0.77, 0.2, 0.05, 1),
           background 0.2s cubic-bezier(0.77, 0.2, 0.05, 1), all 0.2s ease-in-out;
-        left: 0px;
+        left: 0;
         &:first-child {
           top: 10%;
           transform-origin: 50% 50%;
-          transform: translate(0% -50%) !important;
+          //transform: translate(0, -50%) !important;
         }
         &:nth-child(2) {
           top: 50%;
           transform: translate(0, -50%);
         }
         &:last-child {
-          left: 0px;
+          left: 0;
           top: auto;
           bottom: 10%;
           transform-origin: 50% 50%;
@@ -576,7 +529,7 @@ button.expand,
           }
           &:nth-child(2) {
             left: 50%;
-            width: 0px;
+            width: 0;
           }
           &:last-child {
             top: 45%;
@@ -630,7 +583,7 @@ button.expand,
   }
   &::after {
     margin-left: 0.655em;
-    vertical-align: 0em;
+    vertical-align: 0;
     border: solid 6px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 0.8);
   }
@@ -737,7 +690,7 @@ blockquote p {
   font-style: italic;
 }
 .post {
-  margin: 0 0 0px 0;
+  margin: 0 0 0 0;
   padding: 0 0 0 0;
 }
 .entry-content {
@@ -897,10 +850,9 @@ $section-header-color: $white;
     background-color: rgba(40, 43, 45, 0.9);
     color: $white;
     text-transform: none;
-    margin: 0;
+    margin: 0 0 1.25rem 0;
     font-weight: 300;
     padding: 0.625rem 1.25rem;
-    margin-bottom: 1.25rem;
     display: inline-block;
     zoom: 1;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
@@ -1010,14 +962,14 @@ a.anchor {
   }
   h3 {
     color: $blue;
-    padding: 3rem 0 0rem;
+    padding: 3rem 0 0;
     font-weight: 700;
     font-size: 1.1rem;
     text-transform: uppercase;
     margin-bottom: 20px;
     height: 85px;
     text-align: center;
-    text-shadow: 0px 1px 1px #e4ebe9;
+    text-shadow: 0 1px 1px #e4ebe9;
   }
   h4 {
     font-size: 1rem;
@@ -1033,6 +985,11 @@ a.anchor {
 .ecommerce-button {
   width: 14rem;
 }
+/*Lightbox Bootstrap 5-----------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='" + $blue + "' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
@@ -1049,8 +1006,6 @@ a.anchor {
   height: 4rem;
 }
 .btn-close svg {
-  width: 100%;
-  height: 4vh;
   top: -8px;
   height: 20px;
   width: 20px;
@@ -1070,12 +1025,14 @@ a.anchor {
 }
 .modal-content {
   border: 1px solid #ddd;
+  background-color: $black !important;
 }
 .carousel-item img.mh-100 {
   max-height: 88vh !important;
 }
-.carousel-item img {
-  margin-top: 9vh !important;
+
+.ratio {
+  height: 90vh;
 }
 //.carousel-control-prev-icon,
 //.carousel-control-next-icon {
@@ -1121,7 +1078,7 @@ a.anchor {
   }
 }
 .projects-content hr {
-  margin: 0rem 0 4.5rem 0;
+  margin: 0 0 4.5rem 0;
 }
 .project-item {
   padding-bottom: 4.5rem;
@@ -1186,6 +1143,15 @@ a.anchor {
   .comments {
     padding: 1.25rem;
   }
+  a {
+    text-decoration: none;
+  }
+}
+.recent-posts-list h4 {
+  margin-top: 8vh;
+  a {
+    color: $oil;
+  }
 }
 .recent-posts-list h4,
 .comments h4 {
@@ -1215,7 +1181,7 @@ a.anchor {
 }
 /*Services-----------------------------------------------------------*/
 .services {
-  padding: 0rem;
+  padding: 0;
   border-bottom: 1px solid $gainsboro;
   color: $white;
   background-color: $section-bg;
@@ -1312,6 +1278,7 @@ a.anchor {
 footer {
   background-color: $midnight;
   color: $aluminum;
+  padding-bottom: 6rem;
 }
 footer .footer-social a {
   padding: 0.5rem;
@@ -1363,19 +1330,19 @@ footer a {
 .footer-widgets {
   color: $aluminum;
   line-height: 30px;
-  font-size: rem-calc(14);
+  font-size: rfs-value(14px);
   border-top: 1px solid #626262;
   padding: 3.5rem 0 0 0;
   margin-top: 1.5rem;
   h4 {
-    font-size: rem-calc(15);
+    font-size: rfs-value(15px);
     color: $fosil;
     text-transform: uppercase;
     letter-spacing: inherit;
     font-weight: 400;
   }
   li {
-    font-size: rem-calc(14);
+    font-size: rfs-value(14px);
   }
   input[type="search"] {
     @extend .black-small-input-box;
@@ -1383,6 +1350,7 @@ footer a {
   input[type="submit"] {
     @extend %black-small-button;
     line-height: 1.3rem;
+    padding-bottom: 9px;
   }
   a {
     color: #d3d3d3;
@@ -1402,7 +1370,7 @@ footer a {
 /* Wrap
 ------------------------------------------------------------ */
 .blog-index-class #wrap {
-  margin: 0 auto 0px;
+  margin: 0 auto 0;
 }
 .blog-index-class .wrap {
   margin: 0 auto;
@@ -1563,7 +1531,6 @@ section.widget {
       display: inline-block;
       content: "";
       border: 6px solid;
-      border: solid 6px;
       border-color: rgba(68, 68, 68, 0.8) transparent transparent transparent;
     }
   }
@@ -1575,7 +1542,7 @@ section.widget {
     }
     &::after {
       margin-left: 0.655em;
-      vertical-align: 0em;
+      vertical-align: 0;
       border: solid 6px;
       border-color: transparent transparent transparent rgba(68, 68, 68, 0.8);
     }
@@ -1588,9 +1555,8 @@ section.widget {
   .hvr-underline-from-left {
     display: inline-block;
     vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+    box-shadow: 0 0 1px rgb(0 0 0 / 0);
     position: relative;
     overflow: hidden;
     &:before {
@@ -1661,7 +1627,7 @@ section.widget {
     }
     .top-search-input-wrapper,
     .top-search-end-wrapper {
-      padding-top: 0rem;
+      padding-top: 0;
       position: relative;
       left: 65px;
     }
@@ -1669,8 +1635,8 @@ section.widget {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       grid-template-rows: 1fr repeat(3, 14px) 1fr;
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
     }
     .btn-search {
       width: 38px;
@@ -1682,7 +1648,7 @@ section.widget {
       background-color: transparent;
       color: $blue;
       padding: 0;
-      margin: 0 0 0px 0px;
+      margin: 0 0 0 0;
       font-size: 1.4rem;
       border-radius: 1rem;
       border-style: solid;
@@ -1811,10 +1777,13 @@ section.widget {
   .projects ul {
     padding-left: 4.5rem;
   }
+
   .services-title {
     margin-bottom: -4rem;
-    font-size: 4rem;
     font-size: 10rem;
+  }
+  .recent-posts-list h4 {
+    margin-top: 0;
   }
   .recent-posts .comments {
     background-color: #3c3c3c;
@@ -1853,25 +1822,7 @@ section.widget {
   .navbar {
     .top-search-input-wrapper,
     .top-search-end-wrapper {
-      padding-top: 0rem;
+      padding-top: 0;
     }
   }
-
-  //.services-title {
-  //  font-size: 14rem;
-  //  margin-bottom: -12rem;
-  //}
-  //.top-bar input {
-  //  top: 8px;
-  //}
-  //.top-bar-section ul li > a {
-  //  font-size: 1rem;
-  //}
-  //.navbar {
-  //  padding-left: 100px;
-  //  padding-right: 100px;
-  //  ul {
-  //    font-size: 1.5rem;
-  //  }
-  //}
 }
