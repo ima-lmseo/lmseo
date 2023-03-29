@@ -6,15 +6,6 @@ const options = {
   size: "fullscreen",
   constrain: false,
 };
-
-document.querySelectorAll(".catalog-industries").forEach((el) =>
-  el.addEventListener("click", (e) => {
-    e.preventDefault();
-    const lightbox = new Lightbox(el, options);
-    lightbox.show();
-  })
-);
-
 document.addEventListener("click", function (e) {
   // Hamburger menu
   // console.log(e.target.classList.contains("hamburger-toggle"));

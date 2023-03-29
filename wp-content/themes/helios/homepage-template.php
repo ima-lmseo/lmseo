@@ -191,30 +191,20 @@ function lmseo_index_print_styles() {
 //    wp_enqueue_script( 'bootstrap');
 }
 /** Add Main JS to website */
-add_action( 'wp_enqueue_scripts','MainJS');
-function MainJS(){
-	/*In Use*/
-    global $portArchDev;
-//    wp_enqueue_script('bootstrap');
-    wp_enqueue_script('index-main');
+    add_action( 'wp_enqueue_scripts','MainJS');
+    function MainJS(){
+        /*In Use*/
+        global $portArchDev;
+    //    wp_enqueue_script('bootstrap');
+        wp_enqueue_script('index-main');
 
-}
+    }
 //disable or remove wp-embed.js from WordPress
+    add_action( 'wp_footer', 'lmseo_deregister_scripts' );
     function lmseo_deregister_scripts(){
- wp_deregister_script( 'wp-embed' );
-}
-add_action( 'wp_footer', 'lmseo_deregister_scripts' );
-/** Runs Foundation on the website */
-//add_action( 'wp_footer','foundationApp',20 );
-function foundationApp(){
-	?>
-	<script type='text/javascript'>
-		$(window).load(function(){
-			$(document).foundation();
-		});
-		</script>
-	<?php
-}
+        wp_deregister_script( 'wp-embed' );
+    }
+
 
 /*
 * Force the full width layout layout on the Portfolio page 
@@ -242,24 +232,27 @@ if( $enable == 'false' ){
 }
 
 remove_action(	'genesis_loop', 'genesis_do_loop' );
-add_action(	'genesis_loop', 'zp_homepage_template' );
-function zp_homepage_template() {
-?>
-<div id="home-wrap">
+//add_action(	'genesis_loop', 'zp_homepage_template' );
+//function zp_homepage_template() {
+//?>
+<!--<div id="home-wrap">-->
 <?php
-	if(  have_posts( ) ) {											
- 		while (  have_posts(  )  ) {
-			the_post(  ); 
-			
-			do_shortcode( the_content() );
-		}
-	}
-?>
-</div>
+//	if(  have_posts( ) ) {
+// 		while (  have_posts(  )  ) {
+//			the_post(  );
+//
+//			do_shortcode( the_content() );
+//		}
+//	}
+//?>
+<!--</div>-->
 <?php
-}
+//}
+add_filter( 'genesis_markup_content-sidebar-wrap', '__return_null' );
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 remove_action( 'genesis_loop', 'genesis_do_loop' );
+remove_action( 'genesis_content_sidebar_wrap' ,'genesis_do_sidebar');
+
 add_action( 'genesis_before_content_sidebar_wrap', 'lmseo_homepage_content' );
 function lmseo_homepage_content() {
 	$out ='';

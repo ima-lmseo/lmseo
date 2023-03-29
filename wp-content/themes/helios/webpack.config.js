@@ -113,7 +113,7 @@ module.exports = [
     plugins: [
       new WebpackBar(),
       new MiniCssExtractPlugin({
-        filename: outputPath + "internal/services/[name].css",
+        filename: "internal/services/[name].css",
       }),
       new BrowserSyncPlugin(
         {

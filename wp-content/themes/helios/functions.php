@@ -70,6 +70,7 @@ genesis_unregister_layout( 'content-sidebar' );
 unregister_sidebar(  'header-right'  );
 unregister_sidebar( 'sidebar-alt' );
 
+remove_filter( 'the_content', 'wpautop' ); //https://stackoverflow.com/questions/6625458/removing-p-and-br-tags-in-wordpress-posts
 /*Disable emoticons
 add_action( 'wp_head',             'print_emoji_detection_script',     7    );
 */
@@ -100,11 +101,6 @@ function streamline_add_viewport_meta_tag() {
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
 }
 
-add_action(  'wp_enqueue_scripts', 'lmseo_print_styles');
-function lmseo_print_styles(   ) {
-	//wp_register_style(  'flexslider-css', get_stylesheet_directory_uri(   ).'/css/flexslider.css' , '', '3.1.5' ); using Bower with an updated version of Flexslider
-	wp_register_style(  'flexslider-css', get_stylesheet_directory_uri(   ).'/bower_components/flexslider/flexslider.css' , '', '2.5.0' );
-}
 add_action(  'wp_enqueue_scripts', 'lmseo_theme_js'  );
 function lmseo_theme_js(   ) {
 	wp_deregister_script('jquery');
@@ -184,47 +180,19 @@ function sp_breadcrumb_args( $args ) {
 	$args['labels']['404'] = 'Not found: '; // Genesis 1.5 and later
 return $args;
 }*/
-add_action( 'genesis_after_header', 'custom_breadcrumbs' );
-function custom_breadcrumbs(){
-	if(is_home() or is_front_page()){
-	}else {
-		echo '<div class="row"><nav class="custom-breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">';
-	    if(function_exists('bcn_display')){
-	        bcn_display();
-	    }
-		echo '</nav></div>';
-	}
-}
+
+
 
 /** Add support for structural wraps */
 add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'footer-widgets', 'footer' ) );
 /* row class as structural wrap*/
-add_action( 'genesis_before_content_sidebar_wrap', 'opening_header_divs', 9 );
-function opening_header_divs() {
-	if ( is_front_page()) {
-
-	} else {
-		echo '<div class="row">';
-	  //everything else
-	}
-}
-
-add_action( 'genesis_after_content_sidebar_wrap', 'closing_header_divs' );
-function closing_header_divs() {
-	if( is_front_page()){
-
-	}else {
-		echo '</div>';
-	  //everything else
-	}
-}
 
 add_action( 'genesis_before_content', 'opening_main_divs', 9 );
 function opening_main_divs() {
 	if ( is_front_page() or is_home()) {
 
 	} else {
-		echo '<div class="row"><div class="large-12 columns">';
+//		echo '<div class="row"><div class="large-12 columns">';
 	  //everything else
 	}
 }
@@ -234,7 +202,7 @@ function closing_main_divs() {
 	if(is_home() or is_front_page()){
 
 	}else {
-		echo '</div>';
+//		echo '</div>';
 	  //everything else
 	}
 }
@@ -245,7 +213,7 @@ function opening_aside_divs() {
 	if ( is_front_page() or is_home()) {
 
 	} else {
-		echo '</div><div class="large-12 columns">';
+		echo '</div>';
 	  //everything else
 	}
 }
@@ -255,13 +223,13 @@ function closing_aside_divs() {
 	if(is_home() or is_front_page()){
 
 	}else {
-		echo '</div>';
+		echo '';
 	  //everything else
 	}
 }
 /** Add new image sizes */
 add_image_size( 'home-featured', 255, 80, TRUE );
-add_image_size( 'post-image', 642, 250, TRUE );
+add_image_size( 'post-image', 1890, 400, TRUE );
 
 /** Unregister layout settings */
 genesis_unregister_layout( 'content-sidebar-sidebar' );
@@ -340,18 +308,6 @@ function streamline_breadcrumb_args( $args ) {
    <li class="crumb-container" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" style="z-index:1"><a class="crumb crumb--last" href="/webmasters/topic/4599102?hl=en&amp;ref_topic=4598337" itemprop="url"><span class="breadcrumb-text" title="Structured data types" itemprop="title">Structured data types</span></a></li>
    </ul>
    </nav>*/
-
-/** Add post image above post title */
-add_action( 'genesis_before_post', 'streamline_post_image' );
-function streamline_post_image() {
-
-	if ( is_page() ) return;
-
-	if ( $image = genesis_get_image( 'format=url&size=post-image' ) ) {
-		printf( '<a href="%s" rel="bookmark"><img class="post-photo" src="%s" alt="%s" /></a>', get_permalink(), $image, the_title_attribute( 'echo=0' ) );
-	}
-
-}
 
 /** Relocate the post info function */
 remove_action( 'genesis_before_post_content', 'genesis_post_info' );
@@ -592,10 +548,13 @@ add_action( 'genesis_header', 'lmseo_genesis_header_markup_close', 15 );
 function lmseo_genesis_header_markup_open() {
     genesis_markup( array(
         'html5'   => '
-<header class="" %s>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0">
+    <header %s><nav class="navbar sticky-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0">
         <div class="top-bar-section container-fluid gx-0 p-0">',
-        'xhtml'   => '<div id="header"><div class="navbar navbar-expand-lg bg-light"><div class="container-fluid">',
+        'open' => '',
+        'params'  => array(
+            'id'  => 'site-header',
+        ),
+        'close'=> '</header>',
         'context' => 'site-header',
     ) );
     //echo '<div class="header-ghost"></div>';
@@ -615,7 +574,7 @@ function lmseo_genesis_do_header() {
 //		'html5'   => '<ul %s><li class="name">',
 		'html5'   => '<div class="title-area">
 <h1 class="navbar-brand site-title" itemprop="headline">
-<a href="//localhost:3000/" class="logo">LMSEO</a>
+<a href="/" class="logo">LMSEO</a>
 </h1>
 <div class="navbar-toggler-wrapper">
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -629,7 +588,6 @@ function lmseo_genesis_do_header() {
     </button>
 </div>
    </div>',
-		'xhtml'   => '<ul class="title-area"><li class="name">',
 		'context' => 'title-area',
 	) );
 	do_action( 'genesis_site_title' );

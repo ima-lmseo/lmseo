@@ -2,7 +2,7 @@
 $out.='
 <div class="featured overflow-hidden">
   <div class="container-lg g-0">
-    <div class="">
+    <div class="row">
       <div class="">
         <div class="featured-contact col-sm-12 col-md-8 col-lg-5 col-xl-4 ">
           <a class="btn-lg home-button expand" href="/contact/">

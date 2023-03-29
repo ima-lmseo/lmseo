@@ -11,14 +11,10 @@
  * @link    http://my.studiopress.com/themes/genesis/
  */
 
-genesis_structural_wrap( 'site-inner', 'close' );
-echo '</div>'; //* end .site-inner or #inner
 
 do_action( 'genesis_before_footer' );
 do_action( 'genesis_footer' );
 do_action( 'genesis_after_footer' );
-
-echo '</div>'; //* end .site-container or #wrap
 
 do_action( 'genesis_after' );
 

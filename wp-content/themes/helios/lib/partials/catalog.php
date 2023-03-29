@@ -4,8 +4,8 @@ $out.='
 <section class="catalog container-fluid overflow-hidden">
 <h1 class="catalog-title">Custom Websites</h1>
 <p class="text-center">Throughout the years we have worked closely with a number of different industries. Here is some of our work.</p>
-  <div class=">
-    <div class="">
+  <div>
+    <div>
       <div class="catalog-content" data-equalizer>
           <hr class="mx-3">
           <div id="ca-container" class="container-fluid">
