@@ -257,8 +257,8 @@ add_action( 'genesis_before_content_sidebar_wrap', 'lmseo_homepage_content' );
 function lmseo_homepage_content() {
 	$out ='';
 	require_once ( get_stylesheet_directory() . '/lib/partials/featured-banner.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/tap-titles.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/catalog.php' );
+    require_once ( get_stylesheet_directory() . '/lib/partials/tap-titles.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/projects.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/social.php' );
 	require_once ( get_stylesheet_directory() . '/lib/partials/recent-posts.php' );

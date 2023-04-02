@@ -30,15 +30,7 @@ module.exports = [
       new WebpackBar(),
       new MiniCssExtractPlugin({
         filename: "../[name].css",
-      }),
-      new BrowserSyncPlugin(
-        {
-          proxy: localDomain,
-          files: ["/*.css"],
-          injectCss: false,
-        },
-        { reload: true }
-      ),
+      })
     ],
     module: {
       rules: [

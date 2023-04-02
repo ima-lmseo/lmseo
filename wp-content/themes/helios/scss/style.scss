@@ -42,6 +42,7 @@ $cloud: #696969;
 $charcoal: #555555;
 $tuatara: #444444;
 $oil: #333333;
+$hexachromeBlack: #212121;
 $jet: #222222;
 $midnight: #111111;
 $black: #000000;
@@ -58,6 +59,8 @@ $crumb-bg: scale-color($secondary-color, $lightness: 55%);
 $crumb-function-factor: -10%;
 $entry-footer-bg: $crumb-bg;
 $entry-footer-factor: $crumb-function-factor;
+$link-hover-color: $blue;
+$nav-link-hover-color: $link-hover-color;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -329,7 +332,8 @@ button,
   border-color: white;
   color: white;
   //transition: background-color 300ms ease-out;
-  border-radius: 0.5rem;
+  //border-radius: 0.5rem;
+  border-radius: 0;
 }
 .custom-button {
   cursor: pointer;
@@ -425,7 +429,6 @@ button.expand,
 .navbar {
   background-color: $white;
   .title-area {
-    background-color: $white;
     width: 100%;
   }
 }
@@ -442,7 +445,6 @@ button.expand,
 // Assigning the above animation to all dropdown menus
 .dropdown-menu {
   &.show {
-    -webkit-animation: fadeIn 0.3s alternate; /* Safari 4.0 - 8.0 */
     animation: fadeIn 0.3s alternate;
   }
 }
@@ -497,7 +499,7 @@ button.expand,
         width: 100%;
         height: 4px;
         position: absolute;
-        background: #333;
+        background: $white;
         border-radius: 2px;
         z-index: 1;
         transition: transform 0.2s cubic-bezier(0.77, 0.2, 0.05, 1),
@@ -572,7 +574,7 @@ button.expand,
     background-color: $blue;
   }
   &:focus {
-    background-color: lighten($oil, 5%);
+    background-color: lighten($hexachromeBlack, 5%);
   }
 }
 .dropdown-toggle {
@@ -604,44 +606,65 @@ button.expand,
 .mask-custom {
   backdrop-filter: blur(5px);
   //background-color: rgba(255, 255, 255, 1);
-  background-color: $oil;
+  background-color: $hexachromeBlack;
+  @include fixed-top;
+}
+.navbar-collapse {
+  background-color: lighten($hexachromeBlack, 5%);
 }
 .dropdown-menu {
-  background-color: lighten($oil, 10%);
+  background-color: lighten($hexachromeBlack, 10%);
   margin: 6px 1px;
   padding-left: 12px;
 }
 .dropdown-depth-2 {
-  background-color: lighten($oil, 20%);
+  background-color: lighten($hexachromeBlack, 20%);
 }
 .dropdown-depth-3 {
-  background-color: lighten($oil, 30%);
+  background-color: lighten($hexachromeBlack, 30%);
 }
-//.top-bar-section ul li a{
-//  background-color: #333;
-//}
-//.top-bar-section .dropdown li:not(.has-form):hover > a:not(.button){
-//  color: #eeeeee;
-//  background-color: $charcoal;
-//  background: $charcoal
-//}
-//.top-bar-section .dropdown li:not(.has-form) a:not(.button){
-//  border-bottom: 1px solid $white;
-//  border-right: 1px solid $white;
-//}
-//.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button):not(.home-button) {
-//  background: #333333;
-//  color: $white;
-//}
-$link-hover-color: $blue;
-//$nav-link-padding-y:                .5rem;
-//$nav-link-padding-x:                1rem;
-//$nav-link-font-size:                null;
-//$nav-link-font-weight:              null;
-//$nav-link-color:                    $link-color;
-$nav-link-hover-color: $link-hover-color;
-//$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-//$nav-link-disabled-color:           $gray-600;
+.phone-link {
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+}
+//Featured
+.featured {
+  //background-image: url(../images/bench.jpg);
+  //background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  min-height: calc(100vh);
+  background-color: $hexachromeBlack;
+  color: $white;
+}
+.featured-content {
+  grid-area: 3/9/12/19;
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+.featured-image {
+  grid-area: 13/1/25/25;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start]1fr);
+  grid-template-rows: repeat(12, [col-start]1fr);
+  img {
+    grid-area: 1/1/13/13;
+    width: 100%;
+    max-height: 468px;
+    object-fit: cover;
+    border-top: 5px #ffffff solid;
+  }
+}
+.details {
+  display: none;
+  grid-area: 1/1/48/48;
+}
 /*Main Content--------------------------------------------------------*/
 /*--------------------------------------------------------------------*/
 /*--------------------------------------------------------------------*/
@@ -806,64 +829,7 @@ $section-header-color: $white;
     color: darken($saffron, 25%);
   }
 }
-/*-----------------------------------------------------------*/
-/*Featured Banner Homepage
--------------------------------------------------------------*/
-.featured {
-  background-image: url(../images/bench.jpg);
-  background-size: cover;
-  //min-height: 42rem;
-  min-height: calc(100vh - 75px);
-  width: 100%;
-  .featured-contact {
-    padding: 1.25rem 1.25rem 0 1.25rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-}
-.featured-content {
-  position: absolute;
-  top: 24.8125rem;
-  /*-webkit-transition: top 0.5s ease-in 0s;
-  -moz-transition: top 0.5s ease-in 0s;
-  -o-transition: top 0.5s ease-in 0s;
-  -ms-transition: top 0.5s ease-in 0s;
-  transition: top 0.5s ease-in 0s;*/
-  &:hover {
-    /* Chrome, Safari, Opera */
-  }
-  h1 {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #1c1c1e;
-    padding: 16px 20px;
-    width: 100%;
-    margin: 0 0 1.25rem 0;
-    display: inline-block;
-    zoom: 1;
-    text-transform: uppercase;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-    line-height: 3rem;
-    font-weight: normal;
-  }
-  h2 {
-    background-color: rgba(40, 43, 45, 0.9);
-    color: $white;
-    text-transform: none;
-    margin: 0 0 1.25rem 0;
-    font-weight: 300;
-    padding: 0.625rem 1.25rem;
-    display: inline-block;
-    zoom: 1;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-    width: 100%;
-  }
-}
-.featured-button {
-  float: right;
-  background-color: $midnight;
-  margin-right: 0.9375rem;
-}
+
 /*tab-titles-------------------------------------------*/
 /*-----------------------------------------------------*/
 /*-----------------------------------------------------*/
@@ -902,7 +868,7 @@ $section-header-color: $white;
 }
 .tab-titles,
 .icon-bar {
-  background-color: lighten($midnight, 1%);
+  background-color: $hexachromeBlack;
   height: 5.75rem;
   overflow: hidden;
   font-family: "Times New Roman", "Helvetica", Helvetica, Arial, sans-serif;
@@ -1068,7 +1034,7 @@ a.anchor {
 }
 /*Projects-----------------------------------------------------------*/
 .projects {
-  background-color: $midnight;
+  background-color: $hexachromeBlack;
   color: $aluminum;
   hr {
     border-color: $fosil;
@@ -1098,7 +1064,7 @@ a.anchor {
 }
 .eopiates-home {
   background: rgba(0, 0, 0, 0.5)
-    url(https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/images/projects/eopiates/home-dual.jpg)
+    url("https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/images/projects/eopiates/home-dual.jpg")
     no-repeat 0 0;
   display: block;
   background-size: 100%;
@@ -1276,7 +1242,7 @@ a.anchor {
   clear: both;
 }
 footer {
-  background-color: $midnight;
+  background-color: $hexachromeBlack;
   color: $aluminum;
   padding-bottom: 6rem;
 }
@@ -1522,7 +1488,8 @@ section.widget {
   .nav-item-depth-0 .dropdown-toggle {
     &:hover {
       &::after {
-        border-color: rgba(68, 68, 68, 0.8) transparent transparent transparent;
+        border-color: rgba(255, 255, 255, 0.8) transparent transparent
+          transparent;
       }
     }
     &::after {
@@ -1531,20 +1498,20 @@ section.widget {
       display: inline-block;
       content: "";
       border: 6px solid;
-      border-color: rgba(68, 68, 68, 0.8) transparent transparent transparent;
+      border-color: rgba(255, 255, 255, 0.8) transparent transparent transparent;
     }
   }
   .nav-item-depth-1 .dropdown-toggle {
     &:hover {
       &::after {
-        border-color: transparent transparent transparent rgba(68, 68, 68, 1);
+        border-color: transparent transparent transparent rgba(255, 255, 255, 1);
       }
     }
     &::after {
       margin-left: 0.655em;
       vertical-align: 0;
       border: solid 6px;
-      border-color: transparent transparent transparent rgba(68, 68, 68, 0.8);
+      border-color: transparent transparent transparent rgba(255, 255, 255, 0.8);
     }
   }
   /*Undeline link effect--------------------*/
@@ -1587,7 +1554,7 @@ section.widget {
   /*----------------------------------------------*/
   /*----------------------------------------------*/
   .navbar {
-    border-bottom: 1px solid $gainsboro;
+    border-bottom: 1px solid $hexachromeBlack;
     padding: 0;
     .hide-for-medium-down {
       display: inline;
@@ -1638,6 +1605,9 @@ section.widget {
       grid-column-gap: 0;
       grid-row-gap: 0;
     }
+    .navbar-collapse {
+      background-color: transparent;
+    }
     .btn-search {
       width: 38px;
       height: 38px;
@@ -1685,14 +1655,11 @@ section.widget {
       margin-top: 16px;
     }
   }
-  .mask-custom {
-    @include fixed-top;
-  }
   .dropdown-menu,
   .mask-custom,
   .dropdown-depth-2,
   .dropdown-depth-3 {
-    background-color: $white;
+    background-color: $hexachromeBlack;
     padding: 12px;
     margin: 0;
   }
@@ -1701,7 +1668,7 @@ section.widget {
       line-height: 4.6875rem;
       padding: 0 1.5625rem;
       font-size: 1rem;
-      color: $oil;
+      color: $white;
     }
     ul li > a {
       font-size: 0.9rem;
@@ -1716,8 +1683,9 @@ section.widget {
   /*Triggers dropdown -----------------*/
   /*-----------------------------------*/
   .dropdown > .dropdown-menu {
-    color: rgba(68, 68, 68, 0);
-    background-color: $white;
+    border-color: $white;
+    color: rgba(255, 255, 255, 0);
+    background-color: $hexachromeBlack;
     transform-origin: top left; //Start of the transition
     visibility: hidden;
     transform: translateX(-10%);
@@ -1726,7 +1694,7 @@ section.widget {
     transition: transform 0.2s, opacity 0.2s ease-out;
   }
   .dropdown:hover > .dropdown-menu {
-    color: rgba(68, 68, 68, 1);
+    color: rgba(255, 255, 255, 1);
     display: block;
     transform-origin: top left; //Start of the transition
     visibility: visible;
@@ -1753,26 +1721,216 @@ section.widget {
       left: 5%;
     }
   }
-  /*Featured Section*/
-  /*----------------*/
-  /*----------------*/
-  /*----------------*/
-  /*----------------*/
-  #featured {
-    min-height: 49.3rem;
+  /*-----------------------------------------------------------*/
+  /*Featured Banner Homepage
+  -------------------------------------------------------------*/
+  .featured {
+    //background-image: url(../images/bench.jpg);
+    //background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    //min-height: 42rem;
+    min-height: calc(120vh);
+    background-color: $hexachromeBlack;
+    .featured-contact {
+      padding: 1.25rem 1.25rem 0 1.25rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
   }
-  .featured-content {
-    max-width: 42.5rem;
-    //top: 27.8125rem;
+  .featured-s {
+    grid-area: 13/13/25/13;
+    background-color: $blue;
+    border-left: 8px solid $white;
+    border-top: 8px solid $white;
+  }
+  .featured-s2 {
+    grid-area: 4 / 13 / 5 / 25;
+  }
+  .featured-s3 {
+    grid-area: 3/13/13/13;
+    border-right: 8px solid $white;
+  }
+  .featured-s4 {
+    grid-area: 19/1/22/13;
+    background-color: $blue;
+    opacity: 1;
+    //background-image: linear-gradient(135deg, $blue 25%, transparent 25%),
+    //  linear-gradient(225deg, $blue 25%, transparent 25%),
+    //  linear-gradient(45deg, $blue 25%, transparent 25%),
+    //  linear-gradient(315deg, $blue 25%, $white 25%);
+    //background-position: 20px 0, 20px 0, 0 0, 0 0;
+    //background-size: 5px 5px;
+    //background-repeat: repeat;
+    border-top: 8px solid $white;
+    border-bottom: 8px solid $white;
+  }
+  .featured-s5 {
+    grid-area: 19/13/25/14;
+    border-top: 8px solid $white;
+    border-right: 8px solid $white;
+    border-left: 8px solid $white;
+    background-color: $hexachromeBlack;
+  }
+  .featured-s6 {
+    grid-area: 23/1/25/25;
+    background-color: $hexachromeBlack;
+    color: $white;
+    font-size: 1.3rem;
+    border-top: 8px solid $white;
+    position: relative;
+  }
+  .featured-s7 {
+    grid-area: 23/1/25/13;
+    background-color: $white;
+    color: $white;
+    font-size: 1.3rem;
+    border-top: 5px solid $white;
+  }
+  .featured-s8 {
+    grid-area: 19/21/25/25;
+    background-color: $blue;
+    color: $white;
+    font-size: 1.3rem;
+  }
+  .details {
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2;
+    position: relative;
+    grid-column: col-start 1 / span 14;
+    grid-row: col-start 5 / span 8;
+    //content: "";
+    //border: 1rem solid $white;
+    //border-color: rgba(33, 33, 33, 1) transparent transparent transparent;
+    //font-size: 2rem;
+    //line-height: 8rem;
+    //width: 20px;
+    //display: block;
+    //opacity: 1;
+    //grid-area: 1/13/1/13;
+    //transform: translate(-50%, 0%);
+    &:hover {
+      //background-color: rgba(32, 152, 209, 0.5);
+    }
+    svg {
+      height: 27px;
+      width: 27px;
+    }
+    label {
+      cursor: pointer;
+    }
+  }
+  .featured-image {
+    grid-area: 4/14/25/25;
+    //background-image: url(../images/bench.jpg);
+    background-size: cover;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(24, [col-start]1fr);
+    grid-template-rows: repeat(24, [col-start]1fr);
+    background-position-x: center;
+    border-top: 8px solid $white;
+    cursor: pointer;
+    img {
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease-out;
+      transform: scale(1);
+      grid-area: 1/1/23/25;
+      border-top-width: 0;
+      &:hover {
+        transform: scale(1.2);
+        transition: transform 20s ease-out;
+      }
+    }
+    .overlay {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-color: rgba(255, 71, 120, 0.8); //219, 22, 47 fire red
+      transition: all 0.2s ease-in;
+      grid-area: 1/1/23/25;
+    }
+    &:hover > .overlay {
+      opacity: 1;
+    }
+    &:hover .details {
+      opacity: 1;
+    }
 
-    h1,
-    h2 {
-      border-radius: 0.5rem;
+    .details-1 {
+      grid-row: col-start 4 / span 1;
+      grid-column: col-start 1 / span 9;
     }
-    .featured-button {
-      margin-right: 0;
+    .details-2 {
+      grid-row: col-start 4 / span 1;
+    }
+    .details-3 {
+      grid-row: col-start 6 / span 1;
+    }
+    .details-4 {
+      grid-row: col-start 8 / span 1;
+    }
+    .details-5 {
+      grid-row: col-start 12 / span 10;
     }
   }
+  .title {
+    color: $white;
+    font-size: 1.3rem;
+    width: 200px;
+    text-align: right;
+  }
+  .underline {
+    height: 5px;
+    width: 100%;
+    background-color: $white;
+    //grid-column: col-start/span 2;
+    margin-top: 10px;
+    margin-bottom: 3px;
+  }
+  .description {
+    color: $white;
+    font-size: 1rem;
+    width: 200px;
+    text-align: right;
+  }
+
+  .featured-content {
+    grid-area: 3/1/25/11;
+    &:hover {
+    }
+    h1 {
+      color: $white;
+      padding: 0 0 2rem 2rem;
+      width: 100%;
+      margin: 0 0 1.25rem 0;
+      display: inline-block;
+      zoom: 1;
+      line-height: 4.7rem;
+      font-size: 4.4rem;
+      font-weight: bold;
+      border-bottom: 5px solid $white;
+    }
+    h2 {
+      color: $white;
+      text-transform: none;
+      margin: 0 0 1.25rem 0;
+      font-weight: 300;
+      padding: 0.625rem 3.25rem;
+      width: 100%;
+    }
+  }
+
   .projects ul > li > ul,
   .projects ul {
     padding-left: 4.5rem;
@@ -1824,5 +1982,13 @@ section.widget {
     .top-search-end-wrapper {
       padding-top: 0;
     }
+  }
+  .featured-content {
+    h1 {
+      font-size: 5.4rem;
+    }
+  }
+  .featured-button {
+    margin-left: 150px;
   }
 }

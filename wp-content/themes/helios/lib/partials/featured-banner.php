@@ -1,9 +1,43 @@
 <?php
 $out.='
-<div class="featured overflow-hidden">
-  <div class="container-lg g-0">
-    <div class="row">
-      <div class="">
+<div class="featured">
+    <div class="featured-content">
+      <h1>Online Marketing, Web Development and design</h1>
+      <h2>Professional-grade services, priced for small businesses.</h2>
+      <a href="/services/" class="home-button float-end my-3">Learn More</a>
+    </div>
+    <div class="featured-s"></div>
+    <div class="featured-s2"></div>
+    <div class="featured-s3"></div>
+    <div class="featured-s4"></div>
+    <div class="featured-s5"></div>
+    <div class="featured-s7"></div>
+    <div class="featured-image" onclick="location.href=\'/\'">
+        <img src="'. get_stylesheet_directory_uri(). '/bin/images/bench.jpg" alt="Our path" width="1000" height="837" >
+        <div class="details">
+            <div class="title float-end">S&amp;R Denim</div>
+            <div class="underline float-end"></div>
+            <div class="description float-end">
+                S&amp;R Denim customers go crazy for their new online shopping tool.
+            </div>
+             <a href="/" class="home-button featured-button float-end my-5" >Read more</a>
+        </div>
+        <div class="overlay"></div>
+        <div class="featured-s6"></div>
+    </div>
+</div>';
+/*
+ *
+        <a class="details details-4 clearfix" href="#about" onclick="javascript:void(0);$.scrollTo(\'#about\', 1200);"  >
+            <div class="title float-end">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                  <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
+                </svg>
+                <label>About</label>
+            </div>
+            <div class="underline float-end"></div>
+        </a>
+ <div class="row">
         <div class="featured-contact col-sm-12 col-md-8 col-lg-5 col-xl-4 ">
           <a class="btn-lg home-button expand" href="/contact/">
             Email Us
@@ -15,16 +49,8 @@ $out.='
             (6262) 232-5218
           </a>
         </div>
-        <div class="featured-content ps-4 overflow-hidden">
-          <h1>Online Marketing, Web Development and design</h1>
-          <h2>Professional-grade services, priced for small businesses.</h2>
-          <a href="/services/" class="home-button featured-button">Learn More</a>
-        </div>
-      </div>
     </div>
-  </div>
-</div>';
-/*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <nav class="navbar navbar-expand-lg bg-light">
   <ul class="title-area">
     <li class="name">
