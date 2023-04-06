@@ -1,5 +1,6 @@
 import { Navbar, Popper } from "bootstrap";
 import Lightbox from "bs5-lightbox";
+import AOS from "aos";
 
 const options = {
   keyboard: true,
@@ -22,4 +23,10 @@ document.addEventListener("click", function (e) {
     // console.log(e.target.children[0].classList);
     e.target.children[0].classList.toggle("active");
   }
+});
+
+AOS.init({
+  offset: 0,
+  once: false,
+  mirror: false,
 });

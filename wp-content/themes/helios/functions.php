@@ -570,11 +570,14 @@ function lmseo_genesis_header_markup_close() {
 add_action( 'genesis_header', 'lmseo_genesis_do_header' );
 function lmseo_genesis_do_header() {
 	global $wp_registered_sidebars;
+    require_once ( get_stylesheet_directory() . '/lib/partials/functions/logo.php');
 	genesis_markup( array(
 //		'html5'   => '<ul %s><li class="name">',
 		'html5'   => '<div class="title-area">
 <h1 class="navbar-brand site-title" itemprop="headline">
-<a href="/" class="logo">LMSEO</a>
+<a href="/" class="logo">
+'. $logo .'
+</a>
 </h1>
 <div class="navbar-toggler-wrapper">
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -599,9 +602,8 @@ function lmseo_genesis_do_header() {
 
 	//wp_nav_menu( $defaults );
 	genesis_markup( array(
-		'html5'   => '<div class="collapse navbar-collapse" id="navbarSupportedContent" %s>',
-		'xhtml'   => '<div>',
-		'context' => 'top-bar-section',
+		'html5'   => '<div class="collapse navbar-collapse" id="navbarSupportedContent" >',
+		'context' => 'navbar-collapse',
 	) );
 
 	wp_nav_menu(

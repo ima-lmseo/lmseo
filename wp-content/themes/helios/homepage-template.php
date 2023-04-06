@@ -17,7 +17,7 @@ function lmseo_index_critical_css(){
 	$path= 'bin/css/homepage/critical/styles.min.css.php';
 	global $portArchDev;
 	if($portArchDev){
-		echo '<style type="text/css">';
+		echo '<style>';
 		include $path;
 		echo '</style>';
 	}
@@ -256,25 +256,25 @@ remove_action( 'genesis_content_sidebar_wrap' ,'genesis_do_sidebar');
 add_action( 'genesis_before_content_sidebar_wrap', 'lmseo_homepage_content' );
 function lmseo_homepage_content() {
 	$out ='';
-	require_once ( get_stylesheet_directory() . '/lib/partials/featured-banner.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/catalog.php' );
-    require_once ( get_stylesheet_directory() . '/lib/partials/tap-titles.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/projects.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/social.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/recent-posts.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/services.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/contact.php' );
-	require_once ( get_stylesheet_directory() . '/lib/partials/about.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/featured-banner.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/catalog.php' );
+//    require_once ( get_stylesheet_directory() . '/lib/partials/homepage/tap-titles.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/projects.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/social.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/recent-posts.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/services.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/contact.php' );
+	require_once ( get_stylesheet_directory() . '/lib/partials/homepage/about.php' );
 	
-	//require_once ( get_stylesheet_directory() . '/lib/partials/header.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/featured-banner.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/tap-titles.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/projects.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/social.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/recent-posts.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/contact.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/about.php' );
-	//require_once ( get_stylesheet_directory() . '/lib/partials/footer.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/header.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/featured-banner.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/tap-titles.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/projects.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/social.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/recent-posts.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/contact.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/about.php' );
+	//require_once ( get_stylesheet_directory() . '/lib/partials/homepage/footer.php' );
 	echo $out;
 }
 genesis();

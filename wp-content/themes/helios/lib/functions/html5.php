@@ -17,7 +17,7 @@ add_action( 'genesis_doctype', 'html5_do_doctype' );
 	function html5_do_doctype() {
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" >
 <?php
@@ -57,7 +57,7 @@ remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
 add_action( 'genesis_footer', 'html5_open_footer', 5 );
 function html5_open_footer() {
 		echo '<footer id="footer" class="footer">';
-		require_once ( get_stylesheet_directory() . '/lib/partials/footer.php' );
+		require_once ( get_stylesheet_directory() . '/lib/partials/homepage/footer.php' );
 		echo $footer;
 		echo '<div class="container"><div class="row">';
 		//genesis_structural_wrap( 'footer', 'open' );
