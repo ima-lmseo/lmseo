@@ -5,7 +5,7 @@ require_once ( get_stylesheet_directory() . '/lib/functions/html5.php' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
-
+add_post_type_support( 'page', 'excerpt' );
 /*add_filter('language_attributes', 'modernizr_no_js');
 function modernizr_no_js($output) {
     return $output . ' class="no-js"';
@@ -548,7 +548,7 @@ add_action( 'genesis_header', 'lmseo_genesis_header_markup_close', 15 );
 function lmseo_genesis_header_markup_open() {
     genesis_markup( array(
         'html5'   => '
-    <header %s><nav class="navbar sticky-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0">
+    <header %s><nav class="navbar navbar-nav-scroll fixed-top navbar-expand-lg navbar-light mask-custom shadow-0 p-0">
         <div class="top-bar-section container-fluid gx-0 p-0">',
         'open' => '',
         'params'  => array(
@@ -564,13 +564,12 @@ function lmseo_genesis_header_markup_close() {
     genesis_structural_wrap( 'header', 'close' );
     genesis_markup( array(
         'html5' => '</div></nav></header>',
-        'xhtml' => '</div></div></div>',
     ) );
 }
 add_action( 'genesis_header', 'lmseo_genesis_do_header' );
 function lmseo_genesis_do_header() {
 	global $wp_registered_sidebars;
-    require_once ( get_stylesheet_directory() . '/lib/partials/functions/logo.php');
+    require_once ( get_stylesheet_directory() . '/lib/partials/svg/logo.php');
 	genesis_markup( array(
 //		'html5'   => '<ul %s><li class="name">',
 		'html5'   => '<div class="title-area">
@@ -632,7 +631,7 @@ function lmseo_genesis_do_header() {
     genesis_markup( array(
         'html5'   => '
 <div class="d-none d-lg-block d-lg-flex justify-content-end pe-lg-5">
-    <div class="container">
+    <div class="container g-3">
         <form role="search">
             <div class="row">
                 <span class="col-xl-4">
@@ -780,7 +779,8 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
         $linkClasses = 'hvr-underline-from-left ';
         if ($args->walker->has_children) {
             $linkClasses .= 'nav-link dropdown-toggle';
-            $attributes .= !empty( $item->url )        ? ' data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-boundary="clippingParents"' : '';
+//            $attributes .= !empty( $item->url )        ? ' data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-boundary="clippingParents"' : '';
+            $attributes .= !empty( $item->url )        ? ' data-bs-toggle="" aria-expanded="false" data-bs-auto-close="outside" data-bs-boundary="clippingParents"' : '';
 
         }else{
             if( $depth>0 ) {
@@ -801,5 +801,63 @@ class LMSEO_Walker_Nav_Menu extends Walker_Nav_Menu {
             $args->after
         );
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+}
+
+/**
+ * Filter the output of Yoast breadcrumbs so each item is an <li> with schema markup
+ * @param $link_output
+ * @param $link
+ *
+ * @return string
+ */
+function lmseo_filter_yoast_breadcrumb_items( $link_output, $link ) {
+	$new_link_output ='';
+	$pos = strpos($link_output, 'breadcrumb_last');
+	if($pos===false){
+		$new_link_output = '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
+		$new_link_output .= '<a href="' . $link['url'] . '" itemprop="url" class="hvr-underline-from-left">' . $link['text'] . '</a>';
+		$new_link_output .= '</li>';
+	}else{
+		$new_link_output .= '<li class="current-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'. $link['text'];
+		$new_link_output .= '</li>';
+	}
+
+
+    return $new_link_output;
+}
+add_filter( 'wpseo_breadcrumb_single_link', 'lmseo_filter_yoast_breadcrumb_items', 10, 2 );
+
+
+/**
+ * Filter the output of Yoast breadcrumbs to remove <span> tags added by the plugin
+ * @param $output
+ *
+ * @return mixed
+ */
+function lmseo_filter_yoast_breadcrumb_output( $output ){
+
+    $from = '<span>';
+    $to = '</span>';
+    $output = str_replace( $from, $to, $output );
+
+    return $output;
+}
+add_filter( 'wpseo_breadcrumb_output', 'lmseo_filter_yoast_breadcrumb_output' );
+
+add_action( 'genesis_before_content', 'custom_breadcrumbs_services_definition', 10);
+function custom_breadcrumbs_services_definition(){
+    if(is_home() or is_front_page()){
+    }else {
+        echo '<nav class="lmseo-breadcrumb-wrap px-5"><div class="container-fluid g-0 clearfix"><div class="">';
+//        if(function_exists('bcn_display_list')){
+//            bcn_display_list();
+//        }
+
+        if (function_exists('yoast_breadcrumb')) {
+            yoast_breadcrumb('<ul class="lmseo-breadcrumb float-end m-0 p-0" xmlns:v="http://rdf.data-vocabulary.org/#">', '</ul>');
+        }
+
+        echo '</div></div></nav>';
     }
 }

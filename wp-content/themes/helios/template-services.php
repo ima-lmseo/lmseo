@@ -11,7 +11,7 @@
 Template Name: Services
 */
 /** Add page image above breadcrumbs */
-add_action( 'genesis_before_content', 'streamline_post_image', 1);
+//add_action( 'genesis_before_content', 'streamline_post_image', 1);
 function streamline_post_image() {
 
 //	if ( is_page() ) return;
@@ -23,17 +23,6 @@ function streamline_post_image() {
 
     }
 
-}
-add_action( 'genesis_before_content', 'custom_breadcrumbs', 10);
-function custom_breadcrumbs(){
-    if(is_home() or is_front_page()){
-    }else {
-        echo '<nav class="lmseo-breadcrumb-wrap"><div class="container"><div class="row"><div class="lmseo-breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">';
-        if(function_exists('bcn_display')){
-            bcn_display();
-        }
-        echo '</div></div></div></nav>';
-    }
 }
 // Add custom body class to the head
 add_filter( 'body_class', 'streamline_add_body_class' );
@@ -127,15 +116,121 @@ remove_theme_support('genesis-structural-wraps',array( 'header'));
 add_filter('genesis_attr_content','contentClassesFunction');
 
 function contentClassesFunction($attributes) {
-    $attributes['class'] = $attributes['class'] . ' ' . 'container';
+    $attributes['class'] = $attributes['class'] . ' ' . 'container-fluid g-0 overflow-hidden';
     return $attributes;
 }
 
-add_filter('genesis_attr_entry','entryClassesFunction');
-
+/**
+ * Edit the "entry-content" classe's array.
+ *
+ *
+ * filter is applied on the echoed markup.
+ *
+ *
+ * @return 'entry-content' classes array.
+ */
+add_filter('genesis_attr_entry-header','entryClassesFunction');
 function entryClassesFunction($attributes) {
-    $attributes['class'] = $attributes['class'] . ' ' . 'row pb-5';
+    $attributes['class'] = $attributes['class'] . ' ' . ' text-grid m-0';
     return $attributes;
+}
+
+
+remove_action(  'genesis_entry_header', 'genesis_do_post_title' );
+add_action( 'genesis_entry_header', 'lmseo_do_post_title' );
+function lmseo_do_post_title(){
+   require_once ( get_stylesheet_directory() . '/lib/partials/svg/ecommerce.php');
+
+    $title = apply_filters( 'genesis_post_title_text', get_the_title() );
+    $wrap = 'h1';
+    $wrap = apply_filters( 'genesis_entry_title_wrap', $wrap );
+    $output = genesis_markup(
+        [
+            'open'    => "<{$wrap} %s>",
+            'close'   => "</{$wrap}>",
+            'content' => $title,
+            'context' => 'entry-title',
+            'params'  => [
+                'wrap' => $wrap,
+            ],
+            'atts' => [
+                'class' => 'entry-title col-lg-8 m-0 px-3 p-lg-0',
+                'data-aos' => "fade-right",
+                'data-aos-delay' => "300",
+            ],
+            'echo'    => false,
+        ]
+    );
+    genesis_markup(
+        [
+            'open'    => "<h4 %s>",
+            'close'   => "</h4>",
+            'content' => 'SERVICES',
+            'context' => 'services-title',
+            'atts' => [
+                'class' => 'services-title m-0 px-3 p-lg-0',
+                'data-aos' => "fade-right",
+                'data-aos-delay' => "0",
+            ],
+            'echo'    => true,
+        ]
+    );
+    genesis_markup(
+        [
+            'open'    => "<h5 %s>",
+            'close'   => "</h5>",
+            'content' => 'LMSEO',
+            'context' => 'header-brand',
+            'atts' => [
+                'class' => 'header-brand m-0 p-0',
+                'data-aos' => "fade-left",
+                'data-aos-delay' => "0",
+            ],
+            'echo'    => true,
+        ]
+    );
+//    genesis_markup(
+//        [
+//            'open'    => "<div %s>",
+//            'close'   => "</div>",
+//            'content' => $ecommerce,
+//            'context' => 'ecommerce-icon',
+//            'atts' => [
+//                'class' => 'ecommerce-icon m-0 p-0',
+//                'data-aos' => "fade-right",
+//                'data-aos-delay' => "0",
+//            ],
+//            'echo'    => true,
+//        ]
+//    );
+//    p-0 p-sm-5 p-lg-0
+//    echo '<h4 class="services-title m-0 p-0">SERVICES</h4>';
+    echo apply_filters( 'genesis_post_title_output', $output, $wrap, $title ) . "\n";
+}
+remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
+add_action( 'genesis_entry_content', 'lmseo_do_post_content' );
+function lmseo_do_post_content() {
+//
+//    $img = genesis_get_image(
+//        [
+//            'format'  => 'html',
+//            'size'    => 'post-image',
+//            'context' => 'services-image ',
+//            'attr'    => genesis_parse_attr( 'services-image', ['class'=>'services-image'] ),
+//        ]
+//    );
+//    if ( ! empty( $img ) ) {
+//        genesis_markup(
+//            [
+//                'open' => '<div %s>',
+//                'close' => '</div>',
+//                'content' => $img,
+//                'context' => 'services-image-wrapper',
+//                'atts' => genesis_parse_attr('services-image-wrapper', ['class' => 'services-image-wrapper']),
+//            ]
+//        );
+//    }
+    genesis_do_post_content();
 }
 
 genesis();

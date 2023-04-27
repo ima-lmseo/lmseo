@@ -1,6 +1,7 @@
-import { Navbar, Popper } from "bootstrap";
+import { Dropdown, Popper } from "bootstrap";
 import Lightbox from "bs5-lightbox";
 import AOS from "aos";
+import { bsToggle } from "./utilities/navbar";
 
 const options = {
   keyboard: true,
@@ -30,3 +31,5 @@ AOS.init({
   once: false,
   mirror: false,
 });
+
+bsToggle.init();

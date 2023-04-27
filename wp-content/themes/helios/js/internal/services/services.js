@@ -1,11 +1,6 @@
 import { Navbar, Popper } from "bootstrap";
-import Lightbox from "bs5-lightbox";
-
-const options = {
-  keyboard: true,
-  size: "fullscreen",
-  constrain: false,
-};
+import AOS from "aos";
+import { bsToggle } from "../../utilities/navbar";
 document.addEventListener("click", function (e) {
   // Hamburger menu
   // console.log(e.target.classList.contains("hamburger-toggle"));
@@ -14,3 +9,9 @@ document.addEventListener("click", function (e) {
     e.target.children[0].classList.toggle("active");
   }
 });
+AOS.init({
+  offset: 0,
+  once: false,
+  mirror: false,
+});
+bsToggle.init();
