@@ -18,7 +18,7 @@
 
 
 /** Add support for structural wraps */
-add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
+add_theme_support( 'genesis-structural-wraps', array(   'subnav', 'inner', 'footer-widgets', 'footer' ) );
 
 /** Add new image sizes */
 add_image_size( 'grid', 295, 100, TRUE );

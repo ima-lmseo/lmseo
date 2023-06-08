@@ -28,6 +28,7 @@ const pageEntryPoints = {
 module.exports = [
   {
     entry: homePageEntryPoints,
+    stats: "errors-only",
     devtool: "source-map",
     resolve: {
       extensions: ["*", ".js"],
@@ -35,6 +36,7 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "homepage/js/[name].js",
+      publicPath: "http://localhost:3000/",
       assetModuleFilename: "homepage/images/[name][ext][query]",
     },
     plugins: [
@@ -61,19 +63,6 @@ module.exports = [
               },
             },
             "sass-loader",
-          ],
-        },
-        {
-          test: /\.sass$/i,
-          use: [
-            MiniCssExtractPlugin.loader,
-            "css-loader",
-            {
-              loader: "sass-loader",
-              options: {
-                sassOptions: { indentedSyntax: true },
-              },
-            },
           ],
         },
         {
@@ -104,13 +93,19 @@ module.exports = [
   },
   {
     entry: servicesEntryPoints,
+    stats: "errors-only",
     devtool: "source-map",
+    devServer: {
+      static: "./dist",
+      hot: true,
+    },
     resolve: {
       extensions: ["*", ".js"],
     },
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "internal/services/js/[name].js",
+      publicPath: localDomain,
       assetModuleFilename: "internal/services/images/[name][ext][query]",
     },
     plugins: [
@@ -167,6 +162,9 @@ module.exports = [
           exclude: /(node_modules|bower_components)/,
           use: {
             loader: "babel-loader",
+            options: {
+              presets: [],
+            },
           },
         },
       ],
@@ -189,14 +187,6 @@ module.exports = [
       new MiniCssExtractPlugin({
         filename: "internal/services/definitions/[name].css",
       }),
-      new BrowserSyncPlugin(
-        {
-          proxy: localDomain,
-          files: ["/*.css"],
-          injectCss: false,
-        },
-        { reload: true }
-      ),
     ],
     module: {
       rules: [
@@ -268,14 +258,6 @@ module.exports = [
       new MiniCssExtractPlugin({
         filename: "internal/contact/[name].css",
       }),
-      new BrowserSyncPlugin(
-        {
-          proxy: localDomain,
-          files: ["/*.css"],
-          injectCss: false,
-        },
-        { reload: true }
-      ),
     ],
     module: {
       rules: [

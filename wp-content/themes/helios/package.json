@@ -5,7 +5,21 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch"
+    "dev": "webpack --mode development --watch",
+    "contact": "webpack --mode development --watch --config ./webpack/webpack.config.contact.js",
+    "contBuild": "webpack --mode production --config ./webpack/webpack.config.contact.js",
+    "home": "webpack --mode development --watch --config ./webpack/webpack.config.homepage.js",
+    "homeBuild": "webpack --mode production --config ./webpack/webpack.config.homepage.js",
+    "services": "webpack --mode development --watch --config ./webpack/webpack.config.services.js",
+    "servicesBuild": "webpack --mode production --config ./webpack/webpack.config.services.js",
+    "servicesDef": "webpack --mode development --watch --config ./webpack/webpack.config.servicesDef.js",
+    "servicesDefBuild": "webpack --mode production --config ./webpack/webpack.config.servicesDef.js",
+    "pages": "webpack --mode development --watch --config ./webpack/webpack.config.pages.js",
+    "pagesBuild": "webpack --mode production --config ./webpack/webpack.config.pages.js",
+    "blogIndex": "webpack --mode development --watch --config ./webpack/webpack.config.blogIndex.js",
+    "blogIndexBuild": "webpack --mode production --config ./webpack/webpack.config.blogIndex.js",
+    "blog": "webpack --mode development --watch --config ./webpack/webpack.config.blog.js",
+    "blogBuild": "webpack --mode production --config ./webpack/webpack.config.blog.js"
   },
   "babel": {
     "presets": [

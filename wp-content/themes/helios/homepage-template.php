@@ -12,16 +12,16 @@ $isAsync = false;
 /*
 *Inline crital CSS for first browser paint
 */
-add_action('wp_head','lmseo_index_critical_css',1);
-function lmseo_index_critical_css(){
-	$path= 'bin/css/homepage/critical/styles.min.css.php';
-	global $portArchDev;
-	if($portArchDev){
-		echo '<style>';
-		include $path;
-		echo '</style>';
-	}
-}
+//add_action('wp_head','lmseo_index_critical_css',1);
+//function lmseo_index_critical_css(){
+//	$path= 'bin/css/homepage/critical/styles.min.css.php';
+//	global $portArchDev;
+//	if($portArchDev){
+//		echo '<style>';
+//		include $path;
+//		echo '</style>';
+//	}
+//}
 /*
 * Loads optimized CSS at the bottom of the page Asynch priority 20 is where 
 add_action( 'wp_head',             'wp_enqueue_scripts',              1     );
@@ -30,44 +30,13 @@ add_action( 'wp_head',             'wp_print_styles',                  8    );
 add_action( 'wp_head',             'wp_print_head_scripts',            9    );
 
 */
-add_action( 'wp_enqueue_scripts','lmseo_loadcss');
-function lmseo_loadcss(){
-    wp_enqueue_script('loadcss');
-    wp_enqueue_script('onloadcss');
-}
-add_action('wp_footer','lmseo_index_load_css_asynchronously',20);
-function lmseo_index_load_css_asynchronously(){
-	global $portArchDev, $criticalLocal,$isAsync;
-	if(!$portArchDev){
-		if($isAsync){
-		?>
-			<script type='text/javascript'>
-                       <?php
-			if($criticalLocal){
-				displayAsyncScriptCSS('/wp-content/themes/helios/bin/css/homepage/uncss/complete/style-v2.css', true);
-			?>
-	  		<?php
-	  		}else{
-	  			?>
-				loadCSS('<?php echo "https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/css/homepage/uncss/complete/style.css";?>');
-				</script>
-				<noscript><link href="https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/css/homepage/uncss/complete/style.css" rel="stylesheet"></noscript>
-		  		<?php
-	  		}
-	  	}else{
-	  		wp_register_style(  'home-template', get_stylesheet_directory_uri(   ).'/bin/css/homepage/uncss/complete/style-v2.css' , '', '1' );
-			wp_enqueue_style( 'home-template');
-	  	}
-	}else{
-		?>
-		<script type='text/javascript'>
-                <?php
-                    displayAsyncScriptCSS('/wp-content/themes/helios/bin/css/homepage/uncss/complete/style-v2.css', true);
-		?>
-		</script>
-		<?php
-	}
-}
+//add_action( 'wp_enqueue_scripts','lmseo_loadcss');
+//function lmseo_loadcss(){
+//    wp_enqueue_script('loadcss');
+//    wp_enqueue_script('onloadcss');
+//}
+//add_action('wp_footer','lmseo_index_load_css_asynchronously',20);
+
 /*Enque <noscript> in the header*/
 /*add_action(  'wp_head', 'lmseo_index_print_styles_nojavascript'   );
 function lmseo_index_print_styles_nojavascript() {
@@ -77,40 +46,7 @@ function lmseo_index_print_styles_nojavascript() {
 }*/
 /**/
 
-function displayAsyncScriptCSS($cssURL, $isCDN = false){
-	//$cssDirectoryURI = $isCDN ? 'https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/'. parse_url(get_stylesheet_directory_uri())[host] : get_stylesheet_directory_uri();
-	$cssDirectoryURI = $isCDN ? 'https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/': get_stylesheet_directory_uri();
-	?>
-	var stylesheet = loadCSS('<?php echo $cssDirectoryURI.$cssURL;?>');
-	onloadCSS( stylesheet, function() {
-		$(window).load(function(){
-			$(document).foundation();
-		});
-	});
 
-	</script>
-	
-	<script type='text/javascript'>
-            // jquery transit is used to handle the animation'.
-            $('input').focusin(function(e) {
-	        label = $('label[for='+$(this).get(0).id+']');
-	            //console.log(label);
-	        label.transition({x:'80px'},500,'ease').next().transition({x:'5px'},500, 'ease');
-                //setTimeout needed for Chrome, for some reason there is no animation from left to right, the pen is immediately present. Slight delay to adding the animation class fixes it
-	        setTimeout(function(){
-	            label.next().addClass('move-pen');
-	        },100);
-	        
-	          });
-	          
-	          $('input').focusout(function() {
-	            label = $('label[for='+$(this).get(0).id+']');
-	            label.transition({x:'0px'},500,'ease').next().transition({x:'-100px'},500, 'ease').removeClass('move-pen');
-	          });
-	</script>
-	<noscript><link href="<?php echo $cssDirectoryURI . $cssURL;?>" rel="stylesheet"></noscript>
-	<?php
-}
 
 //remove_action('enqueue_scripts');
 /*

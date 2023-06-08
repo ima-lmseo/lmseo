@@ -92,7 +92,6 @@ function ServicesCSS(){
 *remove wrappers for header and inner
 */
 add_filter( 'genesis_markup_content-sidebar-wrap', '__return_null' );
-remove_theme_support('genesis-structural-wraps',array( 'header'));
 
 //add_filter( 'genesis_markup_content', '__return_null' );
 //add_action( 'genesis_before_content', 'lmseoMainContentWrapper' );

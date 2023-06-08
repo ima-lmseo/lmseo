@@ -101,11 +101,11 @@ $theme-colors: (
 
 // 8. Add additional custom code here
 
-@import "assets/utilities";
-@import "assets/forms";
-@import "assets/buttons";
-@import "assets/navbar";
-@import "assets/homepage/content";
-@import "assets/homepage/sections";
-@import "assets/footer";
-@import "assets/hover";
+@import "internal/homepage/utilities";
+@import "internal/forms";
+@import "internal/buttons";
+@import "internal/navbar";
+@import "internal/homepage/content";
+@import "internal/homepage/sections";
+@import "internal/footer";
+@import "internal/hover";

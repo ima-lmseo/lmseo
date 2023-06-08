@@ -2,6 +2,14 @@
 /** Start the engine */
 require_once(TEMPLATEPATH.'/lib/init.php');
 require_once ( get_stylesheet_directory() . '/lib/functions/html5.php' );
+/**
+ * Custom template tags for this theme.
+ */
+require_once ( get_stylesheet_directory() .'/inc/template-tags.php');
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require_once ( get_stylesheet_directory() . '/inc/template-functions.php');
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
@@ -184,7 +192,8 @@ return $args;
 
 
 /** Add support for structural wraps */
-add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'footer-widgets', 'footer' ) );
+add_theme_support( 'genesis-structural-wraps', array(  'nav', 'subnav', 'footer-widgets', 'footer' ) );
+
 /* row class as structural wrap*/
 
 add_action( 'genesis_before_content', 'opening_main_divs', 9 );
@@ -860,4 +869,30 @@ function custom_breadcrumbs_services_definition(){
 
         echo '</div></div></nav>';
     }
+}
+
+add_action(  'wp_enqueue_scripts', 'lmseo_general_styles'   );
+function lmseo_general_styles() {
+	global $portArchDev;
+
+//  Disabling CSS styles of WooCommerce blocks
+//  https://themesharbor.com/disabling-css-styles-of-woocommerce-blocks/
+	wp_dequeue_style( 'wc-blocks-style' ); //wc-blocks-integration-css
+	wp_dequeue_style( 'wc-blocks-integration' ); //wc-blocks-integration-css
+	wp_dequeue_style( 'woocommerce-smallscreen' ); //wc-blocks-integration-css
+	wp_dequeue_style( 'woocommerce-layout' ); //wc-blocks-integration-css
+	wp_dequeue_style( 'woocommerce-general' ); //wc-blocks-integration-css
+	wp_dequeue_style( 'woocommerce-inline' ); //wc-blocks-integration-css
+	wp_dequeue_style( 'classic-theme-styles' ); //wc-blocks-integration-css
+//  Dequeue Gutenberg Block Library CSS Code Snippet
+//  https://smartwp.com/remove-gutenberg-css/
+	wp_dequeue_style( 'wp-block-library' ); // wp-block-library-css
+//  https://wordpress.org/support/topic/how-to-disable-inline-styling-style-idglobal-styles-inline-css/
+	wp_dequeue_style( 'global-styles' ); //  global-styles-inline-css
+
+	if( !is_super_admin() || !is_admin_bar_showing() || is_wp_login()){
+		wp_deregister_script('jquery');
+		wp_dequeue_script('jquery');
+		wp_dequeue_script('jquery-migrate');
+	}
 }

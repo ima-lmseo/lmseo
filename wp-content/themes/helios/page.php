@@ -69,6 +69,12 @@ function contentClassesFunction_services_definition($attributes) {
     $attributes['class'] = $attributes['class'] . ' ' . 'container g-0 overflow-hidden py-5';
     return $attributes;
 }
+add_filter('genesis_attr_entry','entryClassesFunctionPages');
+
+function entryClassesFunctionPages($attributes) {
+    $attributes['class'] = $attributes['class'] . ' ' . 'row';
+    return $attributes;
+}
 /**
  * Edit the "entry-content" classe's array.
  *
@@ -80,13 +86,13 @@ function contentClassesFunction_services_definition($attributes) {
  */
 add_filter('genesis_attr_entry-header','entryClassesFunction');
 function entryClassesFunction($attributes) {
-    $attributes['class'] = $attributes['class'] . ' ' . 'row';
+    $attributes['class'] = $attributes['class'] . ' ' . 'col-lg-12';
     return $attributes;
 }
 
 add_filter('genesis_attr_entry-content','entryContentClassesFunction');
 function entryContentClassesFunction($attributes) {
-    $attributes['class'] = $attributes['class'] . ' ' . 'row';
+    $attributes['class'] = $attributes['class'] . ' ' . 'col-lg-12';
     return $attributes;
 }
 
