@@ -6,10 +6,28 @@
  * @package Generate
  * @subpackage Customizations
  */
-
 /*
 Template Name: Services
 */
+remove_action('genesis_before_content', 'custom_breadcrumbs_services_definition', 10);
+add_action( 'genesis_before_content', 'custom_breadcrumbs_services', 10);
+function custom_breadcrumbs_services(){
+    if(is_home() or is_front_page()){
+    }else {
+        echo '<nav class="lmseo-breadcrumb-wrap px-5"><div class="container-fluid g-0">';
+//        if(function_exists('bcn_display_list')){
+//            bcn_display_list();
+//        }
+//        if (function_exists('yoast_breadcrumb')) {
+//            yoast_breadcrumb('<ul class="lmseo-breadcrumb float-end m-0" xmlns:v="http://rdf.data-vocabulary.org/#">', '</ul><div class="breadcrumbs-bg-shape-wrap float-end"><span class="bc-shape1"></span><span class="bc-shape2"></span><span class="bc-shape3"></span><span class="bc-shape4"></span></div>');
+//        }
+        if (function_exists('yoast_breadcrumb')) {
+            yoast_breadcrumb('<ul class="lmseo-breadcrumb float-end m-0 p-0" xmlns:v="http://rdf.data-vocabulary.org/#">', '</ul>');
+        }
+        echo '</div></nav>';
+    }
+}
+
 /** Add page image above breadcrumbs */
 //add_action( 'genesis_before_content', 'streamline_post_image', 1);
 function streamline_post_image() {

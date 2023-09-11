@@ -102,10 +102,10 @@ $theme-colors: (
 // 8. Add additional custom code here
 
 @import "internal/homepage/utilities";
-@import "internal/forms";
-@import "internal/buttons";
-@import "internal/navbar";
+@import "parts/forms";
+@import "parts/buttons";
+@import "parts/navbar";
 @import "internal/homepage/content";
 @import "internal/homepage/sections";
-@import "internal/footer";
-@import "internal/hover";
+@import "parts/footer";
+@import "parts/hover";

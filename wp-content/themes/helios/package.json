@@ -19,7 +19,11 @@
     "blogIndex": "webpack --mode development --watch --config ./webpack/webpack.config.blogIndex.js",
     "blogIndexBuild": "webpack --mode production --config ./webpack/webpack.config.blogIndex.js",
     "blog": "webpack --mode development --watch --config ./webpack/webpack.config.blog.js",
-    "blogBuild": "webpack --mode production --config ./webpack/webpack.config.blog.js"
+    "blogBuild": "webpack --mode production --config ./webpack/webpack.config.blog.js",
+    "teams": "webpack --mode development --watch --config ./webpack/webpack.config.teams.js",
+    "teamsBuild": "webpack --mode production --config ./webpack/webpack.config.teams.js",
+    "404": "webpack --mode development --watch --config ./webpack/webpack.config.404.js",
+    "404Build": "webpack --mode production --config ./webpack/webpack.config.404.js"
   },
   "babel": {
     "presets": [
@@ -52,7 +56,7 @@
     "@popperjs/core": "^2.11.6",
     "animate.css": "^4.1.1",
     "aos": "^3.0.0-beta.6",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.3",
     "bs5-lightbox": "^1.8.3",
     "hover.css": "^2.3.2",

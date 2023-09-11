@@ -36,7 +36,7 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "homepage/js/[name].js",
-      publicPath: "http://localhost:3000/",
+      publicPath: "/wp-content/themes/helios/dist/",
       assetModuleFilename: "homepage/images/[name][ext][query]",
     },
     plugins: [
@@ -105,7 +105,7 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "internal/services/js/[name].js",
-      publicPath: localDomain,
+      publicPath: "/wp-content/themes/helios/dist/",
       assetModuleFilename: "internal/services/images/[name][ext][query]",
     },
     plugins: [
@@ -179,6 +179,7 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "internal/services/definitions/js/[name].js",
+      publicPath: "/wp-content/themes/helios/dist/",
       assetModuleFilename:
         "internal/services/definitions/images/[name][ext][query]",
     },
@@ -251,6 +252,7 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "internal/contact/js/[name].js",
+      publicPath: "/wp-content/themes/helios/dist/",
       assetModuleFilename: "internal/contact/images/[name][ext][query]",
     },
     plugins: [
@@ -321,6 +323,86 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: "internal/pages/js/[name].js",
+      publicPath: "/wp-content/themes/helios/dist/",
+      assetModuleFilename: "internal/pages/images/[name][ext][query]",
+    },
+    plugins: [
+      new WebpackBar(),
+      new MiniCssExtractPlugin({
+        filename: "internal/pages/[name].css",
+      }),
+      new BrowserSyncPlugin(
+        {
+          proxy: localDomain,
+          files: ["/*.css"],
+          injectCss: false,
+        },
+        { reload: true }
+      ),
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.s?[c]ss$/i,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            "css-loader",
+            {
+              loader: "postcss-loader",
+              options: {
+                postcssOptions: {
+                  plugins: () => [require("autoprefixer")],
+                },
+              },
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                sassOptions: {
+                  includePaths: ["node_modules/bootstrap/scss/", "fonts/"],
+                },
+              },
+            },
+          ],
+        },
+        {
+          mimetype: "image/svg+xml",
+          scheme: "data",
+          type: "asset/resource",
+          generator: {
+            filename: "internal/pages/icons/[name]-[hash].svg[query]",
+          },
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: "asset/resource",
+        },
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: "babel-loader",
+          },
+        },
+      ],
+    },
+  },
+  {
+    entry: blogEntryPoints,
+    devtool: "source-map",
+    resolve: {
+      extensions: ["*", ".js"],
+    },
+    output: {
+      path: path.resolve(__dirname, outputPath),
+      filename: "internal/blog/js/[name].js",
+      publicPath: "/wp-content/themes/helios/dist/",
       assetModuleFilename: "internal/pages/images/[name][ext][query]",
     },
     plugins: [

@@ -10,7 +10,79 @@
  * @license GPL-2.0+
  * @link    http://my.studiopress.com/themes/genesis/
  */
+add_action( 'wp_footer', 'lmseo_deregister_scripts' );
+function lmseo_deregister_scripts(){
+    wp_deregister_script( 'wp-embed' );
+}
 
+add_action(  'wp_enqueue_scripts', 'lmseo_index_print_styles'   );
+function lmseo_index_print_styles() {
+    global $portArchDev;
+
+//  Disabling CSS styles of WooCommerce blocks
+//  https://themesharbor.com/disabling-css-styles-of-woocommerce-blocks/
+    wp_dequeue_style( 'wc-blocks-style' ); //wc-blocks-integration-css
+    wp_dequeue_style( 'wc-blocks-integration' ); //wc-blocks-integration-css
+    wp_dequeue_style( 'woocommerce-smallscreen' ); //wc-blocks-integration-css
+    wp_dequeue_style( 'woocommerce-layout' ); //wc-blocks-integration-css
+    wp_dequeue_style( 'woocommerce-general' ); //wc-blocks-integration-css
+    wp_dequeue_style( 'woocommerce-inline' ); //wc-blocks-integration-css
+    wp_dequeue_style( 'classic-theme-styles' ); //wc-blocks-integration-css
+//  Dequeue Gutenberg Block Library CSS Code Snippet
+//  https://smartwp.com/remove-gutenberg-css/
+    wp_dequeue_style( 'wp-block-library' ); // wp-block-library-css
+//  https://wordpress.org/support/topic/how-to-disable-inline-styling-style-idglobal-styles-inline-css/
+    wp_dequeue_style( 'global-styles' ); //  global-styles-inline-css
+    wp_dequeue_style('lmseo'); // main css
+    if( !is_super_admin() || !is_admin_bar_showing() || is_wp_login()){
+        wp_deregister_script('jquery');
+        wp_dequeue_script('jquery');
+        wp_dequeue_script('jquery-migrate');
+    }
+}
+/** Add Teams JS to website */
+add_action( 'wp_enqueue_scripts','error404JS');
+function error404JS(){
+    wp_register_script( 'internal-errors404',get_stylesheet_directory_uri( 'bootstrap' ) . '/dist/errors/404/js/app.js',array(), '1.0', true );
+    wp_enqueue_script('internal-errors404');
+
+}
+/** Add error404 JS to website */
+add_action( 'wp_enqueue_scripts','error404CSS');
+function error404CSS(){
+    wp_register_style( 'errors404-css',get_stylesheet_directory_uri( ) . '/dist/errors/404/style.css',array(), '1.0', 'all' );
+    wp_enqueue_style('errors404-css');
+
+}
+/*
+*remove wrappers for header and inner
+*/
+add_filter( 'genesis_markup_content-sidebar-wrap', '__return_null' );
+
+remove_action('genesis_before_content', 'custom_breadcrumbs_services_definition', 10);
+add_action( 'genesis_before_content', 'custom_breadcrumbs_errors404', 10);
+function custom_breadcrumbs_errors404(){
+    if(is_home() or is_front_page()){
+    }else {
+        echo '<nav class="lmseo-breadcrumb-wrap px-5 clearfix"><div class="g-0">';
+//        if(function_exists('bcn_display_list')){
+//            bcn_display_list();
+//        }
+//        if (function_exists('yoast_breadcrumb')) {
+//            yoast_breadcrumb('<ul class="lmseo-breadcrumb float-end m-0" xmlns:v="http://rdf.data-vocabulary.org/#">', '</ul><div class="breadcrumbs-bg-shape-wrap float-end"><span class="bc-shape1"></span><span class="bc-shape2"></span><span class="bc-shape3"></span><span class="bc-shape4"></span></div>');
+//        }
+        if (function_exists('yoast_breadcrumb')) {
+            yoast_breadcrumb('<ul class="lmseo-breadcrumb float-end m-0 p-0" xmlns:v="http://rdf.data-vocabulary.org/#">', '</ul>');
+        }
+        echo '</div></nav>';
+    }
+}
+add_filter('genesis_attr_content','contentClassesFunction');
+
+function contentClassesFunction($attributes) {
+    $attributes['class'] = $attributes['class'] . ' ' . 'container py-5 mb  -5';
+    return $attributes;
+}
 //* Remove default loop
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
@@ -22,7 +94,7 @@ add_action( 'genesis_loop', 'genesis_404' );
  */
 function genesis_404() {
 
-	echo genesis_html5() ? '<article class="entry">' : '<div class="post hentry">';
+	echo genesis_html5() ? '<article class="entry ">' : '<div class="post hentry">';
 
 		printf( '<h1 class="entry-title">%s</h1>', __( 'Not found, error 404', 'genesis' ) );
 		echo '<div class="entry-content">';
