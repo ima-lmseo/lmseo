@@ -11,6 +11,7 @@ require_once ( get_stylesheet_directory() .'/inc/template-tags.php');
  */
 require_once ( get_stylesheet_directory() . '/inc/template-functions.php');
 
+
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 add_post_type_support( 'page', 'excerpt' );
