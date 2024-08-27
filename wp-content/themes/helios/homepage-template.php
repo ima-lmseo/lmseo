@@ -168,22 +168,6 @@ if( $enable == 'false' ){
 }
 
 remove_action(	'genesis_loop', 'genesis_do_loop' );
-//add_action(	'genesis_loop', 'zp_homepage_template' );
-//function zp_homepage_template() {
-//?>
-<!--<div id="home-wrap">-->
-<?php
-//	if(  have_posts( ) ) {
-// 		while (  have_posts(  )  ) {
-//			the_post(  );
-//
-//			do_shortcode( the_content() );
-//		}
-//	}
-//?>
-<!--</div>-->
-<?php
-//}
 add_filter( 'genesis_markup_content-sidebar-wrap', '__return_null' );
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 remove_action( 'genesis_loop', 'genesis_do_loop' );
