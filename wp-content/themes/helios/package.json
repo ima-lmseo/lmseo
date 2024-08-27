@@ -4,7 +4,8 @@
   "description": "WordPress, Genesis theme based on the Storefront by Woothemes.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "404": "webpack --mode development --watch --config ./webpack/webpack.config.404.js",
+    "build": "webpack --mode production -config ./webpack/webpack.config.contact.js",
     "dev": "webpack --mode development --watch",
     "contact": "webpack --mode development --watch --config ./webpack/webpack.config.contact.js",
     "contBuild": "webpack --mode production --config ./webpack/webpack.config.contact.js",
@@ -22,7 +23,6 @@
     "blogBuild": "webpack --mode production --config ./webpack/webpack.config.blog.js",
     "teams": "webpack --mode development --watch --config ./webpack/webpack.config.teams.js",
     "teamsBuild": "webpack --mode production --config ./webpack/webpack.config.teams.js",
-    "404": "webpack --mode development --watch --config ./webpack/webpack.config.404.js",
     "404Build": "webpack --mode production --config ./webpack/webpack.config.404.js"
   },
   "babel": {
