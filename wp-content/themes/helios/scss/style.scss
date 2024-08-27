@@ -24,51 +24,11 @@
 //@import "hover.css/scss/hover.scss";
 
 // 2. Include any default variable overrides here
-
-// $white       : #FFFFFF;
-$white: #ffffff;
-// $ghost       : #FAFAFA;
-// $snow        : #F9F9F9;
-// $vapor       : #F6F6F6;
-// $white-smoke : #F5F5F5;
-$white-light: #f2f2f2;
-// $silver      : #EFEFEF;
-// $smoke       : #EEEEEE;
-$gainsboro: #dddddd;
-$iron: #cccccc;
-// $base        : #AAAAAA;
-$aluminum: #999999;
-// $jumbo       : #888888;
-$fosil: #777777;
-$monsoon: #4d4d4d;
-$steel: #666666;
-$cloud: #696969;
-$charcoal: #555555;
-$tuatara: #444444;
-$oil: #333333;
-$hexachromeBlack: #212121;
-$jet: #222222;
-$midnight: #111111;
-$black: #000000;
-//$blue: #00709a;
-$blue: #2098d1;
-$purple: #473d68;
-$saffron: #b68200;
-$crumb-bg: #f4f4f4;
-$pink: #f78e69;
-
-$header-font-color: $oil;
-$primary-color: #00aff0;
-$secondary-color: #e7e7e7;
-$crumb-bg: scale-color($secondary-color, $lightness: 55%);
-$crumb-function-factor: -10%;
-$entry-footer-bg: $crumb-bg;
-$entry-footer-factor: $crumb-function-factor;
-$link-hover-color: $blue;
-$nav-link-hover-color: $link-hover-color;
+@import "parts/variables";
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
 $theme-colors: (
