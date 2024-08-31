@@ -1,0 +1,67 @@
+/*Recent Posts Section-----------------------------------------------------------*/
+.recent-posts {
+  .recent-posts-list {
+    background-color: white;
+  }
+  .comments {
+    padding: 1.25rem;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+.recent-posts-list h4 {
+  margin-top: 8vh;
+  a {
+    color: $oil;
+  }
+}
+.recent-posts-list h4,
+.comments h4 {
+  //height: 65px;
+  overflow-y: hidden;
+}
+.recent-post-wrapper {
+  padding-bottom: 3.5rem;
+}
+.recent-posts-content {
+}
+.more-centered-button-wrapper {
+  text-align: center;
+  padding-top: 3.5rem;
+}
+.button-wrapper--centered--bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.recent-posts-button-wrapper {
+}
+.recent-posts-button {
+  border-color: $gainsboro;
+  color: #3c3c3c;
+}
+@include media-breakpoint-up(lg) {
+  .recent-posts-list h4 {
+    margin-top: 0;
+  }
+  .recent-posts .comments {
+    background-color: #3c3c3c;
+    padding-top: 9rem;
+    padding-left: 2.5rem;
+    padding-bottom: 3.75rem;
+    color: $white;
+
+    ul {
+      font-size: 1rem;
+    }
+
+    h4,
+    a:hover {
+      color: $white;
+    }
+  }
+  .recent-posts {
+  }
+}

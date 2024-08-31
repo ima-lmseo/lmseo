@@ -1,0 +1,46 @@
+body {
+  padding-top: 4.7rem;
+}
+.entry-title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+.entry-content {
+  p {
+    padding: 0.7rem 0 0;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+.entry {
+  a {
+    text-decoration: none;
+    &:hover {
+      color: lighten($blue, 20%);
+    }
+  }
+}
+.entry-thumbnail {
+  display: block;
+  margin-bottom: 1.5rem;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+}
+//Pages other than first page
+.other-page {
+  .entry-thumbnail {
+    margin: 0 4rem 0 0;
+    float: left;
+    display: block;
+    img {
+      max-width: 400px;
+      max-height: 250px;
+    }
+  }
+}

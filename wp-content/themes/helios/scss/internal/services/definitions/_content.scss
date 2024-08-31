@@ -1,0 +1,53 @@
+body {
+  padding-top: 4.7rem;
+}
+.entry-header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  background-color: $hexachromeBlack;
+  color: $white;
+  height: 90vh;
+  h1 {
+    grid-area: 3/2/5/9;
+    width: auto;
+    color: $white;
+    text-transform: uppercase;
+  }
+  h5.header-brand {
+    background-color: transparent;
+    font-size: 11rem;
+    line-height: 11rem;
+    font-family: Sans-serif, arial, verdana;
+    letter-spacing: -1rem;
+    grid-area: 1/1/13/13;
+    color: rgba(255, 255, 255, 0.05);
+    justify-self: end;
+    align-self: start;
+    height: auto;
+  }
+  .services-definition-divider {
+    grid-area: 5/1/5/13;
+    border-top: 5px solid $white;
+    //background-color: $blue;
+    //height: 50%;
+  }
+  .services-title {
+    grid-area: 7/2/12/6;
+    font-size: 1.2rem;
+  }
+  .services-definition-image-wrapper {
+    grid-area: 5/7/13/13;
+    //padding-top: 5px;
+    border-left: 5px solid $white;
+  }
+  .services-definition-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+.entry-content {
+  padding-top: 7rem;
+  font-size: 1.2rem;
+}

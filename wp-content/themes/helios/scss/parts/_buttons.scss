@@ -1,0 +1,158 @@
+/*Buttons--------------------------------------------------*/
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*/
+button,
+.button {
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 2rem 1.0625rem 2rem;
+  font-size: 1rem;
+  //background-color: #00aff0;
+  border-color: #008cc0;
+  color: $white;
+  transition: background-color 300ms ease-out;
+  &:hover {
+    background-color: $blue;
+    color: $white;
+  }
+}
+@mixin fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+}
+%fixed-top {
+  @include fixed-top;
+}
+@mixin black-small-button {
+  font-size: rfs-fluid-value(13px);
+  float: left;
+  width: 25%;
+  margin: 0;
+  border-color: #626262;
+  border-style: solid;
+  border-width: 1px;
+  border-left-width: 0;
+  padding: 10px 0 10px 0;
+  background-color: $gray-900;
+  color: #d3d3d3;
+  cursor: pointer;
+  border-top-right-radius: rfs-fluid-value(5px);
+  border-bottom-right-radius: rfs-fluid-value(5px);
+  &:hover {
+    background-color: #202020;
+    color: #d3d3d3;
+  }
+}
+%black-small-button {
+  @include black-small-button;
+}
+.home-button {
+  @extend .button;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  //padding-top: 1rem;
+  //padding-right: 2rem;
+  //padding-bottom: 1.0625rem;
+  //padding-left: 2rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  //transition: background-color 300ms ease-out;
+  //border-radius: 0.5rem;
+  border-radius: 0;
+}
+.custom-button {
+  cursor: pointer;
+  display: inline-block;
+  zoom: 1;
+  vertical-align: bottom;
+  text-align: center;
+  margin: 10px 5px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 900;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(250, 250, 250, 0.4);
+}
+.custom-button-blue {
+  color: $white;
+  border: 1px solid #0082be;
+  background-color: #00a4ef;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0, 163, 239) 1%,
+    rgb(0, 177, 241) 51%
+  );
+  transition: background-color 3000ms ease-out;
+  &:hover {
+    background-color: rgb(47, 164, 218);
+    background-image: linear-gradient(
+      to bottom,
+      rgb(47, 158, 209) 1%,
+      rgb(51, 173, 217) 51%
+    );
+  }
+}
+button.expand,
+.button.expand,
+.expand {
+  font-size: 1rem;
+  padding: 1rem 1rem 1rem 1.0625rem;
+  width: 100%;
+}
+.custom-button-small {
+  font-size: 13px;
+  padding: rfs-value(20px) rfs-value(40px);
+}
+#submit {
+  @extend .custom-button;
+  @extend .custom-button-blue;
+  @extend .custom-button-small;
+}
+.xlarge-button {
+  //height: 6.6875rem;
+  //width: 13.125rem;
+  padding: 2.5rem 3.5rem 2.5rem 3.5rem;
+}
+.xwide-button {
+  padding: 2.5rem 4.5rem 2.5rem 4.5rem;
+}
+.grey-button {
+  border-color: $iron;
+  color: $tuatara;
+}
+.blue-button {
+  background-color: $blue;
+  &:hover {
+    background-color: scale-color($blue, $lightness: -25%);
+  }
+}
+.purple-hover:hover {
+  background-color: #6438f7;
+}

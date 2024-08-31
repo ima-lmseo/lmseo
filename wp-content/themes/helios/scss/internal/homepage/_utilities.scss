@@ -1,0 +1,116 @@
+@import "../../parts/utilities";
+/*Uitlities*/
+/*---------*/
+/*---------*/
+/*---------*/
+/*---------*/
+.blue {
+  color: $blue;
+}
+.b-blue {
+  color: $white;
+  background-color: $blue;
+}
+.animated-svg .path {
+  stroke: $white;
+  animation: draw-out 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+}
+.animated-svg:hover .path {
+  stroke: $white;
+  animation: draw-in 5s;
+  animation-iteration-count: 0.5;
+  animation-fill-mode: forwards;
+}
+[data-aos="fade-up"] {
+  transform: translate3d(0, 100px, 0);
+}
+@keyframes draw-in {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-out {
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+.section-padding {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+.section-2xpadding {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+.padding-side {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.section-no-top-padding {
+  padding-top: 0;
+}
+.section-no-bottom-padding {
+  padding-bottom: 0;
+}
+.section-no-padding {
+  padding: 0;
+}
+.no-bullets {
+  list-style: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.inline-block {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+/*Text */
+.uppered {
+  text-transform: uppercase;
+}
+.lowered {
+  text-transform: lowercase;
+}
+.capitalized {
+  text-transform: capitalize;
+}
+.size-24 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}

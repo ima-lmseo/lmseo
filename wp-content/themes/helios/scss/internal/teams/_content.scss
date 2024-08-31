@@ -1,0 +1,25 @@
+body {
+  padding-top: 4.7rem;
+}
+.teams-category .content {
+  padding-bottom: 5rem;
+}
+.teammate-pic {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: auto 400px;
+  height: 400px;
+  display: block;
+  margin-top: 3rem;
+}
+.luis-piedrahita {
+  background-image: url(~/images/team/luis-piedrahita.jpg);
+}
+.teammate-name {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-bottom: 2.5rem;
+  a {
+    text-decoration: none;
+  }
+}

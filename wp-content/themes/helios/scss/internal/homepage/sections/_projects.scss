@@ -1,0 +1,48 @@
+/*Projects-----------------------------------------------------------*/
+.projects {
+  background-color: $hexachromeBlack;
+  color: $aluminum;
+  hr {
+    border-color: $fosil;
+  }
+  ul > li > ul,
+  ul {
+  }
+}
+.projects-content hr {
+  margin: 0 0 4.5rem 0;
+}
+.project-item {
+  padding-bottom: 4.5rem;
+  h2,
+  h3 {
+    color: #ccc;
+    font-weight: normal;
+  }
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #eee;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+}
+.eopiates-home {
+  background: rgba(0, 0, 0, 0.5)
+    url("https://0475cc5f0513555876f0-36521bd99d04065c9ab75e027a3a3d9c.ssl.cf1.rackcdn.com/wp-content/themes/helios/bin/images/projects/eopiates/home-dual.jpg")
+    no-repeat 0 0;
+  display: block;
+  background-size: 100%;
+  width: 100%;
+  height: 11rem;
+  &:hover {
+    background-position: 0 -11rem;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .projects ul > li > ul,
+  .projects ul {
+    padding-left: 4.5rem;
+  }
+}

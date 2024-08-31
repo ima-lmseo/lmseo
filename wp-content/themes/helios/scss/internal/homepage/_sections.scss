@@ -1,0 +1,132 @@
+/*Main Content--------------------------------------------------------*/
+/*--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*/
+body:not(.home) .content-sidebar-wrap {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+.projects-title,
+.recent-posts-title,
+.about-title,
+.contact-title,
+.services-title,
+.catalog-title {
+  color: $secondary-color;
+  padding-bottom: 3.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+}
+.section-padding,
+.catalog,
+.projects,
+.about,
+.recent-posts .recent-posts-title,
+.contact,
+.services,
+footer {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+.catalog,
+.projects,
+.about,
+.recent-posts,
+.contact,
+.services {
+  color: $cloud;
+}
+.recent-posts-title,
+.catalog-title {
+  color: $midnight;
+}
+
+/*Sections*/
+$section-bg: $midnight;
+$section-color: darken($white, 1%);
+$section-header-color: $white;
+.section--first {
+  background-color: $section-bg;
+  color: $section-color;
+  h3 {
+    color: $section-header-color;
+  }
+}
+.section--lighter {
+  background-color: lighten($section-bg, 3%);
+  color: $section-color;
+  h3 {
+    color: $section-header-color;
+  }
+}
+.section--lightest {
+  background-color: lighten($section-bg, 6%);
+  color: $section-color;
+  h3 {
+    color: $section-header-color;
+  }
+}
+.section--purple {
+  background-color: $midnight;
+  color: #d5d3db;
+  h3 {
+    color: $white;
+  }
+}
+.section--mid-purple {
+  background-color: lighten($midnight, 3%);
+  color: #d5d3db;
+  h3 {
+    color: $white;
+  }
+}
+.section--light-purple {
+  background-color: lighten($midnight, 6%);
+  color: #d5d3db;
+  h3 {
+    color: $white;
+  }
+}
+.section--saffron {
+  background-color: $saffron;
+  color: lighten($saffron, 50%);
+  h3 {
+    color: $white;
+  }
+  h4 {
+    color: darken($saffron, 25%);
+  }
+}
+.section--mid-saffron {
+  background-color: lighten($saffron, 3%);
+  color: lighten($saffron, 50%);
+  h3 {
+    color: $white;
+  }
+  h4 {
+    color: darken($saffron, 25%);
+  }
+}
+.section--light-saffron {
+  background-color: lighten($saffron, 6%);
+  color: lighten($saffron, 50%);
+  h3 {
+    color: $white;
+  }
+  h4 {
+    color: darken($saffron, 25%);
+  }
+}
+@import "sections/featured";
+@import "sections/icon-bar";
+@import "sections/catalog";
+@import "sections/contact";
+@import "sections/projects";
+@import "sections/social";
+@import "sections/about";
+@import "sections/posts";
+@import "sections/services";

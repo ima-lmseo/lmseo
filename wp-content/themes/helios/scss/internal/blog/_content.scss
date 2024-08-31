@@ -1,0 +1,22 @@
+body {
+  padding-top: 4.7rem;
+}
+pre {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  overflow-y: hidden;
+  font-size: 12px;
+  line-height: 20px;
+  background: #efefef;
+  border: 1px solid #777;
+  //background: url(lines.png) repeat 0 0;
+  padding: 10px;
+  color: #333;
+}
+pre code {
+  padding: 10px;
+  color: #333;
+}

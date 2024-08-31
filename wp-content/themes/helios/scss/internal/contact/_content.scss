@@ -1,0 +1,187 @@
+body {
+  color: $white;
+  font-size: 15px;
+  margin-top: 70px;
+}
+.contact-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: $hexachromeBlack;
+  //border: 10px solid #0d99d7;
+  input,
+  textarea,
+  select,
+  button {
+    color: $white;
+    font-size: 15px;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    margin: 0;
+  }
+  img {
+    max-width: 100%;
+  }
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  :focus {
+    outline: none;
+  }
+  h3 {
+    font-size: 38px;
+  }
+  p {
+    font-size: 14px;
+    padding: 0;
+  }
+  .inner {
+    border: 10px solid $blue;
+    max-width: 758px;
+    margin: auto;
+    background: $marianBlue;
+    padding: 77px 99px 87px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    h3{
+      view-transition-name: contact;
+    }
+  }
+  button {
+    width: 162px;
+    height: 51px;
+    border: 2px solid $white;
+    margin: 60px auto auto auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: none;
+    color: $white;
+    text-transform: uppercase;
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.3s;
+    i {
+      margin-left: 10px;
+      transform: translateZ(0);
+      transition-duration: 0.1s;
+      transition-property: transform;
+      transition-timing-function: ease-out;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $pacificCyan;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition-property: transform;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    &:hover {
+      border-color: transparent;
+      &:before {
+        transform: scaleX(1);
+      }
+      i {
+        transform: translateX(4px);
+      }
+    }
+  }
+  .form-group {
+    position: relative;
+    display: block;
+    margin-bottom: 48px;
+    span {
+      font-size: 15px;
+      color: $blue;
+      position: absolute;
+      top: 11px;
+      transition: all 0.2s ease;
+      transform-origin: 0 0;
+      cursor: text;
+    }
+    //span.border {
+    //  height: 2px;
+    //  display: block;
+    //  position: absolute;
+    //  width: 100%;
+    //  left: 0;
+    //  top: 41px;
+    //  transform: scaleX(0);
+    //  transition: all 0.15s ease;
+    //  //background: $white;
+    //  border: none !important;
+    //}
+  }
+  .form-control {
+    border: none;
+    border-bottom: 2px solid $blue;
+    display: block;
+    width: 100%;
+    height: 43px;
+    font-size: 15px;
+    background: none;
+    color: $white;
+    transition: all 0.15s ease;
+    &:focus {
+      border-bottom: 2px solid $white;
+      transition: all 0.15s ease;
+    }
+    &:focus,
+    &:valid {
+      & + span {
+        transform: translateY(-22px) scale(0.8);
+        //& + .border {
+        //  transform: scaleX(1);
+        //}
+      }
+    }
+  }
+  textarea.form-control {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    height: 100px;
+  }
+  textarea {
+    resize: none;
+  }
+  h3 {
+    text-transform: uppercase;
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  p {
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 55px;
+    line-height: 1.8;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .contact-wrapper {
+    //background: url("~/images/bg-registration-form-7.jpg") no-repeat center center / cover;
+    .inner {
+    }
+  }
+}

@@ -1,0 +1,102 @@
+/*tab-titles-------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+.icon-bar {
+  a {
+    transition: background-color 300ms ease-out;
+    height: 100%;
+    &:hover {
+      background-color: $blue;
+    }
+  }
+  label {
+    color: #4d4d4d;
+    cursor: pointer;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  &.five-up .item {
+    width: 20%;
+  }
+}
+
+.icon-bar > * {
+  display: block;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  width: 25%;
+  font-size: 1rem;
+  padding: 1.25rem;
+  text-decoration: none;
+}
+.tab-titles,
+.icon-bar {
+  background-color: $hexachromeBlack;
+  height: 5.75rem;
+  font-family: "Times New Roman", "Helvetica", Helvetica, Arial, sans-serif;
+}
+.icon-bar > * svg {
+  font-size: 1.875rem;
+  vertical-align: middle;
+  color: $white;
+  width: 27px;
+  height: 27px;
+  fill: $white;
+  filter: brightness(0) invert(1);
+}
+
+.icon-bar > * svg,
+.icon-bar > * img {
+  display: block;
+  margin: 0 auto;
+}
+.icon-bar > * svg + label,
+.icon-bar > * img + label {
+  margin-top: 0.0625rem;
+  font-size: 1rem;
+}
+.icon-bar > * svg + label,
+.icon-bar > * img + label {
+  margin-top: 0.0625rem;
+}
+.icon-bar > * label {
+  color: $white;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -75px;
+  visibility: hidden;
+}
+@include media-breakpoint-up(md) {
+  h4 {
+    font-size: 1.2rem;
+  }
+  .tab-titles {
+    .title-overflow-text {
+      display: inline !important;
+    }
+  }
+  .featured-contact {
+    float: right;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .services-title {
+    margin-bottom: -5rem;
+    font-size: 7rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .tab-titles {
+    .title-overflow-text {
+      display: inline !important;
+    }
+  }
+}

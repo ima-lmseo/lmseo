@@ -1,0 +1,93 @@
+/*Services-----------------------------------------------------------*/
+.services {
+  padding: 0;
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    border-top: solid 5px $white;
+  }
+  border-bottom: 1px solid $gainsboro;
+  color: $white;
+  background-color: $section-bg;
+  h2,
+  h3 {
+    color: $tuatara;
+    font-weight: normal;
+    font-size: 1.1rem;
+  }
+  h2 {
+    width: 100%;
+    line-height: 1.7rem;
+    font-size: 1.7rem;
+    color: #b38000;
+    padding-bottom: 1.5rem;
+  }
+  h3 {
+    color: $white;
+    font-weight: 700;
+  }
+}
+.services-title {
+  color: $white;
+  opacity: 0.8;
+  margin-bottom: 0;
+  font-size: 4rem;
+}
+.services-title-wrapper {
+}
+.services-wrapper {
+}
+.services-hosting h2,
+.services-google h2,
+.services-back-end h2,
+.services-front-end h2 {
+  padding-top: 3.5rem;
+}
+.services-marketing svg {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+.services-button-wrapper {
+  background-color: lighten($section-bg, 6%);
+}
+@include media-breakpoint-up(md) {
+  .services-title {
+    margin-bottom: 0;
+    font-size: 7rem;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .services-title {
+    margin-bottom: 0;
+    font-size: 10rem;
+    line-height: 5rem;
+    opacity: 1;
+  }
+  .services img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+  .services-wrapper {
+    margin-top: -13rem;
+    max-width: 90%;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .services img {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+  .services-wrapper {
+    /* margin-left: 200px; */
+    margin-top: -13rem;
+    max-width: 80%;
+  }
+}

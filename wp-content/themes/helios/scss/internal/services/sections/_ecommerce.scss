@@ -1,0 +1,219 @@
+body {
+  padding-top: 4.7rem;
+}
+.ecommerce {
+  .ecommerce-icon {
+    grid-area: 7/2/9/3;
+    justify-self: center;
+    svg {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .header-brand {
+    background-color: transparent;
+    font-size: 11rem;
+    color: rgba(32, 152, 209, 0.05);
+    grid-area: 1/1/13/13;
+    line-height: 22rem;
+    font-family: Sans-serif, arial, verdana;
+    letter-spacing: -1rem;
+  }
+  .entry-header {
+    height: 40vh;
+    width: 100%;
+    h1 {
+      margin: 0 0 3rem 0;
+      color: $hexachromeBlack;
+      font-weight: normal;
+      line-height: 3.6rem;
+      font-size: 3.4rem;
+      font-weight: normal;
+      grid-area: 6/3/11/12;
+    }
+    h4 {
+      color: $cloud;
+      font-size: 1rem;
+      grid-area: 5/3/6/5;
+      align-self: end;
+    }
+  }
+  .entry-content {
+    background-color: $crumb-bg;
+    .content-image {
+    }
+    .services-image-wrapper {
+      background: no-repeat bottom left / cover
+        url("~/images/services/online-marketing-services-los-angeles-1200x701.jpg");
+    }
+
+    .page-content-0 {
+      ul {
+        font-size: 1.3rem;
+        list-style: none;
+
+        li:before {
+          content: "✓";
+          padding: 0 10px 0 0;
+          font-size: 1.4rem;
+          color: $blue;
+        }
+      }
+    }
+    .page-content-4 {
+      background: url("~/images/services/web-development-services-los-angeles-950x1425.jpg")
+        no-repeat bottom right / cover;
+    }
+    .page-content-3 {
+    }
+    .page-content-2 {
+      grid-area: 6/17/16/32;
+    }
+    .page-content-5 {
+      background: url("~/images/services/online-marketing-growth-los-angeles.jpg")
+        no-repeat center center / cover;
+    }
+    .page-content-6 {
+      grid-area: 22/11/33/28;
+    }
+    .page-content-7 {
+    }
+    .page-content-8 {
+    }
+    .page-content-9 {
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .ecommerce {
+    .text-container {
+      grid-area: 1/2/13/12;
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .ecommerce {
+    .header-brand {
+      font-size: 15rem;
+    }
+    .entry-header {
+      margin: 6rem 6rem 6rem;
+    }
+    .text-container {
+      grid-area: 1/3/13/10;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .ecommerce {
+    .header-brand {
+      background-color: transparent;
+      font-size: 17rem;
+      color: rgba(32, 152, 209, 0.05);
+      grid-area: 2/4/13/13;
+      line-height: 16rem;
+      font-family: Sans-serif, arial, verdana;
+      letter-spacing: -1.4rem;
+    }
+    .entry-content {
+      display: grid;
+      grid-template-columns: repeat(48, 1fr);
+      grid-template-rows: repeat(48, 1fr);
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+      .services-image-wrapper {
+        display: block;
+        grid-area: 1/24/15/49;
+        background: no-repeat bottom left
+          url("~/images/services/online-marketing-services-los-angeles-1200x701.jpg");
+        background-size: cover;
+        img {
+          width: 100%;
+          object-position: top;
+          object-fit: cover;
+        }
+      }
+      .attachment-post-image {
+        width: 100%;
+        object-fit: cover;
+        object-position: bottom;
+      }
+      .text-container {
+        grid-area: 1/1/20/20;
+        //padding-left: 40px;
+      }
+      .page-content-0 {
+        grid-area: 1/1/13/24;
+        ul {
+          font-size: 1.3rem;
+          list-style: none;
+          li:before {
+            content: "✓";
+            padding: 0 10px 0 0;
+            font-size: 1.4rem;
+            color: $blue;
+          }
+        }
+      }
+      .page-content-1 {
+        grid-area: 15/25/33/49;
+        .text-container {
+          grid-area: 4/4/12/12;
+        }
+      }
+      .page-content-2 {
+        grid-area: 6/18/16/39;
+      }
+      .page-content-3 {
+        grid-area: 31/1/49/25;
+        .text-container {
+          grid-area: 5/3/13/11;
+        }
+      }
+      h2 {
+        margin: 0 1.5rem 1.5rem 1.5rem;
+      }
+      h3 {
+        margin: 2rem;
+      }
+      .page-content-4 {
+        grid-area: 13/1/31/25;
+      }
+      .page-content-5 {
+        grid-area: 31/25/49/49;
+      }
+      .page-content-6 {
+        grid-area: 20/10/33/28;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .ecommerce {
+    .header-brand {
+      font-size: 20rem;
+      grid-area: 2/5/13/13;
+    }
+    .entry-content {
+      .page-content-2 {
+        grid-area: 6/17/16/33;
+      }
+      .page-content-6 {
+        grid-area: 21/11/33/28;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xxl) {
+  .ecommerce {
+    .entry-content {
+      .page-content-2 {
+        grid-area: 5/18/16/32;
+      }
+      .page-content-6 {
+        grid-area: 20/13/32/28;
+      }
+    }
+  }
+}

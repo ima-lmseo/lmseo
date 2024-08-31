@@ -1,0 +1,22 @@
+@import "../../node_modules/bootstrap/scss/utilities";
+@view-transition {
+  navigation: auto;
+}
+.dark-bg {
+  background-color: $hexachromeBlack;
+  color: $white;
+}
+.white-bg {
+  background-color: $white;
+  color: $main;
+}
+@include media-breakpoint-up(lg) {
+  .white-bg-lg {
+    background-color: $white;
+    color: $main;
+  }
+  .dark-bg-lg {
+    background-color: $hexachromeBlack;
+    color: $white;
+  }
+}

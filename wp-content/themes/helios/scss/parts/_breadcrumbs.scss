@@ -1,0 +1,39 @@
+.lmseo-breadcrumb-wrap {
+  padding: 0 3rem;
+  //background-color: $hexachromeBlack;
+  color: $main;
+  ul {
+    list-style: none;
+    border-bottom: 5px solid $white;
+  }
+  li {
+    float: left;
+
+    &:first-child a {
+      padding-left: 0;
+    }
+    &.current-item:last-child,
+    &:last-child a {
+      padding-right: 0;
+    }
+    &.current-item,
+    a {
+      display: inline-block;
+      padding: 0.5rem;
+    }
+    &:after {
+      content: "/";
+      color: $blue;
+      border-radius: 0.5rem;
+    }
+    &:last-child:after {
+      content: "";
+      color: $white;
+    }
+  }
+  a {
+    color: $blue;
+    text-decoration: none;
+    height: 100%;
+  }
+}

@@ -1,0 +1,74 @@
+body {
+  padding-top: 4.7rem;
+}
+.header-brand {
+  background-color: transparent;
+  font-size: 11rem;
+  color: rgba(32, 152, 209, 0.05);
+  grid-area: 1/1/13/13;
+  line-height: 22rem;
+  font-family: Sans-serif, arial, verdana;
+  letter-spacing: -1rem;
+}
+.token-container {
+  grid-area: 1/1/13/13;
+}
+.entry-header {
+  height: 40vh;
+  width: 100%;
+  h1 {
+    margin: 0 0 3rem 0;
+    color: $hexachromeBlack;
+    font-weight: normal;
+    line-height: 3.6rem;
+    font-size: 3.4rem;
+    font-weight: normal;
+    grid-area: 6/3/11/12;
+  }
+  h4 {
+    color: $cloud;
+    font-size: 1rem;
+    grid-area: 5/3/6/5;
+    align-self: end;
+  }
+}
+.entry-content {
+  background-color: $crumb-bg;
+}
+@include media-breakpoint-up(lg) {
+  .header-brand {
+    background-color: transparent;
+    font-size: 17rem;
+    color: rgba(32, 152, 209, 0.05);
+    grid-area: 2/4/13/13;
+    line-height: 16rem;
+    font-family: Sans-serif, arial, verdana;
+    letter-spacing: -1.4rem;
+  }
+  .entry-content {
+    display: grid;
+    grid-template-columns: repeat(48, 1fr);
+    grid-template-rows: repeat(48, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    .text-container {
+      grid-area: 1/1/20/20;
+      //padding-left: 40px;
+    }
+
+    h2 {
+      margin: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    h3 {
+      margin: 2rem;
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .header-brand {
+    font-size: 20rem;
+    grid-area: 2/5/13/13;
+  }
+}
