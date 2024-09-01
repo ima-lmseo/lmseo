@@ -10,7 +10,7 @@ $out.='
           <div id="ca-container" class="ca-item-container container-fluid pt-5 px-0">
             <div class="row g-0">
               <div class="ca-item ca-item-4 position-relative col-lg-6 col-sm-12"
-                data-aos="fade-down"
+                data-aos="fade-up"
                 data-aos-offset="100"> 
                 <div class="text-center"
                     data-aos="fade-right"
@@ -55,8 +55,7 @@ $out.='
               </div>
               <!--end of item-->
               <div class="ca-item ca-item-3 position-relative col-lg-6 col-sm-12"
-                data-aos="fade-up"
-                data-aos-offset="100">
+                >
                 <div class="text-center"  
                 data-aos="fade-left"
                 data-aos-offset="300">
@@ -126,14 +125,14 @@ $out.='
                     </a>
                   </div>
                   <h4>eOpiates</h4>
-                  <p>We can build fully custom websites from the ground up, depending on customer’s needs.</p>
-                  <div class="cal-button-wrapper col align-self-center py-5 my-5">
+                  <p>We can build fully custom websites from the ground up, depending on customer’s needs.</p>  
+                  <div class="ca-item-button-wrapper col align-self-center py-5 my-5">
                     <a href="#" class="hvr-sweep-to-left ca-more home-button xlarge-button hvr-float-shadow">Read More</a>
-                  </div>    
+                  </div>
                 </div>
               </div>
               <!-- Item 1 -->
-              <div class="ca-item ca-item-1 d-grid col-lg-6 col-sm-12">
+              <div class="ca-item ca-item-1 position-relative h-100 col-lg-6 col-sm-12">
                 <div class="ca-item-content text-center" 
                    data-aos="fade-left"
                    data-aos-offset="300">
@@ -166,10 +165,10 @@ $out.='
                   </div>
                   <h4>Real Estate One</h4>
                   <p>Based upon the MLS Area you serve, your specific website strategy and needs, we will help you determine which IDX Solution will work best for you.</p>
-                </div>
-                <div class="ca-item-button-wrapper col align-self-center py-5">
+                  <div class="ca-item-button-wrapper col align-self-center py-5 my-5">
                     <a href="#" class="hvr-sweep-to-right ca-more home-button xlarge-button hvr-float-shadow">Read More</a>
                   </div>
+                </div>
               </div>
             </div>
           </div>

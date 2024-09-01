@@ -11244,16 +11244,16 @@ a.anchor {
 }
 
 .ca-item-container div.ca-item:nth-child(1) {
-  background-color: #212121;
+  background-color: #262626;
 }
 .ca-item-container div.ca-item:nth-child(2) {
-  background-color: #191919;
+  background-color: #2b2b2b;
 }
 .ca-item-container div.ca-item:nth-child(3) {
-  background-color: #121212;
+  background-color: #303030;
 }
 .ca-item-container div.ca-item:nth-child(4) {
-  background-color: #0a0a0a;
+  background-color: #353535;
 }
 
 @media (min-width: 768px) {
@@ -11283,10 +11283,6 @@ a.anchor {
   .catalog .ca-item {
     padding: 0;
     transition: all 0.5s ease-in;
-    grid-template-columns: 1fr;
-    grid-template-rows: 4fr 2fr;
-    grid-column-gap: 0;
-    grid-row-gap: 0;
   }
   .catalog .ca-item p {
     padding: 1.3rem;
